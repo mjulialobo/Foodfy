@@ -1,0 +1,69 @@
+{%extends "layout.njk"%}
+
+{%set pageId = "recipe"%}
+
+{%block title%}
+    <title>{{item.title}}</title>
+{%endblock title%}
+
+{%block links%}
+    <link rel="stylesheet" href="/styles/recipe.css">
+    <link rel="stylesheet" href="/styles/header.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/bcd7f656b1.js" crossorigin="anonymous"></script>
+{%endblock links%}
+
+{%block header%}{%endblock header%}
+
+{% block content %}
+    <section class="cards">
+        <div class="card" id="{{item.id}}">
+            <div class="card-image">
+                <img src="https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/{{item.id}}.png" alt="imagem de {{item.title}}">
+            </div>
+            <div class="recipeinfo">
+                <h2>{{item.title}}</h2>
+                <h4>Por
+                    {{item.author}}</h4>
+            </div>
+            <div class="recipe-ingredients">
+                <h3>Ingredientes</h3>
+                <button id="button1" type="button" onclick="button1">ESCONDER</button>
+            </div>
+            <div id="ingredients" class="hidden">
+                <ul>
+                    {% for ingredients in item.ingredients %}
+                        <li>{{ingredients}}</li>
+                    {% endfor %}
+                </div>
+            </ul>
+        </div>
+        <div class="preparationList">
+            <div class="howto">
+                <h3>Preparação</h3>
+                <button id="button2" type="button" onclick="button2">ESCONDER</button>
+            </div>
+            <div id="preparation" class="hidden">
+                <ul>
+                    {% for preparation in item.preparation %}
+                        <li>{{preparation}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="inforextra">
+            <div class="info">
+                <h3>Informações adicionais</h3>
+                <button id="button3" type="button" onclick="button3">ESCONDER</button>
+            </div>
+            <div id="information" class="hidden">
+                <p>{{item.information}}</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+{% endblock content%}
+{% block scripts %}
+<script src="scripts/recipes.js"></script>
+{% endblock scripts %}

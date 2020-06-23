@@ -1,0 +1,30 @@
+  
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+        {%block title%}
+        <title>Foodfy</title>
+       {%endblock title%}
+
+
+       {%block links%}
+       {%endblock links%}
+    </head>
+    <body>
+        <header>
+         <img src="/assets/logo.png" alt="logomarca">
+            <a class="header-item" href="/about">Sobre</a>
+            <a class="header-item" href="/recipes">Receitas</a>
+            <a class="header-item" href="/">
+                <i class="fas fa-home"></i>
+            </a>
+        </header>
+       <div id="{{pageId}}">
+            {% block content %}{% endblock content %}
+        </div>
+   {% block scripts %}{% endblock scripts %}
+    </body>
+</html>

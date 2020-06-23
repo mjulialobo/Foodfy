@@ -1,0 +1,22 @@
+header {
+    max-width: 940px;
+    margin: 0 auto;
+}
+
+header a {
+    position: relative;
+    bottom: 30px;
+    left: 150px;
+}
+
+header img {
+    margin: 20px auto;
+}
+
+.header-item {
+    margin: 0 30px;
+    font-size: 16px;
+    line-height: 26px;
+    text-decoration: none;
+    color: #111111;
+}

@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0 auto;
+    max-width: 940px;
+    height: 100vh;
+}
+
+h2 {
+    font-size: 36px;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+h4 {
+    font-size: 20px;
+    color: #777777;
+}
+
+#button1,
+#button2,
+#button3 {
+    color: #999999;
+    padding: 0;
+    width: 20%;
+    height: 4vh;
+    background: none;
+    transition: 200ms;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#button1:hover,
+#button2:hover,
+#button3:hover {
+    background: none;
+    color: #e98d15;
+}
+
+li {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    color: #444444;
+    line-height: 28px;
+}
+
+#information p {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    color: #444444;
+    line-height: 28px;
+}
+
+.howto,
+.recipe-ingredients,
+.info {
+    margin: 0 auto;
+    max-width: 940px;
+    display: flex;
+    align-items: center;
+}
+
+.recipeinfo {
+    text-align: center;
+}
+
+.card-image img {
+    border-radius: 10px;
+    margin: 0 auto;
+    max-width: 940px;
+}
+
+footer {
+    background: #EEEEEE;
+    padding: 2%;
+    text-align: center;
+}
+
+footer p {
+    font-size: 18px;
+    color: #999999;
+    text-align: center;
+}

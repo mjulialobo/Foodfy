@@ -1,0 +1,26 @@
+{
+    "name": "foodfy",
+    "version": "1.0.0",
+    "description": "<h1 align=\"center\">\r      <img alt=\"in construction\" src=\"https://images.pexels.com/photos/1216544/pexels-photo-1216544.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260\" width=\"300px\" />\r </h1>\r <h3 align=\"center\">\r  Foodfy - still under construction\r </h3>\r  <p align=\"center\"> applications developed during Rocketseat's Launchbase bootcamp </P>",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mjulialobo/Foodfy.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/mjulialobo/Foodfy/issues"
+    },
+    "homepage": "https://github.com/mjulialobo/Foodfy#readme",
+    "dependencies": {
+        "express": "^4.17.1",
+        "node.js": "0.0.1-security",
+        "nodemon": "^2.0.4",
+        "nunjucks": "^3.2.1"
+    }
+}
