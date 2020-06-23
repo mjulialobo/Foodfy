@@ -7,16 +7,19 @@ for (let card of cards) {
     })
 }
 
-//event listener no botão
-button1.addEventListener = ingredients.getAttribute('class')
-    // quando clicar, se estiver mostrando, adicionar hidden e trocar texto para "MOSTRAR"
-    //else tirar hidden e trocar texto para "esconder"
+const description = document.getElementsByClassName('recipe-description')
 
-if (hidden) {
-    onclick.remove(hidden)
-} else {
-    onclick.add(hidden)
+for (let i = 0; i < description.length; i++) {
+    const span = description[i].querySelector('.span')
+    const content = description[i].querySelector('.content')
+
+    span.addEventListener('click', function() {
+        if (span.querySelector('span').innerHTML === 'Esconder') {
+            content.classList.add('active')
+            span.querySelector('span').innerText = 'Mostrar'
+        } else {
+            content.classList.remove('active')
+            span.querySelector('span').innerText = 'Esconder'
+        }
+    })
 }
-
-//sempre começar mostrando tudo
-const button1 = ingredients.classList.remove('hidden')

@@ -16,54 +16,70 @@
 {%block header%}{%endblock header%}
 
 {% block content %}
-    <section class="cards">
-        <div class="card" id="{{item.id}}">
-            <div class="card-image">
-                <img src="https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/{{item.id}}.png" alt="imagem de {{item.title}}">
+    <section>
+        <div class="container">        
+            <div class="recipe-img">
+                <img src="{{item.image}}" alt="Imagem de {{item.title}}">
             </div>
-            <div class="recipeinfo">
+
+            <div class="recipe-info">
                 <h2>{{item.title}}</h2>
-                <h4>Por
-                    {{item.author}}</h4>
+                <p>por
+                    {{item.author}}</p>
             </div>
-            <div class="recipe-ingredients">
-                <h3>Ingredientes</h3>
-                <button id="button1" type="button" onclick="button1">ESCONDER</button>
-            </div>
-            <div id="ingredients" class="hidden">
-                <ul>
-                    {% for ingredients in item.ingredients %}
+
+            <div class="recipe-description">
+                <div class="container-info">
+                    <div class="title">
+                        <h3>Ingredientes</h3>
+                    </div>
+                    <div class="span">
+                        <span>Esconder</span>
+                    </div>
+                </div>
+                <div class="content">
+                    <ul>
+                      {% for ingredients in item.ingredients %}
                         <li>{{ingredients}}</li>
                     {% endfor %}
+                    </ul>
                 </div>
-            </ul>
-        </div>
-        <div class="preparationList">
-            <div class="howto">
-                <h3>Preparação</h3>
-                <button id="button2" type="button" onclick="button2">ESCONDER</button>
             </div>
-            <div id="preparation" class="hidden">
-                <ul>
-                    {% for preparation in item.preparation %}
+
+            <div class="recipe-description">
+                <div class="container-info">
+                    <div class="title">
+                        <h3>Modo de preparo</h3>
+                    </div>
+                    <div class="span">
+                        <span>Esconder</span>
+                    </div>
+                </div>
+                <div class="content">
+                    <ul>
+                         {% for preparation in item.preparation %}
                         <li>{{preparation}}</li>
                     {% endfor %}
-                </ul>
+                    </ul>
+                </div>
             </div>
-        </div>
-        <div class="inforextra">
-            <div class="info">
-                <h3>Informações adicionais</h3>
-                <button id="button3" type="button" onclick="button3">ESCONDER</button>
-            </div>
-            <div id="information" class="hidden">
-                <p>{{item.information}}</p>
-            </div>
-        </div>
 
-    </div>
-</section>
+            <div class="recipe-description">
+                <div class="container-info">
+                    <div class="title">
+                        <h3>Informações adicionais</h3>
+                    </div>
+                    <div class="span">
+                        <span>Esconder</span>
+                    </div>
+                </div>
+                <div class="content">
+                    <p>{{item.information}}</p>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock content%}
 {% block scripts %}
-<script src="scripts/recipes.js"></script>
+     <script src="../scripts/recipes.js"></script>
 {% endblock scripts %}
