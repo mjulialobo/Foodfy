@@ -34,10 +34,8 @@ $ npm start
 
   <h2><img src="https://static.thenounproject.com/png/25759-200.png"width="50px" height="50px" align="center"/> Results</h2>
   <h3> Final result </h3>
-<img src="https://user-images.githubusercontent.com/65983895/85188905-87ac5e80-b280-11ea-9a1b-cb7fb3be0b43.gif"/>
-
-<h3> Recipe page </h3>
-<img src="https://user-images.githubusercontent.com/65983895/85188905-87ac5e80-b280-11ea-9a1b-cb7fb3be0b43.gif"/>
+  <p>*GIF does not reflet real colors </p>
+<img src="https://user-images.githubusercontent.com/65983895/85440072-0d235d80-b564-11ea-98e1-d4e975a3b3a8.gif"/>
   
   <h3> After part one </h3>
 <img src="https://user-images.githubusercontent.com/65983895/85188905-87ac5e80-b280-11ea-9a1b-cb7fb3be0b43.gif"/>
