@@ -34,7 +34,7 @@ $ npm start
 
   <h2><img src="https://static.thenounproject.com/png/25759-200.png"width="50px" height="50px" align="center"/> Results</h2>
   <h3> Final result </h3>
-  <p>*GIF does not reflet real colors </p>
+  <p>Note: gif distorts images and colors</p>
 <img src="https://user-images.githubusercontent.com/65983895/85440072-0d235d80-b564-11ea-98e1-d4e975a3b3a8.gif"/>
   
   <h3> After part one </h3>
