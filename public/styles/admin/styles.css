@@ -28,7 +28,7 @@ body {
 .card-image img {
     border-radius: 10px;
     margin: 0 auto;
-    max-width: 300px;
+    width: 300px;
     height: 100px;
 }
 
@@ -39,7 +39,7 @@ body {
 .card-info h3 {
     font-size: 18px;
     line-height: 21px;
-    margin-top: 5px;
+    margin: 5px auto;
 }
 
 .author {
@@ -53,14 +53,18 @@ body {
     margin-left: 150px;
     font-size: 14px;
     text-decoration: none;
-    background-color: #f3b4b2;
-    color: black;
+    background-color: #ff9f9b;
+    color: white;
     border-radius: 10px;
     padding: 0.5%;
+    text-transform: uppercase;
 }
 
 .show_more a {
     font-size: 12px;
     text-decoration: none;
-    color: rgb(226, 15, 208);
+    padding: 2px 5px;
+    background-color: #ff9f9b;
+    color: white;
+    border-radius: 10px;
 }

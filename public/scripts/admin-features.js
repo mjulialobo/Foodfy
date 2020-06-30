@@ -5,7 +5,6 @@ function addIngredient() {
 
     const fieldContainer = document.querySelectorAll(".ingredient");
 
-
     const newField = fieldContainer[fieldContainer.length - 1].cloneNode(true);
 
 

@@ -15,27 +15,39 @@
 
 <div id="ingredients">
     <p>Ingredientes</p>
-    <div class="ingredient">
-        {%for ingredient in recipe.ingredients%}
-        <input type="text" name="ingredients[]" value="{{ingredient}}" placeholder="Digite um ingrediente"/>
+    {% for ingredient in recipe.ingredients %}
+        <div class="ingredient">
+            <input type="text" name="ingredients[]" value="{{ingredient}}"/>
+        </div>
+    {%endfor%}
+    {% if not recipe %}
+        <div class="ingredient">
+            <input type="text" name="ingredients[]" value="{{ingredient}}" placeholder="Digite um ingrediente"/>
+        </div>
+    {% endif %}
+</div>
+
+<button type="button" class="add-ingredient">Adicionar novo ingrediente</button>
+
+<div id="actions">
+    <p>Modo de preparo</p>
+    {%for action in recipe.actions%}
+        <div class="action">
+            <input type="text" name="actions[]" value="{{action}}"/>
+        </div>
         {%endfor%}
-        <input type="text" name="ingredients[]"  placeholder="Digite um ingrediente"/>
+        {% if not recipe %}
+            <div class="action">
+                <input type="text" name="actions[]" value="{{action}}" placeholder="Digite um novo passo"/>
+            </div>
+        {% endif %}
+</div>
+
+<button type="button" class="add-action">Adicionar novo passo</button>
+
+<div class="item">
+    <div>Informações adicionais</div>
+    <div>
+        <textarea name="information" cols="30" rows="10" placeholder="Digite as informações extras">{{recipe.information}}</textarea>
     </div>
 </div>
-    <button type="button" class="add-ingredient">Adicionar novo ingrediente</button>
-    
-    <div id="actions">
-        <p>Modo de preparo</p>
-        <div class="action">
-            {%for action in recipe.actions%}
-            <input type="text" name="actions[]" value="{{action}}" placeholder="Digite uma ação"/>
-            {%endfor%}
-            <input type="text" name="actions[]"  placeholder="Digite uma ação"/>
-        </div>
-    </div>
-        <div class="item">
-            <div>Informações adicionais</div>
-            <div>
-                <textarea name="information" cols="30" rows="10" placeholder="Digite as informações extras" value="{{recipe.information}}"></textarea>
-            </div>
-        </div>
