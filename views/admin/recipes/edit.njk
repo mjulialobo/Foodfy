@@ -1,0 +1,40 @@
+{% extends "../layout.njk" %}
+{%block title%}
+  <title>
+    Editar Receita
+  </title>
+{%endblock title%}
+
+{%block links%}
+  <link rel="stylesheet" href="/styles/admin/edit.css">
+  <link rel="stylesheet" href="/styles/header.css">
+  <script src="https://kit.fontawesome.com/bcd7f656b1.js" crossorigin="anonymous"></script>
+{%endblock links%}
+
+{%block content%}
+
+  <div class="forms">
+
+    <div class="top">
+      <h3>Receita:
+        {{recipe.name}}</h3>
+      <div class="edit-buttons">
+        <button type='submit' form='form-delete' class='delete'>Deletar</button>
+        <button type='submit' form='form-edit' class='save'>Salvar</button>
+      </div>
+    </div>
+    <form id='form-edit' method='POST' action='/admin/recipes/?_method=PUT'>
+      <section class="details">
+        {% include 'admin/recipes/fields.njk'%}
+
+        <input type="hidden" name='id' value="{{recipe.id}}">
+      </form>
+    </section>
+    <form id='form-delete' action="/admin/recipes?_method=DELETE" method="post">
+      <input type="hidden" name="id" value='{{recipe.id}}'>
+      {%include '../../confirm.njk'%}
+    </form>
+
+  </div>
+  <script src="/scripts/admin-features.js"></script>
+{% endblock %}

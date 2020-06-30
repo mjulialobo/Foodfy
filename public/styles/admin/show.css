@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0 auto;
+    max-width: 940px;
+    height: 100vh;
+}
+
+h2 {
+    font-size: 36px;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+h4 {
+    font-size: 20px;
+    color: #777777;
+}
+
+h5 {
+    font-size: 18px;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.edit a {
+    padding: 4px 24px;
+    background-color: #6378f0;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.recipe-img img {
+    border-radius: 10px;
+    margin: 0 auto;
+    max-width: 940px;
+}
+
+.recipe-info h2 {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.recipe-info p {
+    text-align: center;
+    color: #a5a4a4;
+    font-size: 20px;
+}
+
+.container-info {
+    display: flex;
+    align-items: center;
+}
+
+.span span {
+    color: #999999;
+    padding: 0;
+    width: 20%;
+    background: none;
+    transition: 200ms;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 20px;
+}
+
+.span:hover {
+    background: none;
+    color: #e98d15;
+    border: none;
+}
+
+.content.active {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
+.content {
+    margin: 0 auto;
+    max-width: 940px;
+    display: flex;
+    align-items: center;
+}
+
+li {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    color: #444444;
+    line-height: 28px;
+}

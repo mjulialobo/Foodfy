@@ -1,0 +1,23 @@
+{% extends "../layout.njk" %}
+{%block title%}
+    <title>Nova Receita</title>
+{%endblock title%}
+
+{%block links%}
+    <link rel="stylesheet" href="/styles/admin/create.css">
+    <link rel="stylesheet" href="/styles/header.css">
+    <script src="https://kit.fontawesome.com/bcd7f656b1.js" crossorigin="anonymous"></script>
+{%endblock links%}
+
+{% block content %}
+    <form class="card" method="POST" action="/admin/recipes">
+        <section class="details">
+            <div class="top">
+                <h2>Criando receita</h2>
+                <button type="submit">Salvar</button>
+            </div>
+            {%include '../recipes/fields.njk'%}
+        </section>
+    </form>
+    <script src="/scripts/admin-features.js"></script>
+{% endblock content %}

@@ -1,4 +1,4 @@
-{%extends "layout.njk"%}
+{%extends "../general/layout.njk"%}
 {%set pageId = "recipes"%}
 {%block title%}
      <title>Recipes</title>
@@ -133,11 +133,9 @@
           </div>
           <footer>
                <div class="footer-info">
-                    <h3>Todos os diretios reservados, receitas Foodfy.</p>
+                    <h3>Todos os direitos reservados, receitas Foodfy.</p>
                </div>
           </footer>
      </section>
+      <script src="/scripts/recipes.js"></script>
 {% endblock content %}
-{% block scripts %}
-     <script src="scripts/recipes.js"></script>
-{% endblock scripts %}

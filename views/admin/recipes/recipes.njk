@@ -1,0 +1,35 @@
+{% extends "../layout.njk" %}
+{%block title%}
+     <title>Foodfy Admin</title>
+{%endblock title%}
+
+{%block links%}
+     <link rel="stylesheet" href="/styles/admin/styles.css">
+     <link rel="stylesheet" href="/styles/header.css">
+     <script src="https://kit.fontawesome.com/bcd7f656b1.js" crossorigin="anonymous"></script>
+{%endblock links%}
+
+{% block content %}
+      <div class="new">
+ <a href="/admin/recipes/create">Nova Receita</a>
+      </div>
+     
+     <section class="cards">
+          {%for recipe in recipes%}
+               <div class="card" id="{{recipe.id}}">
+                    <div class="card-image">
+                         <img src="{{recipe.image}}" alt="image of {{recipe.name}}">
+                    </div>
+                    <div class="card-info">
+                         <h3>{{recipe.name}}</h3>
+                         <p class="author">{{recipe.author}}</p>
+                    </div>
+                   <div class="show_more">
+                   <a href="/admin/recipes/{{recipe.id}}">Visualizar</a>
+                   </div>
+               </div>
+               {%endfor%}
+
+          </section>
+     </div>
+{% endblock content %}
