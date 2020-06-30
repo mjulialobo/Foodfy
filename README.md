@@ -8,7 +8,7 @@
  <p align="center"> applications developed during Rocketseat's Launchbase bootcamp </P>  
 <h2> <img src= "https://img.icons8.com/plasticine/2x/rocket.png" width="50px" height="50px" align="center"/> What we created? </h2>
 
-<p> A recipe website, using HTML, CSS, JavaScript, Node.js and Nunjucks template engine. </p>
+<p> A recipe website, using HTML, CSS, JavaScript, Node.js and Nunjucks template engine.  </p>
 
 
 <h2> <img src="https://i.dlpng.com/static/png/6577858_preview.png" width="50px" align="center"/> How to use? </h2>
@@ -33,9 +33,9 @@ $ npm start
 ```
 
   <h2><img src="https://static.thenounproject.com/png/25759-200.png"width="50px" height="50px" align="center"/> Results</h2>
-  <h3> After part two </h3>
+  <h3> Foodfy Admin </h3>
   <p>Note: gif distorts images and colors</p>
-<img src="https://user-images.githubusercontent.com/65983895/85440072-0d235d80-b564-11ea-98e1-d4e975a3b3a8.gif"/>
+<img src="https://user-images.githubusercontent.com/65983895/86178849-80e2de80-baff-11ea-8f85-c383c9d7bda1.gif"/>
   
   <h3> After part one </h3>
 <img src="https://user-images.githubusercontent.com/65983895/85188905-87ac5e80-b280-11ea-9a1b-cb7fb3be0b43.gif"/>
