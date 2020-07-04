@@ -23,7 +23,7 @@ FINAL CHALLENGE OF LAUNCHBASE
   <li> CSS</li>
   <li>JavaScript</li>
   <li>Node.js</li>
-  <li>Nunjucks template engine. </li> </p>
+  <li>Nunjucks template engine. </li> </ul></p>
 
 
 <h2> <img src="https://i.dlpng.com/static/png/6577858_preview.png" width="50px" align="center"/> How to use? </h2>
