@@ -46,9 +46,11 @@ $ npm start
 
 ```
 <h2><img src="https://static.thenounproject.com/png/25759-200.png"width="50px" height="50px" align="center"/> Results</h2>
-<h3> Foodfy Admin </h3>
-  <p>Note: gif distorts images and colors</p>
-<img src="https://user-images.githubusercontent.com/65983895/86178849-80e2de80-baff-11ea-8f85-c383c9d7bda1.gif"/>
+<p>Note: gif distorts images and colors</p>
+<h3> Foodfy </h3>
+<h3> Foodfy | Restrict area </h3>
+<p> still in progress </p>
+
   
-<h3> After part one </h3>
-<img src="https://user-images.githubusercontent.com/65983895/85188905-87ac5e80-b280-11ea-9a1b-cb7fb3be0b43.gif"/>
+
+
