@@ -1,20 +1,40 @@
- <h1 align="center">
-    <img alt="Launchbase" src="https://storage.googleapis.com/golden-wind/bootcamp-launchbase/logo.png" width="300px" />
+
+<h1 align="center">
+FOODFY
+  <br>
+  <br>
+  <img src="https://github.com/luskafaria/foodfy/blob/master/public/assets/chef.png" alt="FOODFY LOGO" width="200">
+
+<br>  
+<br>
+FINAL CHALLENGE OF LAUNCHBASE BOOTCAMP
 </h1>
 
-<h3 align="center">
-  <img alt= "Foodfy" src= "https://github.com/mjulialobo/Foodfy/blob/master/public/assets/logo.png"/>
-</h3>
- <p align="center"> applications developed during Rocketseat's Launchbase bootcamp </P>  
+<p align="center">Project developed as approval criteria for <a href="https://rocketseat.com.br/">Rocketseat's </a> Launchbase bootcamp. </p>
+<p align="center">Thanks to  <a href='https://github.com/maykbrito/'>Mayk Brito</a> for the dedication and amazing classes during the bootcamp!</p>
+
+<p align="center">
+  <a href="https://opensource.org/licenses/MIT">
+    <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License MIT">
+  </a>
+</p>
+
+<hr />
+
 <h2> <img src= "https://img.icons8.com/plasticine/2x/rocket.png" width="50px" height="50px" align="center"/> What we created? </h2>
 
-<p> A recipe website, using HTML, CSS, JavaScript, Node.js and Nunjucks template engine.  </p>
+<p> Foodfy is a recipe site manager created using:
+ <ul>
+  <li>HTML</li>
+  <li> CSS</li>
+  <li>JavaScript</li>
+  <li>Node.js</li>
+  <li>Nunjucks template engine. </li> </p>
 
 
 <h2> <img src="https://i.dlpng.com/static/png/6577858_preview.png" width="50px" align="center"/> How to use? </h2>
 <p> You need to install <a href="https://nodejs.org/en/">Node.js</a> </p>
-   
-<h3> Steps <h3>
+  
 <h4> 1. Clone this repository <h4>
 
 ```
@@ -31,11 +51,10 @@ $ npm install
 $ npm start
 
 ```
-
-  <h2><img src="https://static.thenounproject.com/png/25759-200.png"width="50px" height="50px" align="center"/> Results</h2>
-  <h3> Foodfy Admin </h3>
+<h2><img src="https://static.thenounproject.com/png/25759-200.png"width="50px" height="50px" align="center"/> Results</h2>
+<h3> Foodfy Admin </h3>
   <p>Note: gif distorts images and colors</p>
 <img src="https://user-images.githubusercontent.com/65983895/86178849-80e2de80-baff-11ea-8f85-c383c9d7bda1.gif"/>
   
-  <h3> After part one </h3>
+<h3> After part one </h3>
 <img src="https://user-images.githubusercontent.com/65983895/85188905-87ac5e80-b280-11ea-9a1b-cb7fb3be0b43.gif"/>
