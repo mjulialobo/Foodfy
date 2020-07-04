@@ -1,23 +1,17 @@
 
 <h1 align="center">
-FOODFY
+<img src="https://github.com/mjulialobo/Foodfy/blob/master/public/assets/logo.png"/>
   <br>
   <br>
   <img src="https://github.com/luskafaria/foodfy/blob/master/public/assets/chef.png" alt="FOODFY LOGO" width="200">
 
 <br>  
 <br>
-FINAL CHALLENGE OF LAUNCHBASE BOOTCAMP
+FINAL CHALLENGE OF LAUNCHBASE
 </h1>
 
 <p align="center">Project developed as approval criteria for <a href="https://rocketseat.com.br/">Rocketseat's </a> Launchbase bootcamp. </p>
 <p align="center">Thanks to  <a href='https://github.com/maykbrito/'>Mayk Brito</a> for the dedication and amazing classes during the bootcamp!</p>
-
-<p align="center">
-  <a href="https://opensource.org/licenses/MIT">
-    <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License MIT">
-  </a>
-</p>
 
 <hr />
 
