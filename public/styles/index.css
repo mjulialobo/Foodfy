@@ -9,6 +9,10 @@ body {
     margin: 0 auto
 }
 
+.section {
+    margin-bottom: 80px;
+}
+
 .title {
     font-weight: 700;
     font-size: 24px;
@@ -24,7 +28,7 @@ body {
 }
 
 .banner {
-    background-color: #FBDFDB;
+    background-color: #F3CED6;
     max-width: 940px;
     height: 366px;
     margin: 5vh auto;
@@ -95,11 +99,16 @@ body {
 
 footer {
     background: #EEEEEE;
+    bottom: 0;
+    left: 0;
+    height: 40px;
+    position: fixed;
+    width: 100%;
 }
 
 footer p {
     font-size: 14px;
     color: #999999;
     text-align: center;
-    padding: 2%;
+    padding: 0.5%;
 }

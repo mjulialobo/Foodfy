@@ -14,15 +14,15 @@
 body {
     font-family: 'Roboto', sans-serif;
     background-color: white;
+    color: #141414;
 }
 
 
 /* == details== */
 
 h2 {
-    color: rgb(0, 0, 0);
     width: 50%;
-    margin: 0;
+    margin-bottom: 16px;
 }
 
 .top {
@@ -35,13 +35,11 @@ h2 {
     padding: 24px;
     width: 50%;
     margin: 0 auto;
-    background-color: #FBDFDB;
-    border-radius: 15px;
 }
 
 .details .item {
     padding: 10px;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 700;
 }
 
@@ -50,13 +48,16 @@ input {
     padding: 8px;
     border-radius: 5px;
     width: 80%;
+    border: solid #F3CED6 2px;
 }
 
 textarea {
-    width: 80%;
+    width: 600px;
     border-radius: 10px;
     height: 80px;
     margin-top: 8px;
+    border: solid #F3CED6 2px;
+    font-family: 'Roboto', sans-serif;
 }
 
 input::placeholder,
@@ -70,19 +71,19 @@ textarea::placeholder {
 #ingredients,
 #actions {
     padding: 10px;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 700;
 }
 
 #ingredients p,
 #actions p {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 700;
 }
 
 button[type="submit"] {
     padding: 4px 24px;
-    background-color: #046915;
+    background-color: #5F891A;
     color: white;
     border-radius: 5px;
     font-size: 16px;
@@ -94,10 +95,11 @@ button[type="submit"] {
     text-align: center;
     text-decoration: none;
     padding: 4px 8px;
-    background-color: rgb(255, 148, 116);
+    background-color: #DE7C95;
     color: white;
     border-radius: 8px;
     font-size: 12px;
     margin-left: 10px;
-    margin-top: 10px;
+    margin-top: 4px;
+    margin-bottom: 16px;
 }

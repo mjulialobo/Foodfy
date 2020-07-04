@@ -6,6 +6,10 @@ body {
     height: 100vh;
 }
 
+.section {
+    margin-bottom: 80px;
+}
+
 h2 {
     font-size: 36px;
 }
@@ -78,4 +82,19 @@ li {
     font-size: 18px;
     color: #444444;
     line-height: 28px;
+}
+
+footer {
+    background: #EEEEEE;
+    bottom: 0;
+    left: 0;
+    height: 40px;
+    position: fixed;
+    width: 100%;
+}
+
+footer p {
+    font-size: 14px;
+    color: #999999;
+    text-align: center;
 }

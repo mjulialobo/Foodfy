@@ -2,7 +2,7 @@
     "name": "foodfy",
     "version": "1.0.0",
     "description": "<h1 align=\"center\">\r     <img alt=\"Launchbase\" src=\"https://storage.googleapis.com/golden-wind/bootcamp-launchbase/logo.png\" width=\"300px\" />\r </h1>",
-    "main": "routes.js",
+    "main": "src/server.js",
     "dependencies": {
         "express": "^4.17.1",
         "fsevents": "^2.1.3",
@@ -18,7 +18,7 @@
     "scripts": {
         "start": "npm-run-all -p nodemon browsersync",
         "nodemon": "nodemon server.js",
-        "browsersync": "browser-sync start --proxy http://localhost:5000 -- files 'public, views'"
+        "browsersync": "browser-sync start --proxy http://localhost:5000 -- files 'public, src/app/views'"
     },
     "repository": {
         "type": "git",

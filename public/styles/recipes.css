@@ -5,6 +5,10 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+.section {
+    margin-bottom: 40px;
+}
+
 .cards {
     width: 940px;
     margin: 0 auto;
@@ -38,11 +42,15 @@ body {
 
 footer {
     background: #EEEEEE;
-    padding: 2%;
-    text-align: center;
+    bottom: 0;
+    left: 0;
+    height: 40px;
+    position: fixed;
+    width: 100%;
 }
 
 footer p {
-    font-size: 18px;
+    font-size: 14px;
     color: #999999;
+    text-align: center;
 }

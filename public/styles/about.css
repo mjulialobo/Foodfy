@@ -9,6 +9,10 @@ body {
     margin: 0 auto
 }
 
+.section {
+    margin-bottom: 80px;
+}
+
 .title {
     font-weight: 700;
     font-size: 24px;
@@ -37,12 +41,16 @@ body {
 
 footer {
     background: #EEEEEE;
-    position: relative;
-    padding: 1%;
+    bottom: 0;
+    left: 0;
+    height: 40px;
+    position: fixed;
+    width: 100%;
 }
 
 footer p {
     font-size: 14px;
     color: #999999;
     text-align: center;
+    padding: 0.5%;
 }

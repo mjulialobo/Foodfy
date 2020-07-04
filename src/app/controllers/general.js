@@ -1,14 +1,13 @@
-const recipes = require('../public/scripts/data')
+const recipes = require('../../lib/scripts/data')
 
 
 exports.home = function(req, res) {
-
     return res.render('general/index')
 }
 
 
 exports.about = function(req, res) {
-
+    console.log("batatinha")
     return res.render('general/about')
 }
 

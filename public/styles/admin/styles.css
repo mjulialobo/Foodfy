@@ -53,17 +53,17 @@ body {
     margin-left: 150px;
     font-size: 14px;
     text-decoration: none;
-    background-color: #fb9a82;
+    background-color: #52ABF4;
     color: white;
     border-radius: 5px;
     padding: 0.5%;
 }
 
 .show_more a {
-    font-size: 12px;
+    font-size: 14px;
+    font-weight: 700;
     text-decoration: none;
     padding: 2px 10px;
-    background-color: #fb9a82;
-    color: white;
+    color: #D15B75;
     border-radius: 8px;
 }
