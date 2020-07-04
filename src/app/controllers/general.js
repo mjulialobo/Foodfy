@@ -1,4 +1,4 @@
-const recipes = require('../../lib/scripts/data')
+const recipes = require('../../lib/data')
 
 
 exports.home = function(req, res) {
@@ -7,7 +7,6 @@ exports.home = function(req, res) {
 
 
 exports.about = function(req, res) {
-    console.log("batatinha")
     return res.render('general/about')
 }
 
