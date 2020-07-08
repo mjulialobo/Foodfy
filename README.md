@@ -17,7 +17,7 @@ FINAL CHALLENGE OF LAUNCHBASE
 
 <h2> <img src= "https://img.icons8.com/plasticine/2x/rocket.png" width="50px" height="50px" align="center"/> What we created? </h2>
 
-<p> Foodfy is a recipe site manager created using:
+<p> Foodfy is a recipe website manager created using:
  <ul>
   <li>HTML</li>
   <li> CSS</li>
