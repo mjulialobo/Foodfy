@@ -1,0 +1,43 @@
+{% extends "../layout.njk" %}
+{%block title%}
+     <title>Foodfy Admin</title>
+{%endblock title%}
+
+{%block links%}
+     <link rel="stylesheet" href="/styles/admin/chefs/chefs.css">
+     <link rel="stylesheet" href="/styles/admin/header.css">
+     <script src="https://kit.fontawesome.com/bcd7f656b1.js" crossorigin="anonymous"></script>
+{%endblock links%}
+
+{% block content %}
+<div class="top">
+    <a href="/admin/chefs/create">Novo Chef</a>
+    <form action="/admin/chefs" method="GET">
+      <input type="text" name="filter" placeholder="Nome do Chef" value="{{filter}}">
+      <button type="submit"></button>
+    </form>
+</div>
+
+<div class="title"> <h3>Gerenciar Chefs</h3></div>
+     <section class="chefs">
+          {%for chef in chefs%}
+               <div class="card" id="{{chef.id}}">
+                    <div class="avatar">
+                         <img src="{{chef.avatar_url}}">
+                    </div>
+                    <div class="content">
+                    <div class="name">
+                         <h4>{{chef.name}}</h4>
+                    </div>
+
+                    <div class="show-more">
+                         <a href="/admin/chefs/{{chef.id}}">Visualizar</a>
+                    </div>
+                    </div>
+
+               </div>
+               {%endfor%}
+
+          </section>
+          <div class="pagination" data-page="{{pagination.page}}" data-total="{{pagination.total}}" data-filter="{{filter}}"></div>
+{% endblock content %}

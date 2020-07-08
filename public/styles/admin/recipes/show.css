@@ -2,8 +2,11 @@
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0 auto;
-    max-width: 940px;
-    height: 100vh;
+}
+
+.card {
+    width: 950px;
+    margin: 5vh auto;
 }
 
 h2 {
@@ -42,7 +45,10 @@ h5 {
 .recipe-img img {
     border-radius: 10px;
     margin: 0 auto;
-    max-width: 940px;
+    width: 940px;
+    height: 50vh;
+    object-fit: cover;
+    object-position: center;
 }
 
 .recipe-info h2 {

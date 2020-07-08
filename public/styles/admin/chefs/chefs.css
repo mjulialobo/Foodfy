@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+:root {
+    --primary-color: #fbb7f6;
+    --second-color: #363b0c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: white;
+}
+
+.top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    width: 950px;
+    margin: 5vh auto;
+}
+
+.top form {
+    display: grid;
+    grid-template-columns: 1fr 80px;
+    align-items: center;
+}
+
+.top a {
+    background-color: #52ABF4;
+    padding: 8px 24px;
+    text-decoration: none;
+    color: white;
+    border-radius: 4px;
+    font-size: 16px;
+    font-size: 700;
+    width: 100px;
+    text-align: center;
+}
+
+button[type="submit"] {
+    background-image: url(../../../assets/search.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px 24px;
+    background-color: #52ABF4;
+    color: white;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 16px;
+    margin-left: 2px;
+}
+
+.top input {
+    border: solid #d9e3fb;
+    padding: 8px;
+    border-radius: 10px;
+}
+
+.title {
+    font-size: 24px;
+    align-items: center;
+    width: 950px;
+    margin: 2vh auto;
+}
+
+.chefs {
+    width: 950px;
+    margin: auto;
+    padding-bottom: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.card {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    margin-top: 36px;
+}
+
+.content {
+    margin-top: 16px;
+    text-transform: capitalize;
+}
+
+.name h4 {
+    font-size: 16px;
+}
+
+.avatar img {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.show-more a {
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #D15B75;
+    border-radius: 8px;
+}

@@ -1,0 +1,31 @@
+{% extends "../layout.njk" %}
+{%block title%}
+    <title>Nova Receita</title>
+{%endblock title%}
+
+{%block links%}
+    <link rel="stylesheet" href="/styles/admin/chefs/create.css">
+    <link rel="stylesheet" href="/styles/admin/header.css">
+    <script src="https://kit.fontawesome.com/bcd7f656b1.js" crossorigin="anonymous"></script>
+{%endblock links%}
+
+{% block content %}
+    <form class="card" method="POST" action="/admin/chefs">
+        <section class="details">
+            <div class="top">
+                <h2>Novo chef</h2>
+                <button type="submit">Salvar</button>
+            </div>
+            <div class="item">
+                <div>Avatar</div>
+                <div><input type="url" name="avatar_url" placeholder="https://" value="{{chef.avatar_url}}"></div>
+            </div>
+
+            <div class="item">
+                <div>Nome do chef</div>
+                <div><input type="text" name="name" placeholder="Digite o nome da receita" value="{{chef.name}}"></div>
+            </div>
+
+        </section>
+    </form>
+{% endblock content %}

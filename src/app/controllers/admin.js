@@ -1,116 +1,89 @@
-const fs = require('fs')
-const data = require("../../../data.json")
+const { date } = require("../../lib/utils")
+const Recipe = require('../../models/recipe')
 
-exports.index = function(req, res) {
-    return res.render("admin/recipes/recipes", { recipes: data.recipes })
+module.exports = {
+    index(req, res) {
+        let { filter, page, limit } = req.query
 
-}
+        page = page || 1
+        limit = limit || 9
+        let offset = limit * (page - 1)
 
-exports.create = function(req, res) {
-    return res.render("admin/recipes/create")
-}
+        const params = {
+            filter,
+            page,
+            limit,
+            offset,
+            callback(recipes) {
 
-exports.post = function(req, res) {
-    const keys = Object.keys(req.body)
-
-    for (key of keys) {
-
-        if (req.body[key] == "") {
-            return res.send('Please, fill all fields.')
+                const pagination = {
+                    total: Math.ceil(recipes[0].total / limit),
+                    page
+                }
+                return res.render("admin/recipes/recipes", { recipes, pagination, filter })
+            }
         }
-    }
+        Recipe.paginate(params)
 
-    let id = 1
-    const lastRecipe = data.recipes[data.recipes.length - 1]
-    if (lastRecipe) {
-        id = lastRecipe.id + 1
-    }
+    },
+    create(req, res) {
 
-    data.recipes.push({
-        ...req.body,
-        id,
-    })
+        Recipe.chefsSelectOptions(function(options) {
+            return res.render("admin/recipes/create", { chefsOptions: options })
+        })
 
-    fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) {
-        if (err) return res.send("White file error!")
-        return res.redirect("/admin/recipes")
-    })
+    },
+    post(req, res) {
+        const keys = Object.keys(req.body)
+            //validation
+        for (key of keys) {
+            //same as using req.body.avatar_url
+            if (req.body[key] == "") {
+                return res.send('Please, fill all fields.')
 
-    //return res.send(req.body)
-}
+            }
 
-exports.show = function(req, res) {
-
-    const { id } = req.params
-    const foundRecipe = data.recipes.find(function(recipe) {
-        return recipe.id == id
-    })
-    if (!foundRecipe) return res.send("NOT FOUND")
-
-    const recipe = {
-        ...foundRecipe,
-    }
-
-    return res.render("admin/recipes/show", { recipe: recipe })
-
-}
-
-exports.edit = function(req, res) {
-
-    const { id } = req.params
-    const foundRecipe = data.recipes.find(function(recipe) {
-        return recipe.id == id
-    })
-    if (!foundRecipe) return res.send("NOT FOUND")
-
-    const recipe = {
-        ...foundRecipe,
-    }
-
-    return res.render('admin/recipes/edit', { recipe })
-}
-
-exports.put = function(req, res) {
-    const { id } = req.body
-    let index = 0
-
-    const foundRecipe = data.recipes.find(function(recipe, foundIndex) {
-        if (id == recipe.id) {
-            index = foundIndex
-            return true
         }
-    })
-    if (!foundRecipe) return res.send(" RECIPE NOT FOUND")
+        Recipe.create(req.body, function(recipe) {
+            return res.redirect(`admin/recipes/${recipe.id}`)
+        })
 
-    const recipe = {
-        ...foundRecipe,
-        ...req.body,
-        id: Number(req.body.id)
+    },
+    show(req, res) {
+        Recipe.find(req.params.id, function(recipe) {
+            if (!recipe) return res.send("Recipe not found")
+            return res.render("admin/recipes/show", { recipe })
 
+        })
+
+    },
+    edit(req, res) {
+        Recipe.find(req.params.id, function(recipe) {
+            if (!recipe) return res.send("Recipe not found")
+
+            Recipe.chefsSelectOptions(function(options) {
+                return res.render("admin/recipes/edit", { recipe, chefsOptions: options })
+            })
+        })
+    },
+    put(req, res) {
+        const keys = Object.keys(req.body)
+            //validation
+        for (key of keys) {
+            //same as using req.body.avatar_url
+            if (req.body[key] == "") {
+                return res.send('Please, fill all fields.')
+
+            }
+
+        }
+        Recipe.update(req.body, function() {
+            return res.redirect(`admin/recipes/${req.body.id}`)
+        })
+    },
+    delete(req, res) {
+        Recipe.delete(req.body.id, function() {
+            return res.redirect(`admin/recipes/`)
+        })
     }
-
-    data.recipes[index] = recipe
-
-    fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) {
-        if (err) return res.send("Write error!")
-        return res.redirect(`/admin/recipes/${id}`)
-    })
-
-}
-
-exports.delete = function(req, res) {
-    const { id } = req.body
-
-    const filteredRecipes = data.recipes.filter(function(recipe) {
-
-        return recipe.id != id
-    })
-    data.recipes = filteredRecipes
-
-    fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) {
-        if (err) return res.send("Write file error!")
-
-        return res.redirect("/admin/recipes")
-    })
-
 }

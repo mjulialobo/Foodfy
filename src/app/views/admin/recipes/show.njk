@@ -4,8 +4,8 @@
 {%endblock title%}
 
 {%block links%}
-  <link rel="stylesheet" href="/styles/admin/show.css">
-  <link rel="stylesheet" href="/styles/header.css">
+  <link rel="stylesheet" href="/styles/admin/recipes/show.css">
+   <link rel="stylesheet" href="/styles/admin/header.css">
   <script src="https://kit.fontawesome.com/bcd7f656b1.js" crossorigin="anonymous"></script>
 {%endblock links%}
 
@@ -13,20 +13,20 @@
   <div class="card">
     <section class="details">
      <div class="top">
-      <h5>Receita:
-        {{recipe.name}}</h5>
+      <h3>Receita:
+        {{recipe.title}}</h3>
       
       <div class="edit"><a href="/admin/recipes/{{recipe.id}}/edit" class="button">
         Editar</a></div>
         
       </div>
       <div class="recipe-img">
-        <img src="{{recipe.image}}" alt="Imagem de {{recipe.name}}">
+        <img src="{{recipe.image}}" alt="Imagem de {{recipe.title}}">
       </div>
 
       <div class="recipe-info">
-        <div><h2>{{recipe.name}}</h2></div>
-        <div><p>{{recipe.author}}<p></div>
+        <div><h2>{{recipe.title}}</h2></div>
+        <div><p>{{recipe.chef_name}}<p></div>
       </div>
 
       <div class="recipe-description">
@@ -41,8 +41,8 @@
       <div class="recipe-description">
         <div><h3>Modo de preparo</h3></div>
         <ul>
-          {% for action in recipe.actions %}
-            <li>{{action}}</li>
+          {% for step in recipe.preparation %}
+            <li>{{step}}</li>
           {% endfor %}
         </ul>
       </div>
