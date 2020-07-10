@@ -45,7 +45,7 @@ module.exports = {
 
         }
         Recipe.create(req.body, function(recipe) {
-            return res.redirect(`admin/recipes/${recipe.id}`)
+            return res.redirect(`/admin/recipes/${recipe.id}`)
         })
 
     },
@@ -78,12 +78,12 @@ module.exports = {
 
         }
         Recipe.update(req.body, function() {
-            return res.redirect(`admin/recipes/${req.body.id}`)
+            return res.redirect(`/admin/recipes/${req.body.id}`)
         })
     },
     delete(req, res) {
         Recipe.delete(req.body.id, function() {
-            return res.redirect(`admin/recipes/`)
+            return res.redirect(`/admin/recipes/`)
         })
     }
 }

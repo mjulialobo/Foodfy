@@ -31,16 +31,23 @@ module.exports = {
         })
 
     },
-    find(id, callback) {
-        db.query(`  SELECT chefs.*, count(recipes) AS total_recipes
-        FROM chefs
-        LEFT JOIN recipes ON (chefs.id = recipes.chef_id)
+    showChef(id, callback) {
+        db.query(` SELECT * FROM chefs
+        INNER JOIN recipes 
+        ON (chefs.id = recipes.chef_id)
         WHERE chefs.id = $1
-        GROUP BY chefs.id
       `, [id], function(err, results) {
             if (err) throw `
                     Database Error!$ { err }
                     `
+            callback(results.rows[0], results.rows, results.rowCount)
+
+        })
+    },
+    find(id, callback) {
+        db.query(`SELECT * FROM chefs
+        WHERE chefs.id = $1`, [id], function(err, results) {
+            if (err) throw `Database Error! ${err}`
             callback(results.rows[0])
         })
     },
@@ -107,6 +114,7 @@ module.exports = {
             SELECT chefs.*,${totalQuery}
             FROM chefs
             ${filterQuery}
+            ORDER BY name ASC
             LIMIT $1 OFFSET $2
         `
 

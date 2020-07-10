@@ -10,13 +10,13 @@
 {%endblock links%}
 
 {% block content %}
-         <div class="edit">
-               <a href="/admin/chefs/{{chef.id}}/edit">
-                    Editar</a>
-          </div>
+     <div class="edit">
+          <a href="/admin/chefs/{{chef.chef_id}}/edit">
+               Editar</a>
+     </div>
      <section class="chef">
-           
-          <div class="card" id="{{chef.id}}">
+
+          <div class="card" id="{{chef.chef_id}}">
                <div class="avatar">
                     <img src="{{chef.avatar_url}}">
                </div>
@@ -27,16 +27,19 @@
                     </div>
                     <div class="total_recipes">
                          <p>
-                              {% if chef.total_recipes > 1 %}{{chef.total_recipes}}
+                              {% if totalRecipes > 1 %}{{totalRecipes}}
                                    receitas cadastradas{% endif %}
-                              {% if chef.total_recipes == 0 %}Nenhuma receita cadastrada{% endif %}
-                              {% if chef.total_recipes == 1 %}{{chef.total_recipes}}
+                              {% if totalRecipes == 0 %}Nenhuma receita cadastrada{% endif %}
+                              {% if totalRecipes == 1 %}{{totalRecipes}}
                                    receita cadastrada{% endif %}
                          </p>
                     </div>
                </div>
           </div>
-          {% include '../../recipes_list.njk' %}
- </section>
-    
-{% endblock content %}
+     
+          {%if totalRecipes > 0 %}
+         {% include '../../recipes_list.njk' %}  
+         {%endif%}
+          </section>
+
+     {% endblock content %}

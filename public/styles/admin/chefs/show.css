@@ -71,7 +71,7 @@ body {
 }
 
 .recipes-grid .recipe-img img {
-    height: 100px;
+    height: 120px;
     width: 250px;
     border-radius: 8px;
     object-fit: cover;
@@ -87,7 +87,7 @@ body {
 
 .recipe-content {
     font-size: 16px;
-    margin-top: 8px;
+    text-align: left;
 }
 
 .recipe-chef {
@@ -102,4 +102,8 @@ body {
     text-decoration: none;
     color: #D15B75;
     border-radius: 8px;
+}
+
+.total_recipes {
+    margin-bottom: 80px;
 }
