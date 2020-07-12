@@ -44,9 +44,22 @@ module.exports = {
 
     },
     show(req, res) {
-        Chef.showChef(req.params.id, function(chef, recipes, totalRecipes) {
-            if (!chef) return res.send("Chef not found")
-            return res.render("admin/chefs/show", { chef, recipes, totalRecipes })
+
+        Chef.showChef(req.params.id, function(chef, recipes, totalRecipes, chefId) {
+            if (chef.id == null) {
+                totalRecipes = 0
+
+                Chef.find(req.params.id, function(chef) {
+
+                    if (!chef) return res.send("Chef not found")
+
+                    return res.render("admin/chefs/show", { chef, totalRecipes, chefId })
+                })
+            } else {
+                if (!chef) return res.send("Chef not found")
+
+                return res.render("admin/chefs/show", { chef, recipes, totalRecipes, chefId })
+            }
 
         })
 

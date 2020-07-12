@@ -13,6 +13,62 @@ body {
     margin-bottom: 80px;
 }
 
+header {
+    margin: 0 auto;
+    max-width: 960px;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 200px;
+}
+
+header a {
+    position: relative;
+    bottom: 30px;
+    left: 150px;
+}
+
+header img {
+    margin: 20px 0;
+}
+
+.header-item {
+    margin: 0 30px;
+    font-size: 16px;
+    line-height: 26px;
+    text-decoration: none;
+    color: #111111;
+}
+
+.part_b {
+    margin-top: 12px;
+}
+
+header form {
+    display: grid;
+    grid-template-columns: 1fr 80px;
+    width: 100px;
+}
+
+button[type="submit"] {
+    background-image: url(../../../assets/search.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px 24px;
+    background-color: #52ABF4;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    width: 16px;
+    margin-left: 2px;
+}
+
+header input {
+    border: solid #d9e3fb;
+    padding: 8px;
+    border-radius: 10px;
+}
+
 .title {
     font-weight: 700;
     font-size: 24px;
@@ -31,7 +87,7 @@ body {
     background-color: #F3CED6;
     max-width: 940px;
     height: 366px;
-    margin: 5vh auto;
+    margin: 2vh auto;
     border-radius: 30px;
     display: flex;
     justify-content: space-between;
@@ -67,34 +123,59 @@ body {
     margin-bottom: 1px;
 }
 
-.cards {
+.recipes {
     width: 940px;
     margin: 0 auto;
+    padding-bottom: 40px;
+}
+
+.recipes-title {
+    font-size: 24px;
+    line-height: 34px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: black;
+}
+
+.recipes-grid {
     display: grid;
+    width: 950px;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
-    margin-bottom: 10vh;
 }
 
-.card-image img {
-    width: 100%;
-    border-radius: 15px;
+.recipes-grid .recipe-img img {
+    height: 100px;
+    width: 250px;
+    border-radius: 8px;
+    object-fit: cover;
+    object-position: center;
+    margin: 0;
 }
 
-.card-info {
-    padding: 5px;
+.recipes-grid .recipe {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-gap: 10px;
 }
 
-.card-info h3 {
-    font-size: 18px;
-    line-height: 21px;
-    margin-top: 5px;
+.recipe-content {
+    font-size: 16px;
+    margin-top: 8px;
 }
 
-.author {
+.recipe-chef {
+    color: #777;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.show_more a {
     font-size: 14px;
-    line-height: 16px;
-    color: #777777;
+    font-weight: 700;
+    text-decoration: none;
+    color: #D15B75;
+    border-radius: 8px;
 }
 
 footer {

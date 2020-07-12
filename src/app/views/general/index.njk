@@ -1,4 +1,3 @@
-{%extends "../general/layout.njk"%}
 {%set pageId = "home"%}
 
 {%block title%}
@@ -7,94 +6,86 @@
 
 {%block links%}
     <link rel="stylesheet" href="styles/index.css">
-    <link rel="stylesheet" href="styles/header.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700;900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/bcd7f656b1.js" crossorigin="anonymous"></script>
 {%endblock links%}
 
 {% block content %}
-    <section id="home">
-        <div class="container">
-            <div class="banner">
-                <div class="bannercontent">
-                    <h3>
-                        As melhores receitas!
-                    </h3>
-                    <p>
-                        Aprenda a construir os melhores pratos com receitas criadas por profissionais do mundo inteiro
-                    </p>
-                </div>
-                <div class="bannerimage">
-                    <img src="assets/chef.png" alt="chef">
-                </div>
-            </div>
-            <div class="title">
+
+    <header>
+        <div class="part_a">
+            <img src="/assets/logo.png" alt="logomarca">
+            <a class="header-item" href="/about">Sobre</a>
+            <a class="header-item" href="/recipes">Receitas</a>
+            <a class="header-item" href="/chefs">Chefs</a>
+            <a class="header-item" href="/">
+                <i class="fas fa-home"></i>
+            </a>
+        </div>
+        <div class="part_b">
+            <form action="/recipes" method="GET">
+                <input type="text" name="filter" placeholder="Busque uma receita" value="{{filter}}">
+                <button type="submit"></button>
+            </form>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="banner">
+            <div class="bannercontent">
                 <h3>
-                    Mais acessadas
+                    As melhores receitas!
                 </h3>
+                <p>
+                    Aprenda a construir os melhores pratos com receitas criadas por profissionais do mundo inteiro
+                </p>
             </div>
-            <section class="cards">
+            <div class="bannerimage">
+                <img src="assets/chef.png" alt="chef">
+            </div>
+        </div>
+        <div class="title">
+            <h3>
+                Mais acessadas
+            </h3>
+        </div>
+    </div>
+    <section class="recipes">
+        <div class="recipes-grid">
+            {% for recipe in recipes %}
+                <input type="hidden" name='id' value="{{recipe.id}}">
 
-                <div class="card" id="burger.png">
-                    <div class="card-image">
-                        <img src="assets/burger.png" alt="image burger">
-                    </div>
-                    <div class="card-info">
-                        <h3>Trigo bacon burger</h3>
-                        <p class="author">por Jorge Relato</p>
-                    </div>
+                <div class="recipe">
+
+                    <div class="recipe-img">
+                        <img src="{{recipe.image}}" alt="Image de {{recipe.title}}">
                 </div>
 
-                <div class="card" id="pizza.png">
-                    <div class="card-image">
-                        <img src="assets/pizza.png" alt="image pizza">
-                    </div>
-                    <div class="card-info">
-                        <h3>Pizza 4 estações</h3>
-                        <p class="author">por Fabiana Melo</p>
-                    </div>
-                </div>
+                <div class="recipe-content">
+                    <h3>{{recipe.title}}</h3>
 
-                <div class="card" id="espaguete.png">
-                    <div class="card-image">
-                        <img src="assets/espaguete.png" alt="image espaguete">
-                    </div>
-                    <div class="card-info">
-                        <h3>Espaguete ao alho</h3>
-                        <p class="author">por Júlia Kinoto</p>
-                    </div>
-                </div>
+                    <div class="recipe-chef">
+                        <p>
+                            {% if recipe.chef_name == null %}
+                                <p>
+                                    por Chef Anônimo
+                                </p>
+                            {% endif %}
 
-                <div class="card" id="lasanha.png">
-                    <div class="card-image">
-                        <img src="assets/lasanha.png" alt="image lasanha">
-                    </div>
-                    <div class="card-info">
-                        <h3>Lasanha mac n' cheese</h3>
-                        <p class="author">por Juliano Vieira</p>
-                    </div>
-                </div>
-
-                <div class="card" id="doce.png">
-                    <div class="card-image">
-                        <img src="assets/doce.png" alt=" image doce">
-                    </div>
-                    <div class="card-info">
-                        <h3>Docinhos pão-do-céu</h3>
-                        <p class="author">por Ricardo Golvea</p>
-                    </div>
-                </div>
-
-                <div class="card" id="asinhas.png">
-                    <div class="card-image">
-                        <img src="assets/asinhas.png" alt="image asinhas">
-                    </div>
-                    <div class="card-info">
-                        <h3>Asinha de frango ao barbecue</h3>
-                        <p class="author">por Vania Steroski</p>
+                            {% if recipe.chef_name != null %}
+                                <p>
+                                    por
+                                    {{recipe.chef_name}}
+                                </p>
+                            </p>
+                        {% endif %}
                     </div>
                 </div>
             </div>
+            {%endfor%}
         </section>
-{% endblock content %}
-  
+        <footer>
+            <p>Todos os direitos reservados, receitas Foodfy.</p>
+        </footer>
+       <script src="/scripts/recipes.js"></script>
+    {% endblock content %}

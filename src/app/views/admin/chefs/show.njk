@@ -11,12 +11,12 @@
 
 {% block content %}
      <div class="edit">
-          <a href="/admin/chefs/{{chef.chef_id}}/edit">
+          <a href="/admin/chefs/{{chefId}}/edit">
                Editar</a>
      </div>
      <section class="chef">
 
-          <div class="card" id="{{chef.chef_id}}">
+          <div class="card" id="{{chefId}}">
                <div class="avatar">
                     <img src="{{chef.avatar_url}}">
                </div>
@@ -36,10 +36,34 @@
                     </div>
                </div>
           </div>
-     
-          {%if totalRecipes > 0 %}
-         {% include '../../recipes_list.njk' %}  
-         {%endif%}
+          <section class="recipes">
+               <div class="recipes-grid">
+                    {% for recipe in recipes %}
+
+                         <div class="recipe">
+
+                              <div class="recipe-img">
+                                   <img src="{{recipe.image}}" alt="" class="Image de {{recipe.title}}">
+                              </a>
+                         </div>
+
+                         <div class="recipe-content">
+                              <h3>{{recipe.title}}</h3>
+
+                              <div class="recipe-chef">
+                                   <p>
+                                        por
+                                        {{chef.name}}
+                                   </p>
+                              </div>
+
+                              <div class="show_more">
+                                   <a href="/admin/recipes/{{recipe.id}}">Visualizar</a>
+                              </div>
+
+                         </div>
+                    </div>
+               {% endfor %}
           </section>
 
      {% endblock content %}

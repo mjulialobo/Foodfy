@@ -1,136 +1,61 @@
 {%extends "../general/layout.njk"%}
 {%set pageId = "recipes"%}
 {%block title%}
-     <title>Receitas</title>
+  <title>Receitas</title>
 {%endblock title%}
 
 {%block links%}
-     <link rel="stylesheet" href="styles/recipes.css">
-      <link rel="stylesheet" href="styles/header.css">
-     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-     <script src="https://kit.fontawesome.com/bcd7f656b1.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="styles/recipes.css">
+  <link rel="stylesheet" href="styles/header.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/bcd7f656b1.js" crossorigin="anonymous"></script>
 {%endblock links%}
+
 {% block content %}
-     <section class="cards">
-          <div class="card" id="burger">
-               <div class="card-image">
-                    <img src="assets/burger.png" alt="image burger">
-               </div>
-               <div class="card-info">
-                    <h3>Trigo bacon burger</h3>
-                    <p class="author">por Jorge Relato</p>
-               </div>
+
+  <div class="top">
+    <form action="/recipes" method="GET">
+      <input type="text" name="filter" placeholder="Nome da receita" value="{{filter}}">
+      <button type="submit"></button>
+    </form>
+  </div>
+
+  <section class="recipes">
+    <div class="recipes-grid">
+      {% for recipe in recipes %}
+
+        <div class="recipe" name="id" value="{{recipe.id}}">
+          <div class="recipe-img">
+            <img src="{{recipe.image}}" alt="Image de {{recipe.title}}">
           </div>
 
-          <div class="card" id="pizza">
-               <div class="card-image">
-                    <img src="assets/pizza.png" alt="image pizza">
-               </div>
-               <div class="card-info">
-                    <h3>Pizza 4 estações</h3>
-                    <p class="author">por Fabiana Melo</p>
-               </div>
-          </div>
+          <div class="recipe-content">
+            <h3>{{recipe.title}}</h3>
 
-          <div class="card" id="espaguete">
-               <div class="card-image">
-                    <img src="assets/espaguete.png" alt="image espaguete">
-               </div>
-               <div class="card-info">
-                    <h3>Espaguete ao alho</h3>
-                    <p class="author">por Júlia Kinoto</p>
-               </div>
-          </div>
+            <div class="recipe-chef">
+              <p>
+                {% if recipe.chef_name == null %}
+                  <p>
+                    por Chef Anônimo
+                  </p>
+                {% endif %}
 
-          <div class="card" id="lasanha">
-               <div class="card-image">
-                    <img src="assets/lasanha.png" alt="image lasanha">
-               </div>
-               <div class="card-info">
-                    <h3>Lasanha mac n' cheese</h3>
-                    <p class="author">por Juliano Vieira</p>
-               </div>
-          </div>
+                {% if recipe.chef_name != null %}
+                  <p>
+                    por
+                    {{recipe.chef_name}}
+                  </p>
+                {% endif %}
+              </p>
+            </div>
 
-          <div class="card" id="doce">
-               <div class="card-image">
-                    <img src="assets/doce.png" alt=" image doce">
-               </div>
-               <div class="card-info">
-                    <h3>Docinhos pão-do-céu</h3>
-                    <p class="author">por Ricardo Golvea</p>
-               </div>
           </div>
+        </div>
 
-          <div class="card" id="asinhas">
-               <div class="card-image">
-                    <img src="assets/asinhas.png" alt="image asinhas">
-               </div>
-               <div class="card-info">
-                    <h3>Asinha de frango ao barbecue</h3>
-                    <p class="author">por Vania Steroski</p>
-               </div>
-          </div>
-
-          <div class="card" id="burger">
-               <div class="card-image">
-                    <img src="assets/burger.png" alt="image burger">
-               </div>
-               <div class="card-info">
-                    <h3>Trigo bacon burger</h3>
-                    <p class="author">por Jorge Relato</p>
-               </div>
-          </div>
-
-          <div class="card" id="pizza">
-               <div class="card-image">
-                    <img src="assets/pizza.png" alt="image pizza">
-               </div>
-               <div class="card-info">
-                    <h3>Pizza 4 estações</h3>
-                    <p class="author">por Fabiana Melo</p>
-               </div>
-          </div>
-
-          <div class="card" id="espaguete">
-               <div class="card-image">
-                    <img src="assets/espaguete.png" alt="image espaguete">
-               </div>
-               <div class="card-info">
-                    <h3>Espaguete ao alho</h3>
-                    <p class="author">por Júlia Kinoto</p>
-               </div>
-          </div>
-
-          <div class="card" id="lasanha">
-               <div class="card-image">
-                    <img src="assets/lasanha.png" alt="image lasanha">
-               </div>
-               <div class="card-info">
-                    <h3>Lasanha mac n' cheese</h3>
-                    <p class="author">por Juliano Vieira</p>
-               </div>
-          </div>
-
-          <div class="card" id="doce">
-               <div class="card-image">
-                    <img src="assets/doce.png" alt=" image doce">
-               </div>
-               <div class="card-info">
-                    <h3>Docinhos pão-do-céu</h3>
-                    <p class="author">por Ricardo Golvea</p>
-               </div>
-          </div>
-
-          <div class="card" id="asinhas">
-               <div class="card-image">
-                    <img src="assets/asinhas.png" alt="image asinhas">
-               </div>
-               <div class="card-info">
-                    <h3>Asinha de frango ao barbecue</h3>
-                    <p class="author">por Vania Steroski</p>
-               </div>
-          </div>
-     </section>
-      <script src="/scripts/recipes.js"></script>
-{% endblock content %}
+      {% endfor %}
+      
+    </section>
+    <div class="pagination" data-page="{{pagination.page}}" data-total="{{pagination.total}}" data-filter="{{filter}}"></div>
+    <script src="/scripts/recipes.js"></script>
+    
+  {% endblock content %}

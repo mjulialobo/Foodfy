@@ -1,0 +1,58 @@
+{%extends "../general/layout.njk"%}
+{%block title%}
+     <title>Chef</title>
+{%endblock title%}
+
+{%block links%}
+     <link rel="stylesheet" href="/styles/admin/chefs/show.css">
+     <link rel="stylesheet" href="/styles/header.css">
+     <script src="https://kit.fontawesome.com/bcd7f656b1.js" crossorigin="anonymous"></script>
+{%endblock links%}
+
+{% block content %}
+     <section class="chef">
+
+          <div class="card" id="{{chef.chef_id}}">
+               <div class="avatar">
+                    <img src="{{chef.avatar_url}}">
+               </div>
+
+               <div class="recipeDetail">
+                    <div class="author">
+                         <p>{{chef.name}}</p>
+                    </div>
+                    <div class="total_recipes">
+                         <p>
+                              {% if totalRecipes > 1 %}{{totalRecipes}}
+                                   receitas cadastradas{% endif %}
+                              {% if totalRecipes == 0 %}Nenhuma receita cadastrada{% endif %}
+                              {% if totalRecipes == 1 %}{{totalRecipes}}
+                                   receita cadastrada{% endif %}
+                         </p>
+                    </div>
+               </div>
+          </div>
+               <section class="recipes">
+                    <div class="recipes-grid">
+                         {% for recipe in recipes %}
+                              <div class="recipe">
+                                   <div class="recipe-img">
+                                        <img src="{{recipe.image}}" alt="" class="Image de {{recipe.title}}">
+                                   </a>
+                              </div>
+                              <div class="recipe-content">
+                                   <h3>{{recipe.title}}</h3>
+                                   <div class="recipe-chef">
+                                        <p>
+                                             por
+                                             {{chef.name}}
+                                        </p>
+                                   </div>
+                                   <div class="show_more">
+                                        <a href="/recipe/{{recipe.id}}">Visualizar</a>
+                                   </div>
+                              </div>
+                         </div>
+                         {%endfor%}
+                    </section>
+               {% endblock content %}

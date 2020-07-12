@@ -106,3 +106,21 @@ button[type="submit"] {
     color: #D15B75;
     border-radius: 8px;
 }
+
+.pagination {
+    text-align: center;
+    justify-self: center;
+}
+
+.pagination a,
+.pagination span {
+    color: #D15B75;
+    text-decoration: none;
+    margin-right: 16px;
+    font-size: 20px;
+}
+
+.pagination a:hover {
+    color: #52ABF4;
+    border-bottom: 1px solid #52ABF4;
+}
