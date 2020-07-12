@@ -24,25 +24,29 @@
                     </div>
                     <div class="content">
                          <div class="name">
-                              <h4><a href="/chef/{{chef.id}}">{{chef.name}}</a></h4>
+                              <h4>
+                                   <a href="/chef/{{chef.id}}">{{chef.name}}</a>
+                              </h4>
                          </div>
                          <div class="total_recipes">
-                         <p>
-                              {% if chef.total_recipes > 1 %}{{chef.total_recipes}}
-                                   receitas{% endif %}
-                              {% if chef.total_recipes == 0 %}0 receitas {% endif %}
-                              {% if chef.total_recipes == 1 %}{{chef.total_recipes}}
-                                   receita {% endif %}
-                         </p>
-                    </div>
+                              <p>
+                                   {% if chef.total_recipes > 1 %}{{chef.total_recipes}}
+                                        receitas{% endif %}
+                                   {% if chef.total_recipes == 0 %}0 receitas
+                                   {% endif %}
+                                   {% if chef.total_recipes == 1 %}{{chef.total_recipes}}
+                                        receita
+                                   {% endif %}
+                              </p>
+                         </div>
                     </div>
 
                </div>
-          {%endfor%}
+               {%endfor%}
 
           </section>
-          
-     <div class="pagination" data-page="{{pagination.page}}" data-total="{{pagination.total}}" data-filter="{{filter}}"></div>
 
-     <script src="/scripts/admin-features.js"></script>
+          <div class="pagination" data-page="{{pagination.page}}" data-total="{{pagination.total}}" data-filter="{{filter}}"></div>
+
+          <script src="/scripts/admin-features.js"></script>
      {% endblock content %}

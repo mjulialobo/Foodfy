@@ -53,39 +53,39 @@
     <section class="recipes">
         <div class="recipes-grid">
             {% for recipe in recipes %}
-                <input type="hidden" name='id' value="{{recipe.id}}">
 
-                <div class="recipe">
-
+                <div class="recipe" name="id" value="{{recipe.id}}">
                     <div class="recipe-img">
                         <img src="{{recipe.image}}" alt="Image de {{recipe.title}}">
-                </div>
+                    </div>
 
-                <div class="recipe-content">
-                    <h3>{{recipe.title}}</h3>
+                    <div class="recipe-content">
+                        <h3>{{recipe.title}}</h3>
+                        <div class="recipe-chef">
+                            <p>
+                                {% if recipe.chef_name == null %}
+                                    <p>
+                                        por Chef Anônimo
+                                    </p>
+                                {% endif %}
 
-                    <div class="recipe-chef">
-                        <p>
-                            {% if recipe.chef_name == null %}
-                                <p>
-                                    por Chef Anônimo
-                                </p>
-                            {% endif %}
-
-                            {% if recipe.chef_name != null %}
-                                <p>
-                                    por
-                                    {{recipe.chef_name}}
-                                </p>
+                                {% if recipe.chef_name != null %}
+                                    <p>
+                                        por
+                                        {{recipe.chef_name}}
+                                    </p>
+                                {% endif %}
                             </p>
-                        {% endif %}
+                        </div>
+
                     </div>
                 </div>
-            </div>
-            {%endfor%}
+
+            {% endfor %}
+
         </section>
         <footer>
             <p>Todos os direitos reservados, receitas Foodfy.</p>
         </footer>
-       <script src="/scripts/recipes.js"></script>
+        <script src="/scripts/recipes.js"></script>
     {% endblock content %}

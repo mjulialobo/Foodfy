@@ -18,7 +18,7 @@ body {
 }
 
 
-/* == details== */
+/* == TITLE== */
 
 h2 {
     width: 50%;
@@ -30,6 +30,9 @@ h2 {
     justify-content: space-between;
     align-items: center;
 }
+
+
+/* == FORM== */
 
 .details {
     padding: 24px;
@@ -80,6 +83,9 @@ textarea::placeholder {
     font-size: 14px;
     font-weight: 700;
 }
+
+
+/* ==BUTTONS== */
 
 button[type="submit"] {
     padding: 4px 24px;

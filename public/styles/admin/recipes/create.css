@@ -17,19 +17,22 @@ body {
     color: #141414;
 }
 
-
-/* == details== */
-
 h2 {
     width: 50%;
     margin-bottom: 16px;
 }
+
+
+/*==TITLE==*/
 
 .top {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
+
+/*==FORM==*/
 
 .details {
     padding: 24px;

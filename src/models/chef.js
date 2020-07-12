@@ -113,7 +113,8 @@ module.exports = {
             FROM chefs
             LEFT JOIN recipes ON (chefs.id = recipes.chef_id)
             ${filterQuery}
-            GROUP BY chefs.id LIMIT $1 OFFSET $2
+            GROUP BY chefs.id 
+            LIMIT $1 OFFSET $2 
         `
 
         db.query(query, [limit, offset], function(err, results) {

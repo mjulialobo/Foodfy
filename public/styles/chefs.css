@@ -16,6 +16,9 @@ body {
     background-color: white;
 }
 
+
+/*==FILTER==*/
+
 .top {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -28,6 +31,17 @@ body {
     display: grid;
     grid-template-columns: 150px 30px;
     align-items: center;
+}
+
+.total_recipes p {
+    font-size: 14px;
+    color: #777;
+}
+
+.top input {
+    border: solid #d9e3fb;
+    padding: 8px;
+    border-radius: 10px;
 }
 
 button[type="submit"] {
@@ -43,11 +57,8 @@ button[type="submit"] {
     margin-left: 2px;
 }
 
-.top input {
-    border: solid #d9e3fb;
-    padding: 8px;
-    border-radius: 10px;
-}
+
+/*==CHEFS==*/
 
 .chefs {
     width: 950px;
@@ -63,6 +74,14 @@ button[type="submit"] {
     margin-top: 36px;
 }
 
+.avatar img {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
 .content {
     margin-top: 16px;
     text-transform: capitalize;
@@ -74,18 +93,8 @@ button[type="submit"] {
     color: black;
 }
 
-.avatar img {
-    height: 80px;
-    width: 80px;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: center;
-}
 
-.total_recipes p {
-    font-size: 14px;
-    color: #777;
-}
+/*==FOOTER AND PAGINATION==*/
 
 .pagination {
     text-align: center;

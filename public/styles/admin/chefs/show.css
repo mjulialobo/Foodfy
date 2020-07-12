@@ -4,10 +4,13 @@ body {
     margin: 0 auto;
 }
 
-.chef {
-    margin: 5vh auto;
-    align-items: center;
-    text-align: center;
+
+/* == TITLE AND PICTURE== */
+
+.top input {
+    border: solid #d9e3fb;
+    padding: 8px;
+    border-radius: 10px;
 }
 
 .edit a {
@@ -21,6 +24,12 @@ body {
     margin-left: 100px;
 }
 
+.chef {
+    margin: 5vh auto;
+    align-items: center;
+    text-align: center;
+}
+
 .avatar img {
     height: 250px;
     width: 250px;
@@ -30,24 +39,41 @@ body {
     border: solid #52ABF4;
 }
 
-.recipeDetail {
-    text-align: center;
-}
-
-.author p {
-    font-weight: 700;
-    font-size: 20px;
-}
-
 .total_recipes {
+    margin-bottom: 40px;
     color: #DE7C95;
     font-weight: 700;
 }
 
-.top input {
-    border: solid #d9e3fb;
-    padding: 8px;
-    border-radius: 10px;
+
+/* == RECIPE (totalRecipe=1) == */
+
+.only_recipe {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.one_recipe {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    justify-content: center;
+}
+
+.one_recipe .recipe-img img {
+    height: 120px;
+    width: 250px;
+    border-radius: 8px;
+    object-fit: cover;
+    object-position: center;
+    margin: 0;
+}
+
+
+/* == RECIPES GRID== */
+
+.author p {
+    font-weight: 700;
+    font-size: 20px;
 }
 
 .recipes {
@@ -70,6 +96,12 @@ body {
     gap: 20px;
 }
 
+.recipes-grid .recipe {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 20px;
+}
+
 .recipes-grid .recipe-img img {
     height: 120px;
     width: 250px;
@@ -77,12 +109,6 @@ body {
     object-fit: cover;
     object-position: center;
     margin: 0;
-}
-
-.recipes-grid .recipe {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-gap: 20px;
 }
 
 .recipe-content {
@@ -104,9 +130,8 @@ body {
     border-radius: 8px;
 }
 
-.total_recipes {
-    margin-bottom: 80px;
-}
+
+/* == FOOTER (for general show)== */
 
 footer {
     background: #EEEEEE;

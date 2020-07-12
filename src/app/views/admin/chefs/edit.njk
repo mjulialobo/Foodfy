@@ -1,7 +1,7 @@
 {% extends "../layout.njk" %}
 {%block title%}
     <title>
-        Editar Perfil
+        Editar Perfil {{chef.name}}
     </title>
 {%endblock title%}
 
@@ -26,17 +26,17 @@
         <form id='form-edit' method='POST' action='/admin/chefs/?_method=PUT'>
             <section class="details">
                 <div class="top">
-                    <h2>Novo chef</h2>
+                    <h2>Editar Perfil</h2>
                 </div>
                 <div class="item">
                     <div>Avatar</div>
                     <div><input type="url" name="avatar_url" placeholder="https://" value="{{chef.avatar_url}}"></div>
                 </div>
                 <div class="item">
-                    <div>Nome do chef </div>
-                        <div><input type="text" name="name" placeholder="Digite seu nome" value="{{chef.name}}"></div>
+                    <div>Nome do chef
                     </div>
-
+                    <div><input type="text" name="name" placeholder="Digite seu nome" value="{{chef.name}}"></div>
+                </div>
 
                 <input type="hidden" name='id' value="{{chef.id}}">
             </form>

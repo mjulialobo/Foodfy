@@ -16,6 +16,9 @@ body {
     background-color: white;
 }
 
+
+/*==FILTER==*/
+
 .top {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -42,6 +45,12 @@ body {
     text-align: center;
 }
 
+.top input {
+    border: solid #d9e3fb;
+    padding: 8px;
+    border-radius: 10px;
+}
+
 button[type="submit"] {
     background-image: url(../../../assets/search.svg);
     background-position: center;
@@ -55,11 +64,8 @@ button[type="submit"] {
     margin-left: 2px;
 }
 
-.top input {
-    border: solid #d9e3fb;
-    padding: 8px;
-    border-radius: 10px;
-}
+
+/*==RECIPES GRID==*/
 
 .recipes {
     width: 940px;
@@ -67,18 +73,24 @@ button[type="submit"] {
     padding-bottom: 40px;
 }
 
-.recipes-title {
-    font-size: 24px;
-    line-height: 34px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
 .recipes-grid {
     display: grid;
     width: 950px;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
+}
+
+.recipes-grid .recipe {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-gap: 10px;
+}
+
+.recipes-title {
+    font-size: 24px;
+    line-height: 34px;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
 .recipes-grid .recipe-img img {
@@ -89,12 +101,6 @@ button[type="submit"] {
     object-position: center;
     margin: 0;
     cursor: pointer;
-}
-
-.recipes-grid .recipe {
-    display: grid;
-    grid-template-rows: auto 1fr;
-    grid-gap: 10px;
 }
 
 .recipe-content {
@@ -108,13 +114,8 @@ button[type="submit"] {
     font-size: 16px;
 }
 
-.show_more a {
-    font-size: 14px;
-    font-weight: 700;
-    text-decoration: none;
-    color: #D15B75;
-    border-radius: 8px;
-}
+
+/*==FOOTER AND PAGINATION==*/
 
 .pagination {
     text-align: center;

@@ -16,6 +16,9 @@ body {
     background-color: white;
 }
 
+
+/*==NEW RECIPE AND FILTER==*/
+
 .top {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -60,6 +63,9 @@ button[type="submit"] {
     padding: 8px;
     border-radius: 10px;
 }
+
+
+/*==RECIPES GRID==*/
 
 .title {
     font-size: 24px;
@@ -121,6 +127,9 @@ button[type="submit"] {
     color: #D15B75;
     border-radius: 8px;
 }
+
+
+/*==PAGINATION==*/
 
 .pagination {
     text-align: center;

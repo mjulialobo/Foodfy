@@ -1,13 +1,13 @@
 {% extends "../layout.njk" %}
 {%block title%}
   <title>
-    Editar Receita
+    Editar {{recipe.title}}
   </title>
 {%endblock title%}
 
 {%block links%}
   <link rel="stylesheet" href="/styles/admin/recipes/edit.css">
-   <link rel="stylesheet" href="/styles/admin/header.css">
+  <link rel="stylesheet" href="/styles/admin/header.css">
   <script src="https://kit.fontawesome.com/bcd7f656b1.js" crossorigin="anonymous"></script>
 {%endblock links%}
 
@@ -17,7 +17,7 @@
 
     <div class="top">
       <h3>Receita:
-        {{recipe.name}}</h3>
+        {{recipe.title}}</h3>
       <div class="edit-buttons">
         <button type='submit' form='form-delete' class='delete'>Deletar</button>
         <button type='submit' form='form-edit' class='save'>Salvar</button>

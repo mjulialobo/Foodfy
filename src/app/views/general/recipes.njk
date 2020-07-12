@@ -31,7 +31,6 @@
 
           <div class="recipe-content">
             <h3>{{recipe.title}}</h3>
-
             <div class="recipe-chef">
               <p>
                 {% if recipe.chef_name == null %}
@@ -53,9 +52,9 @@
         </div>
 
       {% endfor %}
-      
+
     </section>
     <div class="pagination" data-page="{{pagination.page}}" data-total="{{pagination.total}}" data-filter="{{filter}}"></div>
     <script src="/scripts/recipes.js"></script>
-    
+
   {% endblock content %}

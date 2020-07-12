@@ -2,7 +2,7 @@ const recipes = document.querySelectorAll('.recipe')
 
 for (let recipe of recipes) {
     recipe.addEventListener('click', () => {
-        const recipeId = recipe.getAttribute(`${recipe.id}`)
+        const recipeId = recipe.getAttribute(`value`)
         window.location.href = `/recipe/${recipeId}`
     })
 }

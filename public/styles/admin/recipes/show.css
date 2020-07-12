@@ -26,6 +26,9 @@ h5 {
     font-size: 18px;
 }
 
+
+/*==EDIT BUTTON AND PICTURE==*/
+
 .top {
     display: flex;
     justify-content: space-between;
@@ -51,6 +54,9 @@ h5 {
     object-position: center;
 }
 
+
+/*==RECIPE INFORMATION==*/
+
 .recipe-info h2 {
     text-align: center;
     font-size: 32px;
@@ -61,42 +67,6 @@ h5 {
     text-align: center;
     color: #a5a4a4;
     font-size: 20px;
-}
-
-.container-info {
-    display: flex;
-    align-items: center;
-}
-
-.span span {
-    color: #999999;
-    padding: 0;
-    width: 20%;
-    background: none;
-    transition: 200ms;
-    border: none;
-    cursor: pointer;
-    font-size: 14px;
-    margin-left: 20px;
-}
-
-.span:hover {
-    background: none;
-    color: #e98d15;
-    border: none;
-}
-
-.content.active {
-    visibility: hidden;
-    width: 0;
-    height: 0;
-}
-
-.content {
-    margin: 0 auto;
-    max-width: 940px;
-    display: flex;
-    align-items: center;
 }
 
 li {

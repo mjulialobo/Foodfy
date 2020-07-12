@@ -17,7 +17,7 @@ body {
 }
 
 
-/* == details== */
+/* == TITLE== */
 
 h2 {
     color: rgb(0, 0, 0);
@@ -33,6 +33,9 @@ h2 {
     margin-left: 12%;
 }
 
+
+/* == FORM== */
+
 .details {
     padding: 24px;
     width: 50%;
@@ -43,6 +46,12 @@ h2 {
     padding: 10px;
     font-size: 14px;
     font-weight: 700;
+}
+
+.title-edit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 input {
@@ -83,6 +92,9 @@ textarea::placeholder {
     font-weight: 700;
 }
 
+
+/* == BUTTONS== */
+
 .save,
 .delete {
     padding: 4px 24px;
@@ -99,12 +111,6 @@ textarea::placeholder {
 
 .delete {
     background-color: rgb(194, 70, 70);
-}
-
-.title-edit {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .add-ingredient,

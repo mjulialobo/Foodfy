@@ -3,60 +3,87 @@
 {%set pageId = "recipe"%}
 
 {%block title%}
-    <title>{{item.title}}</title>
+  <title>{{recipe.title}}</title>
 {%endblock title%}
 
 {%block links%}
-    <link rel="stylesheet" href="/styles/recipe.css">
-    <link rel="stylesheet" href="/styles/header.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/bcd7f656b1.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/styles/recipe.css">
+  <link rel="stylesheet" href="/styles/header.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/bcd7f656b1.js" crossorigin="anonymous"></script>
 {%endblock links%}
 
 {%block header%}{%endblock header%}
 
-
 {% block content %}
   <div class="card">
     <section class="details">
-     <div class="top">    
-      </div>
+      <div class="top"></div>
       <div class="recipe-img">
         <img src="{{recipe.image}}" alt="Imagem de {{recipe.title}}">
       </div>
 
       <div class="recipe-info">
-        <div><h2>{{recipe.title}}</h2></div>
-        <div><p>{{recipe.chef_name}}<p></div>
+        <div>
+          <h2>{{recipe.title}}</h2>
+        </div>
+        <div>
+          <p>{{recipe.chef_name}}
+            <p></div>
+          </div>
+
+          <div class="recipe-description">
+             <div class="hide-button">
+            <div>
+              <h3>Ingredientes</h3>
+            </div>
+            <div class="span">
+              <span>Esconder</span>
+            </div>
+            </div>
+            <div class="content">
+              <ul>
+                {% for ingredient in recipe.ingredients %}
+                  <li>{{ingredient}}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+
+          <div class="recipe-description">
+            <div class="hide-button">
+            <div>
+              <h3>Modo de preparo</h3>
+            </div>
+            <div class="span">
+              <span>Esconder</span>
+            </div>
+            </div>
+            <div class="content">
+              <ul>
+                {% for step in recipe.preparation %}
+                  <li>{{step}}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+
+          <div class="recipe-description">
+             <div class="hide-button">
+            <div>
+              <h3>Informações extras</h3>
+            </div>
+            <div class="span">
+              <span>Esconder</span>
+            </div>
+            </div>
+            <div class="content">
+              <p>{{recipe.information}}</p>
+            </div>
+
+          </div>
+
+        </section>
       </div>
-
-      <div class="recipe-description">
-       <div> <h3>Ingredientes</h3> </div>
-        <ul>
-          {% for ingredient in recipe.ingredients %}
-            <li>{{ingredient}}</li>
-          {% endfor %}
-        </ul>
-      </div>
-
-      <div class="recipe-description">
-        <div><h3>Modo de preparo</h3></div>
-        <ul>
-          {% for step in recipe.preparation %}
-            <li>{{step}}</li>
-          {% endfor %}
-        </ul>
-      </div>
-
-      <div class="recipe-description">
-        <h3>Informações extras</h3>
-        <div><p>{{recipe.information}}</p></div>
-      </div>
-
-    </section>
-  </div>
-     <script src="/scripts/recipes.js"></script>
-{% endblock content%}
-
-    
-
+      <script src="/scripts/recipes.js"></script>
+    {% endblock content%}
