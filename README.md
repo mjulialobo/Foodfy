@@ -10,14 +10,14 @@
 FINAL CHALLENGE OF LAUNCHBASE
 </h1>
 
-<p align="center">Project developed as approval criteria for <a href="https://rocketseat.com.br/">Rocketseat's </a> Launchbase bootcamp. </p>
+<p align="center">#Fullstack project developed as approval criteria for <a href="https://rocketseat.com.br/">Rocketseat's </a> Launchbase bootcamp. </p>
 <p align="center">Thanks to  <a href='https://github.com/maykbrito/'>Mayk Brito</a> for the dedication and amazing classes during the bootcamp!</p>
 
 <hr />
 
 <h2> <img src= "https://img.icons8.com/plasticine/2x/rocket.png" width="50px" height="50px" align="center"/> What we created? </h2>
 
-<p> Foodfy is a recipe website manager created using:
+<p> Foodfy is a recipe website created using:
  <ul>
   <li>HTML</li>
   <li> CSS</li>
@@ -27,7 +27,7 @@ FINAL CHALLENGE OF LAUNCHBASE
    <li>Postbird</li>
   <li>Nunjucks template engine. </li> </ul></p>
 
-
+<p> <strong> What we have so far:</strong> recipes and chefs organized in a database, restrict manager area where recipes and chefs can be created and/or deleted. Filters and pagination on restrict area and non-restrict area. Recipes and chefs on non-restrict area are being populated by the SQL database. </p>
 <h2> <img src="https://i.dlpng.com/static/png/6577858_preview.png" width="50px" align="center"/> How to use? </h2>
 <p> You need to install <a href="https://nodejs.org/en/">Node.js</a>, <a href="https://www.postgresql.org/">PostgreSQL</a> and <a href="https://www.electronjs.org/apps/postbird">Postbird</a>. </p>
    
@@ -53,10 +53,10 @@ $ npm start
 <h2><img src="https://static.thenounproject.com/png/25759-200.png"width="50px" height="50px" align="center"/> Results</h2>
 <p>Note: gif distorts images and colors</p>
 <h3> Foodfy </h3>
-<img src="https://user-images.githubusercontent.com/65983895/87103002-2269de80-c22a-11ea-9192-5f07b970ef27.gif"/>
+<img src="https://user-images.githubusercontent.com/65983895/87258950-124a3d00-c47e-11ea-92b2-d0f4955418b4.gif"/>
 <h3> Foodfy | Restrict area </h3>
 <p> still in progress </p>
-<img src="https://user-images.githubusercontent.com/65983895/87102773-542e7580-c229-11ea-8695-94e44516434f.gif"/>
+<img src="https://user-images.githubusercontent.com/65983895/87258952-18d8b480-c47e-11ea-85aa-eb164514b446.gif"/>
   
 
 
