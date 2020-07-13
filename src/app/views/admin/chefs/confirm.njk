@@ -1,0 +1,17 @@
+<script>
+if ({{totalRecipes}} == 0) {
+    const formDelete = document.querySelector("#form-delete")
+    formDelete.addEventListener("submit", function(event) {
+        const confirmation = confirm("Você tem certeza que quer DELETAR esse perfil?")
+        if (!confirmation) {
+            event.preventDefault()
+        }
+    })
+} else {
+    const formDelete = document.querySelector("#form-delete")
+    formDelete.addEventListener("submit", function(event) {
+        event.preventDefault()
+        alert("Você não pode deletar um chef que tem receitas.")
+    })
+}
+</script>

@@ -32,7 +32,7 @@
     </section>
     <form id='form-delete' action="/admin/recipes?_method=DELETE" method="post">
       <input type="hidden" name="id" value='{{recipe.id}}'>
-      {%include '../../confirm.njk'%}
+      {%include './confirm.njk'%}
     </form>
 
   </div>

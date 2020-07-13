@@ -65,12 +65,27 @@ module.exports = {
 
     },
     edit(req, res) {
-        Chef.find(req.params.id, function(chef) {
-            if (!chef) return res.send("Chef not found")
+        // Chef.find(req.params.id, function(chef) {
+        //     if (!chef) return res.send("Chef not found")
 
-            return res.render("admin/chefs/edit", { chef })
+        //     return res.render("admin/chefs/edit", { chef })
 
+        // })
+
+        Chef.showChef(req.params.id, function(chef, recipes, totalRecipes, chefId) {
+            if (chef.id == null) {
+
+                totalRecipes = 0
+                Chef.find(req.params.id, function(chef) {
+                    if (!chef) return res.send("Chef not found")
+                    return res.render("admin/chefs/edit", { chefId, chef, totalRecipes })
+                })
+            } else {
+                if (!chef) return res.send("Chef not found")
+                return res.render("admin/chefs/edit", { chef, recipes, totalRecipes, chefId })
+            }
         })
+
     },
     put(req, res) {
         const keys = Object.keys(req.body)
