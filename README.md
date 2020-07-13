@@ -27,7 +27,7 @@ FINAL CHALLENGE OF LAUNCHBASE
    <li>Postbird</li>
   <li>Nunjucks template engine. </li> </ul></p>
 
-<p> <strong> What we have so far:</strong> recipes and chefs organized in a database, restrict manager area where recipes and chefs can be created and/or deleted. Filters and pagination on restrict area and non-restrict area. Recipes and chefs on non-restrict area are being populated by the SQL database. </p>
+<p> <strong> What we have so far:</strong> recipes and chefs organized in a database, restrict manager area where recipes and chefs can be created and/or deleted (chefs that have recipes associated with them cant be deleted). Filters and pagination on restrict area and non-restrict area. Recipes and chefs on non-restrict area are being populated by the SQL database. </p>
 <h2> <img src="https://i.dlpng.com/static/png/6577858_preview.png" width="50px" align="center"/> How to use? </h2>
 <p> You need to install <a href="https://nodejs.org/en/">Node.js</a>, <a href="https://www.postgresql.org/">PostgreSQL</a> and <a href="https://www.electronjs.org/apps/postbird">Postbird</a>. </p>
    
