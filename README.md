@@ -7,7 +7,7 @@
 
 <br>  
 <br>
-FINAL CHALLENGE OF LAUNCHBASE
+Final Challenge of Launchbase!
 </h1>
 
 <p align="center">#Fullstack project developed as approval criteria for <a href="https://rocketseat.com.br/">Rocketseat's </a> Launchbase bootcamp. </p>
