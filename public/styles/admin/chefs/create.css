@@ -54,34 +54,11 @@ input {
     border: solid #F3CED6 2px;
 }
 
-textarea {
-    width: 600px;
-    border-radius: 10px;
-    height: 80px;
-    margin-top: 8px;
-    border: solid #F3CED6 2px;
-    font-family: 'Roboto', sans-serif;
-}
-
-input::placeholder,
-textarea::placeholder {
+input::placeholder {
     text-align: left;
     padding: 8px;
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
-}
-
-#ingredients,
-#actions {
-    padding: 10px;
-    font-size: 14px;
-    font-weight: 700;
-}
-
-#ingredients p,
-#actions p {
-    font-size: 14px;
-    font-weight: 700;
 }
 
 
@@ -96,16 +73,35 @@ button[type="submit"] {
     text-align: center;
 }
 
-.add-ingredient,
-.add-action {
-    text-align: center;
-    text-decoration: none;
-    padding: 4px 8px;
+
+/*==IMAGE UPLOAD==*/
+
+form .item #photos-upload {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+form .item #photos-upload p {
+    margin-top: 8px;
+    padding: 8px;
+    border-radius: 5px;
+    width: 80%;
     background-color: #DE7C95;
     color: white;
-    border-radius: 8px;
-    font-size: 12px;
-    margin-left: 10px;
-    margin-top: 4px;
-    margin-bottom: 16px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+#photos-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
 }

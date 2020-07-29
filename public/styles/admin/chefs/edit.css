@@ -26,32 +26,28 @@ h2 {
 }
 
 .top {
-    width: 940px;
+    width: 800px;
     display: flex;
     justify-content: space-evenly;
-    margin-bottom: 16px;
-    margin-left: 12%;
+    margin: 5vh auto;
+    align-items: center;
 }
 
 
 /* == FORM== */
 
 .details {
-    padding: 24px;
     width: 50%;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 5vh 30vw;
 }
 
 .details .item {
     padding: 10px;
     font-size: 14px;
     font-weight: 700;
-}
-
-.title-edit {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 input {
@@ -62,34 +58,9 @@ input {
     border: solid #F3CED6 2px;
 }
 
-textarea {
-    width: 600px;
-    border-radius: 10px;
-    height: 80px;
-    margin-top: 8px;
-    border: solid #F3CED6 2px;
-    font-family: 'Roboto', sans-serif;
-}
-
-input::placeholder,
-textarea::placeholder {
-    text-align: left;
-    padding: 10px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-}
-
-#ingredients,
-#actions {
-    padding: 10px;
-    font-size: 14px;
-    font-weight: 700;
-}
-
-#ingredients p,
-#actions p {
-    font-size: 14px;
-    font-weight: 700;
+.atual input {
+    background-color: #fdfdfd;
+    border: solid #e7dbde 2px;
 }
 
 
@@ -106,22 +77,42 @@ textarea::placeholder {
 
 .save {
     background-color: #5F891A;
-    margin-left: 50px;
+    margin-left: 32px;
 }
 
 .delete {
     background-color: rgb(194, 70, 70);
 }
 
-.add-ingredient,
-.add-action {
-    text-align: center;
-    text-decoration: none;
-    padding: 4px 8px;
+
+/*==IMAGES UPLOAD==*/
+
+form .item #photos-upload {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+form .item #photos-upload p {
+    margin-top: 8px;
+    padding: 8px;
+    border-radius: 5px;
+    width: 80%;
     background-color: #DE7C95;
     color: white;
-    border-radius: 8px;
-    font-size: 12px;
-    margin-left: 10px;
-    margin-top: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+#photos-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
 }

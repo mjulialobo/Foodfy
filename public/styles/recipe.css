@@ -35,13 +35,84 @@ h5 {
     margin-bottom: 5px;
 }
 
-.recipe-img img {
-    border-radius: 10px;
-    margin: 0 auto;
-    width: 940px;
-    height: 50vh;
-    object-fit: cover;
+
+/*FOOD IMAGE GALLERY*/
+
+.gallery {
+    width: 100%;
+}
+
+.highlight>img {
+    width: 100%;
+    height: 280px;
+    object-fit: fill;
     object-position: center;
+    border: 1px solid #efefef;
+    cursor: zoom-in;
+    border-radius: 4px;
+}
+
+.gallery-preview {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.gallery-preview img {
+    height: 100px;
+    width: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+    cursor: pointer;
+    transition: 200ms;
+}
+
+.gallery-preview img:hover,
+.gallery-preview img.active {
+    opacity: 1;
+}
+
+
+/*==FOOD GALLERY - LIGHTBOX ==*/
+
+.highlight .lightbox-target {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .7);
+    overflow: hidden;
+    z-index: 100;
+    top: -100%;
+    left: 0;
+    opacity: 0;
+    transition: opacity 400ms;
+}
+
+.highlight .lightbox-target img {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: white;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, .3);
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+}
+
+.highlight a.lightbox-close {
+    width: 50px;
+    height: 50px;
+    background: white;
+    color: red;
+    position: absolute;
+    top: -80px;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 400ms;
 }
 
 
