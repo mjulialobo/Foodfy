@@ -6,7 +6,7 @@
 {%endblock title%}
 
 {%block links%}
-  <link rel="stylesheet" href="/styles/admin/recipes/edit.css">
+  <link rel="stylesheet" href="/styles/admin/recipes/form.css">
   <link rel="stylesheet" href="/styles/admin/header.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
@@ -17,7 +17,7 @@
 
   <div class="forms">
 
-    <div class="top">
+    <div class="top-edit">
       <h3>Receita:
         {{recipe.title}}</h3>
       <div class="edit-buttons">
@@ -25,7 +25,7 @@
         <button type='submit' form='form-edit' class='save'>Salvar</button>
       </div>
     </div>
-    <form id='form-edit' method='POST' action='/admin/recipes/?_method=PUT'>
+    <form id='form-edit' method='POST' action='/admin/recipes/?_method=PUT'  enctype="multipart/form-data">
       <section class="details">
         {% include 'admin/recipes/fields.njk'%}
 

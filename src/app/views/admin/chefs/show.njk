@@ -18,9 +18,14 @@
      <section class="chef">
 
           <div class="card" id="{{chefId}}">
-               <div class="avatar">
-                    <img src="{{image.src}}" alt="{{image.name}}">
-               </div>
+
+            <div class="avatar">
+                {% if not files[0] %}
+                    <img src="http://placehold.it/500x500?text=CHEF SEM FOTO">
+                {% else %}
+                    <img src="{{files[0].src}}" alt="{{files[0].name}}">
+                {% endif %}
+            </div>
 
                <div class="recipeDetail">
                     <div class="author">
@@ -43,7 +48,7 @@
                          {% for recipe in recipes %}
 
                               <div class="recipe-img">
-                                   <img src="{{recipe.image}}" alt="" class="Image de {{recipe.title}}">
+                              <img src="{{recipe_files[0].src}}" alt="{{recipe_files[0].name}}">
                               </div>
 
                               <div class="recipe-content">
@@ -73,7 +78,7 @@
                               <div class="recipe">
 
                                    <div class="recipe-img">
-                                        <img src="{{recipe.image}}" alt="" class="Image de {{recipe.title}}">
+                                       <img src="{{recipe_files[0].src}}" alt="{{recipe_files[0].name}}">
                                    </div>
 
                                    <div class="recipe-content">

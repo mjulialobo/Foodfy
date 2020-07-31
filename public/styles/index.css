@@ -42,6 +42,10 @@ header img {
     color: #111111;
 }
 
+.header-item:hover {
+    color: #D15B75;
+}
+
 
 /*==HEADER - FILTER==*/
 
@@ -67,6 +71,10 @@ button[type="submit"] {
     font-size: 16px;
     width: 16px;
     margin-left: 2px;
+}
+
+button[type="submit"]:hover {
+    background-color: #1088d8;
 }
 
 header input {

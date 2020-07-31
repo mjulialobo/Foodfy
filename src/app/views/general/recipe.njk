@@ -27,16 +27,6 @@
                     <img src="{{files[0].src}}" alt="{{files[0].name}}" onclick="Lightbox.open()">
                 {% endif %}
 
-                <div class="lightbox-target">
-                    <img src="{{files[0].src}}" alt="{{files[0].name}}">
-                    <a href="#" class="lightbox-close" onclick="Lightbox.close()">
-                        <i class="material-icons">
-                            close
-                        </i>
-                    </a>
-                </div>
-            </div>
-
             <div class="gallery-preview">
 
                 {% for image in files %}

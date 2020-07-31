@@ -4,7 +4,7 @@
 {%endblock title%}
 
 {%block links%}
-    <link rel="stylesheet" href="/styles/admin/recipes/create.css">
+    <link rel="stylesheet" href="/styles/admin/recipes/form.css">
     <link rel="stylesheet" href="/styles/admin/header.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
@@ -12,11 +12,11 @@
 {%endblock links%}
 
 {% block content %}
-    <form class="card" method="POST" action="/admin/recipes">
+    <form class="card" method="POST" action="/admin/recipes"  enctype="multipart/form-data">
         <section class="details">
             <div class="top">
                 <h2>Criando receita</h2>
-                <button type="submit">Salvar</button>
+                <button type="submit" class="save">Salvar</button>
             </div>
             {%include '../recipes/fields.njk'%}
         </section>

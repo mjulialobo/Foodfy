@@ -4,11 +4,7 @@ const Chef = require('../../models/chef')
 
 module.exports = {
     home(req, res) {
-        Recipe.all(function(recipes) {
-            if (!recipes) return res.send("Recipe not found")
-            return res.render("general/index", { recipes })
-
-        })
+        return res.render("general/index")
     },
 
 
@@ -41,13 +37,29 @@ module.exports = {
         }
         Recipe.paginate(params)
     },
-    details(req, res) {
-        Recipe.find(req.params.id, function(recipe) {
-            if (!recipe) return res.send("Recipe not found")
-            return res.render("general/recipe", { recipe })
+    async details(req, res) {
+        try {
+            let results = await Recipe.find(req.params.id)
+            const recipe = results.rows[0]
+            const chef = results.rows
 
-        })
 
+            if (!recipe) {
+                res.send('Recipe not found.')
+            }
+
+            results = await Recipe.files(recipe.id)
+            let files = results.rows
+            files = files.map(file => ({
+                ...file,
+                src: `${req.protocol}://${req.headers.host}${file.path.replace('public', '')}`
+            }))
+
+            return res.render('general/recipe', { recipe, chef, files })
+
+        } catch (err) {
+            console.log(err)
+        }
     },
 
 

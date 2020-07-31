@@ -4,18 +4,18 @@
 {%endblock title%}
 
 {%block links%}
-    <link rel="stylesheet" href="/styles/admin/chefs/create.css">
+    <link rel="stylesheet" href="/styles/admin/chefs/form.css">
     <link rel="stylesheet" href="/styles/admin/header.css">
     <script src="https://kit.fontawesome.com/bcd7f656b1.js" crossorigin="anonymous"></script>
 {%endblock links%}
 
 {% block content %}
-    <form class="card" method="POST" action="/admin/chefs">
+    <form class="card" method="POST" action="/admin/chefs" enctype="multipart/form-data">
         <section class="details">
 
             <div class="top">
                 <h2>Novo chef</h2>
-                <button type="submit">Salvar</button>
+                <button type="submit" class="save">Salvar</button>
             </div>
 
              <div class="item">
@@ -25,7 +25,7 @@
 
             <div class="item">
                 <div id="photos-upload">
-                    <input type="file" name="photos" multiple="multiple" id="photos-input" accept="image/*" onchange="PhotosUpload.handleFileInput(event)">
+                    <input type="file" name="photos" id="photos-input" accept="image/*">
                     <p>Selecione um Avatar</p>
                 </div>
             </div>

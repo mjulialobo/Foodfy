@@ -14,14 +14,20 @@ body {
 }
 
 .edit a {
+    padding: 8px 16px;
     background-color: #52ABF4;
-    padding: 8px 24px;
-    text-decoration: none;
     color: white;
-    border-radius: 4px;
-    font-size: 16px;
-    font-size: 700;
-    margin-left: 100px;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 200ms;
+    margin-left: 200px;
+}
+
+.edit a:hover {
+    background-color: #1088d8;
 }
 
 .chef {
@@ -77,7 +83,7 @@ body {
 }
 
 .recipes {
-    width: 940px;
+    width: 980px;
     margin: 0 auto;
     padding-bottom: 40px;
 }
@@ -91,9 +97,8 @@ body {
 
 .recipes-grid {
     display: grid;
-    width: 950px;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    width: 100%;
+    grid-template-columns: 500px 500px;
 }
 
 .recipes-grid .recipe {

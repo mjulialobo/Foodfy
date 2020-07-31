@@ -105,20 +105,21 @@ if (pagination) {
     createPagination(pagination)
 }
 
-const PhotosUpload = {
+//==UPLOAD IMAGE -RECIPES ==//
+const RecipePhotosUpload = {
     input: "",
     preview: document.querySelector('#photos-preview'),
     uploadLimit: 5,
     files: [],
     handleFileInput(event) {
         const { files: fileList } = event.target
-        PhotosUpload.input = event.target
+        RecipePhotosUpload.input = event.target
 
-        if (PhotosUpload.hasLimit(event)) return
+        if (RecipePhotosUpload.hasLimit(event)) return
 
         Array.from(fileList).forEach(file => {
 
-            PhotosUpload.files.push(file)
+            RecipePhotosUpload.files.push(file)
 
             const reader = new FileReader()
 
@@ -126,17 +127,17 @@ const PhotosUpload = {
                 const image = new Image()
                 image.src = String(reader.result)
 
-                const div = PhotosUpload.getContainer(image)
-                PhotosUpload.preview.appendChild(div)
+                const div = RecipePhotosUpload.getContainer(image)
+                RecipePhotosUpload.preview.appendChild(div)
             }
             reader.readAsDataURL(file)
         })
 
-        PhotosUpload.input.files = PhotosUpload.getAllFiles()
+        RecipePhotosUpload.input.files = RecipePhotosUpload.getAllFiles()
 
     },
     hasLimit(event) {
-        const { uploadLimit, input, preview } = PhotosUpload
+        const { uploadLimit, input, preview } = RecipePhotosUpload
         const { files: fileList } = input
 
         if (fileList.length > uploadLimit) {
@@ -163,7 +164,7 @@ const PhotosUpload = {
     getAllFiles() {
         const dataTransfer = new ClipboardEvent("").clipboardData || new DataTransfer()
 
-        PhotosUpload.files.forEach(file => dataTransfer.items.add(file))
+        RecipePhotosUpload.files.forEach(file => dataTransfer.items.add(file))
 
         return dataTransfer.files
     },
@@ -171,10 +172,10 @@ const PhotosUpload = {
         const div = document.createElement('div')
         div.classList.add('photo')
 
-        div.onclick = PhotosUpload.removePhoto
+        div.onclick = RecipePhotosUpload.removePhoto
         div.appendChild(image)
 
-        div.appendChild(PhotosUpload.getRemoveButton())
+        div.appendChild(RecipePhotosUpload.getRemoveButton())
         return div
 
     },
@@ -186,12 +187,12 @@ const PhotosUpload = {
     },
     removePhoto(event) {
         const photoDiv = event.target.parentNode //<div class="photo">
-        const photosArray = Array.from(PhotosUpload.preview.children)
+        const photosArray = Array.from(RecipePhotosUpload.preview.children)
         const index = photosArray.indexOf(photoDiv)
 
-        PhotosUpload.files.splice(index, 1)
+        RecipePhotosUpload.files.splice(index, 1)
 
-        PhotosUpload.input.files = PhotosUpload.getAllFiles()
+        RecipePhotosUpload.input.files = RecipePhotosUpload.getAllFiles()
 
         photoDiv.remove();
     },
@@ -209,7 +210,9 @@ const PhotosUpload = {
     }
 }
 
-//image gallery//
+//==CHANGE IMAGE CHEF EDIT//
+
+//==IMAGE GALLERY==//
 
 const ImageGallery = {
     highlight: document.querySelector('.gallery .highlight > img'),
@@ -222,27 +225,7 @@ const ImageGallery = {
         target.classList.add('active')
 
         ImageGallery.highlight.src = target.src
-        Lightbox.image.src = target.src
-    }
-
-}
-
-const Lightbox = {
-    target: document.querySelector('.lightbox-target'),
-    image: document.querySelector('.lightbox-target img'),
-    closeButton: document.querySelector('.lightbox-target a.lightbox-close'),
-    open() {
-        Lightbox.target.style.opacity = 1
-        Lightbox.target.style.top = 0
-        Lightbox.target.style.bottom = 0
-        Lightbox.closeButton.style.top = 0
-
-    },
-    close() {
-        Lightbox.target.style.opacity = 0
-        Lightbox.target.style.top = "-100%"
-        Lightbox.target.style.bottom = "initial"
-        Lightbox.closeButton.style.top = "-80px"
 
     }
+
 }

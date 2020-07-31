@@ -23,12 +23,23 @@ body {
 h2 {
     width: 50%;
     margin-bottom: 16px;
+    margin-left: 8px;
 }
 
 .top {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 620px;
+    margin-bottom: 8px;
+}
+
+.top-edit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 620px;
+    margin: 0 32vw;
 }
 
 
@@ -37,7 +48,7 @@ h2 {
 .details {
     padding: 24px;
     width: 50%;
-    margin: 0 auto;
+    margin: 0 30vw;
 }
 
 .details .item {
@@ -61,16 +72,46 @@ input::placeholder {
     font-size: 14px;
 }
 
+.image-name {
+    padding: 8px;
+    border-radius: 5px;
+    width: 80%;
+    background-color: #fdfdfd;
+    border: solid #e7dbde 2px;
+}
+
+.image-name p {
+    color: rgb(119, 119, 119);
+    font-weight: normal;
+}
+
 
 /* ==BUTTONS== */
 
-button[type="submit"] {
-    padding: 4px 24px;
+.save,
+.delete {
+    padding: 8px 16px;
     background-color: #5F891A;
     color: white;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 14px;
     text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: 200ms;
+}
+
+.delete {
+    background-color: #ad1b1b;
+}
+
+.save:hover {
+    background-color: #436113;
+}
+
+.delete:hover {
+    background-color: #811818;
 }
 
 
@@ -80,18 +121,20 @@ form .item #photos-upload {
     position: relative;
     display: block;
     overflow: hidden;
+    width: 85%;
 }
 
 form .item #photos-upload p {
     margin-top: 8px;
     padding: 8px;
     border-radius: 5px;
-    width: 80%;
+    width: 95%;
     background-color: #DE7C95;
     color: white;
     text-align: center;
-    text-transform: uppercase;
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: normal;
+    letter-spacing: 2px;
 }
 
 #photos-input {

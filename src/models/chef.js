@@ -9,84 +9,62 @@ module.exports = {
             callback(results.rows)
         })
     },
-    create(data, callback) {
+    create(data, file_id) {
         const query = `
         INSERT INTO chefs(
             name,
-            avatar_url,
+            file_id,
             created_at
         ) VALUES($1, $2, $3)
         RETURNING id
         `
         const values = [
             data.name,
-            data.avatar_url,
+            file_id,
             date(Date.now()).iso
 
         ]
-        db.query(query, values, function(err, results) {
-            if (err) throw `Database Error! ${err}`
-            callback(results.rows[0])
-        })
+        return db.query(query, values)
 
     },
-    showChef(id, callback) {
-        db.query(` SELECT * FROM chefs
+    showChef(id) {
+        return db.query(` SELECT * FROM chefs
         LEFT JOIN recipes 
         ON (chefs.id = recipes.chef_id)
         WHERE chefs.id = $1
-      `, [id], function(err, results) {
-            if (err) throw `
-                    Database Error!$ { err }
-                    `
-            callback(results.rows[0], results.rows, results.rowCount, id)
-        })
+      `, [id])
     },
-    find(id, callback) {
-        db.query(`SELECT * FROM chefs
-        WHERE chefs.id = $1`, [id], function(err, results) {
-            if (err) throw `Database Error! ${err}`
-            callback(results.rows[0])
-        })
+    find(id) {
+        return db.query('SELECT * FROM chefs WHERE id=$1', [id])
     },
-    findBy(id, callback) {
-        db.query(`
+    findBy(id) {
+        return db.query(`
                     SELECT chefs.*, count(recipes) AS total_recipes FROM chefs 
                     LEFT JOIN recipes ON(chefs.id = recipes.chef_id) WHERE chefs.id=$1
-                    GROUP BY chefs.id ORDER BY total_recipes DESC `, [id], function(err, results) {
-            if (err) throw `
-                    Database Error!$ { err }
-                    `
-            callback(results.rows)
-        })
+                    GROUP BY chefs.id ORDER BY total_recipes DESC `, [id])
     },
-    update(data, callback) {
+    update(data) {
 
         const query = `
-                    UPDATE chefs SET name = ($1),
-                    avatar_url = ($2) WHERE id = $3 `
+            UPDATE chefs SET 
+            name = ($1), 
+            WHERE id = $2 `
         const values = [
             data.name,
-            data.avatar_url,
             data.id
         ]
-        db.query(query, values, function(err, results) {
-            if (err) throw `
-                    Database Error!$ { err }
-                    `
+        return db.query(query, values)
 
-            return callback()
-        })
     },
-    delete(id, callback) {
-        db.query(`
-                    DELETE FROM chefs WHERE id = $1 `, [id], function(err) {
-            if (err) throw `
-                    Database Error!$ { err }
-                    `
-            return callback()
-        })
+    delete(id) {
+        return db.query('DELETE FROM chefs WHERE id=$1', [id])
     },
+    files(id) {
+        return db.query(`
+        SELECT * FROM files WHERE file_id= $1
+        `, [id])
+    },
+
     paginate(params) {
         const { filter, limit, offset, callback } = params
 
@@ -95,6 +73,7 @@ module.exports = {
             totalQuery = `(
                     SELECT count(*) FROM chefs
                     ) AS total`
+
 
         if (filter) {
 
@@ -122,4 +101,5 @@ module.exports = {
             callback(results.rows)
         })
     }
+
 }

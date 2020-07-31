@@ -1,5 +1,8 @@
 const { date } = require("../../lib/utils.js")
 const Chef = require('../../models/chef')
+const File = require('../../models/file')
+const Recipe = require('../../models/recipe')
+const { recipeFiles } = require("../../models/recipe")
 
 module.exports = {
     index(req, res) {
@@ -28,58 +31,116 @@ module.exports = {
     create(req, res) {
         return res.render("admin/chefs/create")
     },
-    post(req, res) {
-        const keys = Object.keys(req.body)
-            //validation
-        for (key of keys) {
-            //same as using req.body.avatar_url
-            if (req.body[key] == "") {
-                return res.send('Please, fill all fields.')
+    async post(req, res) {
+        try {
+            const keys = Object.keys(req.body)
+                //validation
+            for (key of keys) {
+                //same as using req.body.avatar_url
+                if (req.body[key] == "") {
+                    return res.send('Por favor, preencha todos os campos.')
 
+                }
             }
+            if (req.files.length == 0)
+                return res.send("Selecione pelo menos uma imagem")
+
+            const filePromise = req.files.map(file => File.create({...file }))
+            let results = await filePromise[0]
+            const fileId = results.rows[0].id
+
+            results = await Chef.create(req.body, fileId)
+            const chefId = results.rows[0].id
+
+            return res.redirect(`/admin/chefs/${chefId}`)
+        } catch (err) {
+            console.log(err)
         }
-        Chef.create(req.body, function(chef) {
-            return res.redirect(`/admin/chefs/${chef.id}`)
-        })
+    },
+    async show(req, res) {
+        //get chefs and chefs images//
+
+        let results = await Chef.showChef(req.params.id)
+        const chef = results.rows[0]
+        const recipes = results.rows
+        const totalRecipes = results.rowCount
+
+        //Fazer um array que utilize a linha babaixo para buscar o id de cada receita, e usar o array como parametro em RecipesFiles//
+        const recipeId = results.rows[0].id
+
+        let Files = await File.showFiles(chef.file_id)
+        const files = Files.rows.map(file => ({
+            ...file,
+            src: `${req.protocol}://${req.headers.host}${file.path.replace("public", "")}`
+        }))
+
+
+        //get recipes files//
+        //let RecipeResults = await Recipe.find(req.params.id)
+        //const recipe = RecipeResults.rows[0]
+        let RecipeFiles = await File.showRecipeFiles(recipes.id)
+        const recipe_files = RecipeFiles.rows.map(file => ({
+            ...file,
+            src: `${req.protocol}://${req.headers.host}${file.path.replace("public", "")}`
+        }))
+
+
+
+        //condition for chefs with or without recipes//
+
+        if (chef.id == null) {
+            let totalRecipes = 0
+
+            let results = await Chef.find(req.params.id)
+            const chef = results.rows[0]
+            const chefId = results.rows[0].id
+
+            if (!chef) return res.send("Chef não encontrado!")
+
+            return res.render("admin/chefs/show", { chef, totalRecipes, chefId, files })
+
+        } else {
+            if (!chef) return res.send("Chef não encontrado!")
+
+            return res.render("admin/chefs/show", { chef, recipes, totalRecipes, files, recipe_files })
+        }
 
     },
-    show(req, res) {
+    async edit(req, res) {
 
-        Chef.showChef(req.params.id, function(chef, recipes, totalRecipes, chefId) {
-            if (chef.id == null) {
-                totalRecipes = 0
+        let results = await Chef.showChef(req.params.id)
+        const chef = results.rows[0]
+        const recipes = results.rows
+        const totalRecipes = results.rowCount
+        const chefId = results.rows[0].id
 
-                Chef.find(req.params.id, function(chef) {
+        let resultsFiles = await File.showFiles(chef.file_id)
 
-                    if (!chef) return res.send("Chef not found")
+        const files = resultsFiles.rows.map(file => ({
+            ...file,
+            src: `${req.protocol}://${req.headers.host}${file.path.replace("public", "")}`
+        }))
 
-                    return res.render("admin/chefs/show", { chef, totalRecipes, chefId })
-                })
-            } else {
-                if (!chef) return res.send("Chef not found")
 
-                return res.render("admin/chefs/show", { chef, recipes, totalRecipes, chefId })
-            }
+        if (chef.id == null) {
+            let totalRecipes = 0
 
-        })
+            let results = await Chef.find(req.params.id)
+            const chef = results.rows[0]
+            const chefId = results.rows[0].id
 
-    },
-    edit(req, res) {
-        Chef.showChef(req.params.id, function(chef, recipes, totalRecipes, chefId) {
-            if (chef.id == null) {
+            if (!chef) return res.send("Chef não encontrado!")
 
-                totalRecipes = 0
-                Chef.find(req.params.id, function(chef) {
-                    if (!chef) return res.send("Chef not found")
-                    return res.render("admin/chefs/edit", { chefId, chef, totalRecipes })
-                })
-            } else {
-                if (!chef) return res.send("Chef not found")
-                return res.render("admin/chefs/edit", { chef, recipes, totalRecipes, chefId })
-            }
-        })
+            return res.render("admin/chefs/edit", { chef, totalRecipes, chefId, files })
+
+        } else {
+            if (!chef) return res.send("Chef não encontrado!")
+
+            return res.render("admin/chefs/edit", { chef, recipes, totalRecipes, chefId, files })
+        }
 
     },
+
     put(req, res) {
         const keys = Object.keys(req.body)
             //validation
@@ -95,10 +156,10 @@ module.exports = {
             return res.redirect(`/admin/chefs/${req.body.id}`)
         })
     },
-    delete(req, res) {
-        Chef.delete(req.body.id, function() {
-            return res.redirect(`/admin/chefs`)
-        })
-    },
+    async delete(req, res) {
+        await Chef.delete(req.body.id)
+
+        return res.redirect('/admin/chefs')
+    }
 
 }

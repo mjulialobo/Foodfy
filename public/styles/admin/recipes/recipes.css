@@ -35,14 +35,20 @@ body {
 
 .top a {
     background-color: #52ABF4;
-    padding: 8px 24px;
+    padding: 8px 16px;
     text-decoration: none;
     color: white;
     border-radius: 4px;
-    font-size: 16px;
-    font-size: 700;
-    width: 110px;
+    font-size: 14px;
+    width: 150px;
     text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 200ms;
+}
+
+.top a:hover {
+    background-color: #1088d8;
 }
 
 button[type="submit"] {
@@ -56,6 +62,11 @@ button[type="submit"] {
     font-size: 16px;
     width: 16px;
     margin-left: 2px;
+    transition: 200ms;
+}
+
+button[type="submit"]:hover {
+    background-color: #1088d8;
 }
 
 .top input {
@@ -89,24 +100,23 @@ button[type="submit"] {
 
 .recipes-grid {
     display: grid;
-    width: 950px;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-.recipes-grid .recipe-img img {
-    height: 100px;
-    width: 250px;
-    border-radius: 8px;
-    object-fit: cover;
-    object-position: center;
-    margin: 0;
+    width: 100%;
+    grid-template-columns: 500px 500px;
 }
 
 .recipes-grid .recipe {
     display: grid;
     grid-template-columns: auto 1fr;
     grid-gap: 20px;
+}
+
+.recipes-grid .recipe-img img {
+    height: 120px;
+    width: 250px;
+    border-radius: 8px;
+    object-fit: cover;
+    object-position: center;
+    margin: 0;
 }
 
 .recipe-content {
@@ -126,6 +136,11 @@ button[type="submit"] {
     text-decoration: none;
     color: #D15B75;
     border-radius: 8px;
+    transition: 200ms;
+}
+
+.show_more a:hover {
+    color: #1583e9;
 }
 
 

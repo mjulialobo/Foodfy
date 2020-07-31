@@ -7,7 +7,7 @@
 {%endblock title%}
 
 {%block links%}
-    <link rel="stylesheet" href="/styles/admin/chefs/edit.css">
+    <link rel="stylesheet" href="/styles/admin/chefs/form.css">
     <link rel="stylesheet" href="/styles/admin/header.css">
     <script src="https://kit.fontawesome.com/bcd7f656b1.js" crossorigin="anonymous"></script>
 {%endblock links%}
@@ -16,7 +16,7 @@
 
     <div class="forms">
 
-        <div class="top">
+        <div class="top-edit">
             <h3>Editando Chef:
                 {{chef.name}}</h3>
             <div class="edit-buttons">
@@ -24,7 +24,7 @@
                 <button type='submit' form='form-edit' class='save'>Salvar</button>
             </div>
         </div>
-        <form id='form-edit' method='POST' action='/admin/chefs/?_method=PUT'>
+        <form id='form-edit' method='POST' action='/admin/chefs/?_method=PUT' enctype="multipart/form-data">
 
             <section class="details">
 
@@ -34,11 +34,16 @@
                 </div>
 
                 <div class="item">
-                    <div class="atual">
-                        <input type="text" disabled="disabled" value="vai entrar imagem">
+                    <div class="image-name">
+                        {% if not files[0] %}
+                            <p>Não possui foto selecionada</p>
+                        {% else %}
+                            <p>{{files[0].name}}</p>
+                        {% endif %}
+
                     </div>
                     <div id="photos-upload">
-                        <input type="file" name="photos" multiple="multiple" id="photos-input" accept="image/*" onchange="PhotosUpload.handleFileInput(event)">
+                        <input type="file" name="photos" id="photos-input" accept="image/*">
                         <p>Selecione um novo Avatar</p>
                     </div>
                 </div>

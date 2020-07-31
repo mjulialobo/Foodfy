@@ -27,13 +27,22 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        width: 620px;
+    }
+    
+    .top-edit {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 620px;
+        margin: 0 32vw;
     }
     /*==FORM==*/
     
     .details {
         padding: 24px;
         width: 50%;
-        margin: 0 auto;
+        margin: 0 30vw;
     }
     
     .details .item {
@@ -84,14 +93,32 @@
         font-size: 14px;
         font-weight: 700;
     }
+    /*==BUTTONS==*/
     
-    button[type="submit"] {
-        padding: 4px 24px;
+    .save,
+    .delete {
+        padding: 8px 16px;
         background-color: #5F891A;
         color: white;
         border-radius: 5px;
-        font-size: 16px;
+        font-size: 14px;
         text-align: center;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 1px;
+        transition: 200ms;
+    }
+    
+    .delete {
+        background-color: #ad1b1b;
+    }
+    
+    .save:hover {
+        background-color: #436113;
+    }
+    
+    .delete:hover {
+        background-color: #811818;
     }
     
     .add-ingredient,
@@ -123,6 +150,7 @@
     
     form .item #photos-upload {
         margin-top: 8px;
+        margin-right: 8px;
         position: relative;
         display: block;
         overflow: hidden;

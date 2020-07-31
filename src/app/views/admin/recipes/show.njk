@@ -1,6 +1,7 @@
 {% extends "../layout.njk" %}
 {%block title%}
-  <title> Gerenciar Receita</title>
+  <title>
+    Gerenciar Receita</title>
 {%endblock title%}
 
 {%block links%}
@@ -22,33 +23,27 @@
         </div>
 
       </div>
-       <div class="gallery">
-            <div class="highlight">
-                {% if not files[0] %}
-                    <img src="http://placehold.it/500x500?text=PRODUTO SEM FOTO">
-                {% else %}
-                    <img src="{{files[0].src}}" alt="{{files[0].name}}" onclick="Lightbox.open()">
-                {% endif %}
+      <div class="gallery">
 
-                <div class="lightbox-target">
-                    <img src="{{files[0].src}}" alt="{{files[0].name}}">
-                    <a href="#" class="lightbox-close" onclick="Lightbox.close()">
-                        <i class="material-icons">
-                            close
-                        </i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="gallery-preview">
-
-                {% for image in files %}
-
-                    <img src="{{image.src}}" alt="{{image.name}}"{%if loop.index0 == 0 %} class="active" {%endif%} onclick="ImageGallery.setImage(event)">
-
-                {% endfor %}
-            </div>
+        <div class="highlight">
+          {% if not files[0] %}
+            <img src="http://placehold.it/500x500?text=RECEITA SEM FOTO">
+          {% else %}
+            <img src="{{files[0].src}}" alt="{{files[0].name}}" onclick="Lightbox.open()">
+          {% endif %}
         </div>
+        <div class="preview">
+          <div class="gallery-preview">
+
+            {% for image in files %}
+
+              <img src="{{image.src}}" alt="{{image.name}}" {%if loop.index0 == 0 %} class="active" {%endif%} onclick="ImageGallery.setImage(event)">
+
+            {% endfor %}
+          </div>
+        </div>
+
+      </div>
 
       <div class="recipe-info">
         <div>
@@ -90,5 +85,6 @@
 
         </section>
       </div>
-      <script src="/scripts/admin-features.js"></script>
-    {% endblock content %}
+    </div>
+    <script src="/scripts/admin-features.js"></script>
+  {% endblock content %}
