@@ -65,8 +65,6 @@ module.exports = {
         const recipes = results.rows
         const totalRecipes = results.rowCount
 
-        //Fazer um array que utilize a linha babaixo para buscar o id de cada receita, e usar o array como parametro em RecipesFiles//
-        const recipeId = results.rows[0].id
 
         let Files = await File.showFiles(chef.file_id)
         const files = Files.rows.map(file => ({
@@ -74,10 +72,6 @@ module.exports = {
             src: `${req.protocol}://${req.headers.host}${file.path.replace("public", "")}`
         }))
 
-
-        //get recipes files//
-        //let RecipeResults = await Recipe.find(req.params.id)
-        //const recipe = RecipeResults.rows[0]
         let RecipeFiles = await File.showRecipeFiles(recipes.id)
         const recipe_files = RecipeFiles.rows.map(file => ({
             ...file,
