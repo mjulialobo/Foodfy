@@ -14,9 +14,9 @@
 
 {%block content%}
 
-    <div class="forms">
+    <section>
 
-        <div class="top-edit">
+        <div class="form-header-edit">
             <h3>Editando Chef:
                 {{chef.name}}</h3>
             <div class="edit-buttons">
@@ -26,7 +26,7 @@
         </div>
         <form id='form-edit' method='POST' action='/admin/chefs/?_method=PUT' enctype="multipart/form-data">
 
-            <section class="details">
+            <div class="details">
 
                 <div class="item">
                     <div>Nome do chef</div>
@@ -50,12 +50,13 @@
 
                 <input type="hidden" name='id' value="{{chef.id}}">
             </form>
-        </section>
+        </div>
+
         <form id='form-delete' action="/admin/chefs?_method=DELETE" method="post">
             <input type="hidden" name="id" value='{{chef.id}}'>
             {%include './confirm.njk'%}
         </form>
 
-    </div>
+    </section>
     <script src="/scripts/admin-features.js"></script>
 {% endblock %}

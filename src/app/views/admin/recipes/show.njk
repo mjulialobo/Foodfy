@@ -11,9 +11,10 @@
 {%endblock links%}
 
 {% block content %}
-  <div class="card">
-    <section class="details">
-      <div class="top">
+  <section class="card">
+
+    <div class="details">
+      <div class="recipe-header">
         <h3>Receita:
           {{recipe.title}}</h3>
 
@@ -23,6 +24,7 @@
         </div>
 
       </div>
+
       <div class="gallery">
 
         <div class="highlight">
@@ -32,6 +34,7 @@
             <img src="{{files[0].src}}" alt="{{files[0].name}}" onclick="Lightbox.open()">
           {% endif %}
         </div>
+
         <div class="preview">
           <div class="gallery-preview">
 
@@ -46,18 +49,22 @@
       </div>
 
       <div class="recipe-info">
+
         <div>
           <h2>{{recipe.title}}</h2>
         </div>
+
         <div>
           <p>{{recipe.chef_name}}
             <p></div>
+
           </div>
 
-          <div class="recipe-description">
+          <div class="recipe-ingredients">
             <div>
               <h3>Ingredientes</h3>
             </div>
+
             <ul>
               {% for ingredient in recipe.ingredients %}
                 <li>{{ingredient}}</li>
@@ -65,10 +72,11 @@
             </ul>
           </div>
 
-          <div class="recipe-description">
+          <div class="recipe-preparation">
             <div>
               <h3>Modo de preparo</h3>
             </div>
+
             <ul>
               {% for step in recipe.preparation %}
                 <li>{{step}}</li>
@@ -76,15 +84,19 @@
             </ul>
           </div>
 
-          <div class="recipe-description">
+          <div class="recipe-information">
+
             <h3>Informações extras</h3>
+
             <div>
               <p>{{recipe.information}}</p>
             </div>
+
           </div>
 
-        </section>
+        </div>
       </div>
     </div>
-    <script src="/scripts/admin-features.js"></script>
-  {% endblock content %}
+  </section>
+  <script src="/scripts/admin-features.js"></script>
+{% endblock content %}

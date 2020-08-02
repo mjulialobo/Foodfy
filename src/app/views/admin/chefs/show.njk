@@ -19,13 +19,13 @@
 
           <div class="card" id="{{chefId}}">
 
-            <div class="avatar">
-                {% if not files[0] %}
-                    <img src="http://placehold.it/500x500?text=CHEF SEM FOTO">
-                {% else %}
-                    <img src="{{files[0].src}}" alt="{{files[0].name}}">
-                {% endif %}
-            </div>
+               <div class="avatar">
+                    {% if not files[0] %}
+                         <img src="http://placehold.it/500x500?text=CHEF SEM FOTO">
+                    {% else %}
+                         <img src="{{files[0].src}}" alt="{{files[0].name}}">
+                    {% endif %}
+               </div>
 
                <div class="recipeDetail">
                     <div class="author">
@@ -42,13 +42,44 @@
                     </div>
                </div>
           </div>
-          {% if totalRecipes == 1 %}
-               <section class="only_recipe">
-                    <div class="one_recipe">
-                         {% for recipe in recipes %}
+     </section>
+
+     {% if totalRecipes == 1 %}
+          <section class="only_recipe">
+               <div class="one_recipe">
+                    {% for recipe in recipes %}
+
+                         <div class="recipe-img">
+                              <img src="{{recipe_files[0].src}}" alt="{{recipe_files[0].name}}">
+                         </div>
+
+                         <div class="recipe-content">
+                              <h3>{{recipe.title}}</h3>
+
+                              <div class="recipe-chef">
+                                   <p>
+                                        por
+                                        {{chef.name}}
+                                   </p>
+                              </div>
+
+                              <div class="show_more">
+                                   <a href="/admin/recipes/{{recipe.id}}">Visualizar</a>
+                              </div>
+                         </div>
+                    {% endfor %}
+               </div>
+          </section>
+     {% else %}
+
+          <section class="recipes">
+               <div class="recipes-grid">
+                    {% for recipe in recipes %}
+
+                         <div class="recipe">
 
                               <div class="recipe-img">
-                              <img src="{{recipe_files[0].src}}" alt="{{recipe_files[0].name}}">
+                                   <img src="{{recipe_files[0].src}}" alt="{{recipe_files[0].name}}">
                               </div>
 
                               <div class="recipe-content">
@@ -64,40 +95,10 @@
                                    <div class="show_more">
                                         <a href="/admin/recipes/{{recipe.id}}">Visualizar</a>
                                    </div>
+
                               </div>
-                         {% endfor %}
-                    </div>
+                         </div>
+                    {% endfor %}
                </section>
-               {%else%}
-
-               <div class="recipe"></div>
-               <section class="recipes">
-                    <div class="recipes-grid">
-                         {% for recipe in recipes %}
-
-                              <div class="recipe">
-
-                                   <div class="recipe-img">
-                                       <img src="{{recipe_files[0].src}}" alt="{{recipe_files[0].name}}">
-                                   </div>
-
-                                   <div class="recipe-content">
-                                        <h3>{{recipe.title}}</h3>
-
-                                        <div class="recipe-chef">
-                                             <p>
-                                                  por
-                                                  {{chef.name}}
-                                             </p>
-                                        </div>
-
-                                        <div class="show_more">
-                                             <a href="/admin/recipes/{{recipe.id}}">Visualizar</a>
-                                        </div>
-
-                                   </div>
-                              </div>
-                         {% endfor %}
-                    </section>
-                    {%endif%}
-               {% endblock content %}
+          {% endif %}
+     {% endblock content %}

@@ -1,6 +1,7 @@
 {%extends "../general/layout.njk"%}
 {%block title%}
-     <title>Chef {{chef.name}}</title>
+     <title>Chef
+          {{chef.name}}</title>
 {%endblock title%}
 
 {%block links%}
@@ -32,10 +33,39 @@
                     </div>
                </div>
           </div>
-         {% if totalRecipes == 1 %}
-               <section class="only_recipe">
-                    <div class="one_recipe">
-                         {% for recipe in recipes %}
+     </section>
+     {% if totalRecipes == 1 %}
+          <section class="only_recipe">
+               <div class="one_recipe">
+                    {% for recipe in recipes %}
+
+                         <div class="recipe-img">
+                              <img src="{{recipe.image}}" alt="" class="Image de {{recipe.title}}">
+                         </div>
+
+                         <div class="recipe-content">
+                              <h3>{{recipe.title}}</h3>
+
+                              <div class="recipe-chef">
+                                   <p>
+                                        por
+                                        {{chef.name}}
+                                   </p>
+                              </div>
+
+                              <div class="show_more">
+                                   <a href="/recipe/{{recipe.id}}">Visualizar</a>
+                              </div>
+                         </div>
+                    {% endfor %}
+               </div>
+          </section>
+     {% else %}
+          <section class="recipes">
+               <div class="recipes-grid">
+                    {% for recipe in recipes %}
+
+                         <div class="recipe">
 
                               <div class="recipe-img">
                                    <img src="{{recipe.image}}" alt="" class="Image de {{recipe.title}}">
@@ -54,40 +84,11 @@
                                    <div class="show_more">
                                         <a href="/recipe/{{recipe.id}}">Visualizar</a>
                                    </div>
+
                               </div>
-                         {% endfor %}
-                    </div>
-               </section>
-               {%else%}
-
-               <div class="recipe"></div>
-               <section class="recipes">
-                    <div class="recipes-grid">
-                         {% for recipe in recipes %}
-
-                              <div class="recipe">
-
-                                   <div class="recipe-img">
-                                        <img src="{{recipe.image}}" alt="" class="Image de {{recipe.title}}">
-                                   </div>
-
-                                   <div class="recipe-content">
-                                        <h3>{{recipe.title}}</h3>
-
-                                        <div class="recipe-chef">
-                                             <p>
-                                                  por
-                                                  {{chef.name}}
-                                             </p>
-                                        </div>
-
-                                        <div class="show_more">
-                                             <a href="/recipe/{{recipe.id}}">Visualizar</a>
-                                        </div>
-
-                                   </div>
-                              </div>
-                         {% endfor %}
-                    </section>
-                    {%endif%}
-          {% endblock content %}
+                         </div>
+                    {% endfor %}
+               </div>
+          </section>
+     {% endif %}
+{% endblock content %}

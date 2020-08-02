@@ -11,9 +11,9 @@
 
 {% block content %}
     <form class="card" method="POST" action="/admin/chefs" enctype="multipart/form-data">
-        <section class="details">
+        <div class="details">
 
-            <div class="top">
+            <div class="form-header">
                 <h2>Novo chef</h2>
                 <button type="submit" class="save">Salvar</button>
             </div>
@@ -30,6 +30,6 @@
                 </div>
             </div>
 
-        </section>
+        </div>
     </form>
 {% endblock content %}

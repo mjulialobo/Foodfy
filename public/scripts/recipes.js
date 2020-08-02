@@ -1,3 +1,4 @@
+//==HIDE AND SHOW INGREDIENTS RECIPE==//
 const recipes = document.querySelectorAll('.recipe')
 
 for (let recipe of recipes) {
