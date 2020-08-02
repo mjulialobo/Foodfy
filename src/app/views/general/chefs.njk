@@ -10,43 +10,46 @@
 {%endblock links%}
 
 {% block content %}
-     <div class="top">
-          <form action="/chefs" method="GET">
-               <input type="text" name="filter" placeholder="Nome do chef" value="{{filter}}">
-               <button type="submit"></button>
-          </form>
-     </div>
-     <section class="chefs">
-          {%for chef in chefs%}
-               <div class="card" id="{{chef.id}}">
-                    <div class="avatar">
-                         <img src="{{chef.avatar_url}}">
-                    </div>
-                    <div class="content">
-                         <div class="name">
-                              <h4>
-                                   <a href="/chef/{{chef.id}}">{{chef.name}}</a>
-                              </h4>
+     <section>
+          <div class="chefs-header-buttons">
+               <form action="/chefs" method="GET">
+                    <input type="text" name="filter" placeholder="Nome do chef" value="{{filter}}">
+                    <button type="submit"></button>
+               </form>
+          </div>
+          
+          <div class="chefs">
+               {%for chef in chefs%}
+                    <div class="card" id="{{chef.id}}">
+                         <div class="avatar">
+                              <img src="{{chef.avatar_url}}">
                          </div>
-                         <div class="total_recipes">
-                              <p>
-                                   {% if chef.total_recipes > 1 %}{{chef.total_recipes}}
-                                        receitas{% endif %}
-                                   {% if chef.total_recipes == 0 %}0 receitas
-                                   {% endif %}
-                                   {% if chef.total_recipes == 1 %}{{chef.total_recipes}}
-                                        receita
-                                   {% endif %}
-                              </p>
+                         <div class="content">
+                              <div class="name">
+                                   <h4>
+                                        <a href="/chef/{{chef.id}}">{{chef.name}}</a>
+                                   </h4>
+                              </div>
+                              <div class="total_recipes">
+                                   <p>
+                                        {% if chef.total_recipes > 1 %}{{chef.total_recipes}}
+                                             receitas{% endif %}
+                                        {% if chef.total_recipes == 0 %}0 receitas
+                                        {% endif %}
+                                        {% if chef.total_recipes == 1 %}{{chef.total_recipes}}
+                                             receita
+                                        {% endif %}
+                                   </p>
+                              </div>
                          </div>
+
                     </div>
+               {% endfor %}
+          </div>
 
-               </div>
-               {%endfor%}
+     </section>
 
-          </section>
+     <div class="pagination" data-page="{{pagination.page}}" data-total="{{pagination.total}}" data-filter="{{filter}}"></div>
 
-          <div class="pagination" data-page="{{pagination.page}}" data-total="{{pagination.total}}" data-filter="{{filter}}"></div>
-
-          <script src="/scripts/admin-features.js"></script>
-     {% endblock content %}
+     <script src="/scripts/admin-features.js"></script>
+{% endblock content %}

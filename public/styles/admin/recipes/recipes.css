@@ -19,7 +19,7 @@ body {
 
 /*==NEW RECIPE AND FILTER==*/
 
-.top {
+.recipes-header-buttons {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
@@ -27,13 +27,13 @@ body {
     margin: 5vh auto;
 }
 
-.top form {
+.recipes-header-buttons form {
     display: grid;
     grid-template-columns: 1fr 80px;
     align-items: center;
 }
 
-.top a {
+.recipes-header-buttons a {
     background-color: #52ABF4;
     padding: 8px 16px;
     text-decoration: none;
@@ -47,7 +47,7 @@ body {
     transition: 200ms;
 }
 
-.top a:hover {
+.recipes-header-buttons a:hover {
     background-color: #1088d8;
 }
 
@@ -69,7 +69,7 @@ button[type="submit"]:hover {
     background-color: #1088d8;
 }
 
-.top input {
+.recipes-header-buttons input {
     border: solid #d9e3fb;
     padding: 8px;
     border-radius: 10px;

@@ -20,3 +20,7 @@ header img {
     text-decoration: none;
     color: #111111;
 }
+
+.header-item:hover {
+    color: #D15B75;
+}

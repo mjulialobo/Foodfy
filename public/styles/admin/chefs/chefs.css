@@ -19,7 +19,7 @@ body {
 
 /*==FILTER AND NEW CHEF==*/
 
-.top {
+.chefs-header-buttons {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
@@ -27,13 +27,13 @@ body {
     margin: 5vh auto;
 }
 
-.top form {
+.chefs-header-buttons form {
     display: grid;
     grid-template-columns: 1fr 80px;
     align-items: center;
 }
 
-.top a {
+.chefs-header-buttons a {
     background-color: #52ABF4;
     padding: 8px 16px;
     text-decoration: none;
@@ -47,7 +47,7 @@ body {
     transition: 200ms;
 }
 
-.top a:hover {
+.chefs-header-buttons a:hover {
     background-color: #1088d8;
 }
 
@@ -69,7 +69,7 @@ button[type="submit"]:hover {
     background-color: #1088d8;
 }
 
-.top input {
+.chefs-header-buttons input {
     border: solid #d9e3fb;
     padding: 8px;
     border-radius: 10px;
@@ -90,7 +90,7 @@ button[type="submit"]:hover {
     margin: auto;
     padding-bottom: 40px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
 }
 
 .card {

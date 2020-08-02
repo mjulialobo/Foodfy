@@ -6,20 +6,21 @@
 {%block links%}
     <link rel="stylesheet" href="/styles/admin/recipes/form.css">
     <link rel="stylesheet" href="/styles/admin/header.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://kit.fontawesome.com/bcd7f656b1.js" crossorigin="anonymous"></script>
 {%endblock links%}
 
 {% block content %}
-    <form class="card" method="POST" action="/admin/recipes"  enctype="multipart/form-data">
-        <section class="details">
-            <div class="top">
-                <h2>Criando receita</h2>
-                <button type="submit" class="save">Salvar</button>
+    <section id="recipe-form">
+        <form class="card" method="POST" action="/admin/recipes" enctype="multipart/form-data">
+            <div class="details">
+                <div class="form-header">
+                    <h2>Criando receita</h2>
+                    <button type="submit" class="save">Salvar</button>
+                </div>
+                {%include '../recipes/fields.njk'%}
             </div>
-            {%include '../recipes/fields.njk'%}
-        </section>
-    </form>
+        </form>
+    </section>
     <script src="/scripts/admin-features.js"></script>
 {% endblock content %}

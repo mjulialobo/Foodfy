@@ -13,20 +13,23 @@
 
 {% block content %}
 
-  <div class="top">
-    <form action="/recipes" method="GET">
-      <input type="text" name="filter" placeholder="Nome da receita" value="{{filter}}">
-      <button type="submit"></button>
-    </form>
-  </div>
+  <section>
+    <div class="recipes-header-buttons">
+      <form action="/recipes" method="GET">
+        <input type="text" name="filter" placeholder="Nome da receita" value="{{filter}}">
+        <button type="submit"></button>
+      </form>
+    </div>
 
-  <section class="recipes">
-    <div class="recipes-grid">
-      {% for recipe in recipes %}
+    <div class="recipes">
+      <div class="recipes-grid">
 
-        <div class="recipe" name="id" value="{{recipe.id}}">
-          <div class="recipe-img">
-            <img src="{{recipe.image}}" alt="Image de {{recipe.title}}">
+        {% for recipe in recipes %}
+
+          <div class="recipe" name="id" value="{{recipe.id}}">
+            <div class="recipe-img">
+              <img src="{{recipe.image}}" alt="Image de {{recipe.title}}">
+            </div>
           </div>
 
           <div class="recipe-content">
@@ -47,14 +50,15 @@
                 {% endif %}
               </p>
             </div>
-
           </div>
-        </div>
+        {% endfor %}
 
-      {% endfor %}
+      </div>
 
     </section>
+
     <div class="pagination" data-page="{{pagination.page}}" data-total="{{pagination.total}}" data-filter="{{filter}}"></div>
+
     <script src="/scripts/recipes.js"></script>
 
   {% endblock content %}
