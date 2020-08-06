@@ -35,10 +35,10 @@
 
                 <div class="item">
                     <div class="image-name">
-                        {% if not files[0] %}
+                        {% if not avatar[0] %}
                             <p>Não possui foto selecionada</p>
                         {% else %}
-                            <p>{{files[0].name}}</p>
+                            <p>{{avatar[0].src}}</p>
                         {% endif %}
 
                     </div>

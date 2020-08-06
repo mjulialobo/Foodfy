@@ -12,20 +12,14 @@
 
 {% block content %}
      <div class="edit">
-          <a href="/admin/chefs/{{chefId}}/edit">
+          <a href="/admin/chefs/{{chef.id}}/edit">
                Editar</a>
      </div>
      <section class="chef">
 
-          <div class="card" id="{{chefId}}">
+          <div class="card" id="{{chef.id}}">
 
-               <div class="avatar">
-                    {% if not files[0] %}
-                         <img src="http://placehold.it/500x500?text=CHEF SEM FOTO">
-                    {% else %}
-                         <img src="{{files[0].src}}" alt="{{files[0].name}}">
-                    {% endif %}
-               </div>
+               <div class="avatar" style="background-image: url('{{chefAvatar.path if chefAvatar.path else '//placehold.it/500X360?text=Sem Imagem'}}')"></div>
 
                <div class="recipeDetail">
                     <div class="author">
@@ -33,11 +27,14 @@
                     </div>
                     <div class="total_recipes">
                          <p>
-                              {% if totalRecipes > 1 %}{{totalRecipes}}
-                                   receitas cadastradas{% endif %}
-                              {% if totalRecipes == 0 %}Nenhuma receita cadastrada{% endif %}
-                              {% if totalRecipes == 1 %}{{totalRecipes}}
-                                   receita cadastrada{% endif %}
+                              {% if chef.total_recipes == 1 %}
+                                   Uma receita cadastrada
+                              {% elif chef.total_recipes > 1%}
+                                   {{chef.total_recipes}}
+                                   Receitas cadastradas
+                              {% else %}
+                                   Nenhuma receita cadastrada
+                              {% endif %}
                          </p>
                     </div>
                </div>
@@ -50,7 +47,7 @@
                     {% for recipe in recipes %}
 
                          <div class="recipe-img">
-                              <img src="{{recipe_files[0].src}}" alt="{{recipe_files[0].name}}">
+                              <img src="{{recipe.image}}" alt="imagem de {{recipe.title}}">
                          </div>
 
                          <div class="recipe-content">
@@ -72,14 +69,14 @@
           </section>
      {% else %}
 
-          <section class="recipes">
+            <section class="recipes">
                <div class="recipes-grid">
                     {% for recipe in recipes %}
 
                          <div class="recipe">
 
                               <div class="recipe-img">
-                                   <img src="{{recipe_files[0].src}}" alt="{{recipe_files[0].name}}">
+                                   <img src="{{recipe.image}}" alt="imagem de {{recipe.title}}">
                               </div>
 
                               <div class="recipe-content">
@@ -98,7 +95,9 @@
 
                               </div>
                          </div>
+
                     {% endfor %}
-               </section>
-          {% endif %}
-     {% endblock content %}
+               </div>
+          </section>
+     {% endif %}
+{% endblock content %}

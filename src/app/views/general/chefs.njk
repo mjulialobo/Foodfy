@@ -18,28 +18,15 @@
                </form>
           </div>
           
-          <div class="chefs">
+              <div class="chefs">
                {%for chef in chefs%}
                     <div class="card" id="{{chef.id}}">
                          <div class="avatar">
-                              <img src="{{chef.avatar_url}}">
+                              <img src="{{ chef.image}}">
                          </div>
                          <div class="content">
                               <div class="name">
-                                   <h4>
-                                        <a href="/chef/{{chef.id}}">{{chef.name}}</a>
-                                   </h4>
-                              </div>
-                              <div class="total_recipes">
-                                   <p>
-                                        {% if chef.total_recipes > 1 %}{{chef.total_recipes}}
-                                             receitas{% endif %}
-                                        {% if chef.total_recipes == 0 %}0 receitas
-                                        {% endif %}
-                                        {% if chef.total_recipes == 1 %}{{chef.total_recipes}}
-                                             receita
-                                        {% endif %}
-                                   </p>
+                                   <a href="/chef/{{chef.id}}"><h4>{{chef.name}}</h4></a>
                               </div>
                          </div>
 
@@ -50,6 +37,5 @@
      </section>
 
      <div class="pagination" data-page="{{pagination.page}}" data-total="{{pagination.total}}" data-filter="{{filter}}"></div>
-
      <script src="/scripts/admin-features.js"></script>
 {% endblock content %}

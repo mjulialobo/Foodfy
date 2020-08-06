@@ -13,10 +13,9 @@
 {% block content %}
      <section class="chef">
 
-          <div class="card" id="{{chef.chef_id}}">
-               <div class="avatar">
-                    <img src="{{chef.avatar_url}}">
-               </div>
+          <div class="card" id="{{chef.id}}">
+
+               <div class="avatar" style="background-image: url('{{chefAvatar.path if chefAvatar.path else '//placehold.it/500X360?text=Sem Imagem'}}')"></div>
 
                <div class="recipeDetail">
                     <div class="author">
@@ -24,23 +23,27 @@
                     </div>
                     <div class="total_recipes">
                          <p>
-                              {% if totalRecipes > 1 %}{{totalRecipes}}
-                                   receitas cadastradas{% endif %}
-                              {% if totalRecipes == 0 %}Nenhuma receita cadastrada{% endif %}
-                              {% if totalRecipes == 1 %}{{totalRecipes}}
-                                   receita cadastrada{% endif %}
+                              {% if chef.total_recipes == 1 %}
+                                   Uma receita cadastrada
+                              {% elif chef.total_recipes > 1%}
+                                   {{chef.total_recipes}}
+                                   Receitas cadastradas
+                              {% else %}
+                                   Nenhuma receita cadastrada
+                              {% endif %}
                          </p>
                     </div>
                </div>
           </div>
      </section>
+
      {% if totalRecipes == 1 %}
           <section class="only_recipe">
                <div class="one_recipe">
                     {% for recipe in recipes %}
 
                          <div class="recipe-img">
-                              <img src="{{recipe.image}}" alt="" class="Image de {{recipe.title}}">
+                              <img src="{{recipe.image}}" alt="imagem de {{recipe.title}}">
                          </div>
 
                          <div class="recipe-content">
@@ -54,13 +57,14 @@
                               </div>
 
                               <div class="show_more">
-                                   <a href="/recipe/{{recipe.id}}">Visualizar</a>
+                                   <a href="/admin/recipes/{{recipe.id}}">Visualizar</a>
                               </div>
                          </div>
                     {% endfor %}
                </div>
           </section>
      {% else %}
+
           <section class="recipes">
                <div class="recipes-grid">
                     {% for recipe in recipes %}
@@ -68,7 +72,7 @@
                          <div class="recipe">
 
                               <div class="recipe-img">
-                                   <img src="{{recipe.image}}" alt="" class="Image de {{recipe.title}}">
+                                   <img src="{{recipe.image}}" alt="imagem de {{recipe.title}}">
                               </div>
 
                               <div class="recipe-content">
@@ -87,6 +91,7 @@
 
                               </div>
                          </div>
+
                     {% endfor %}
                </div>
           </section>

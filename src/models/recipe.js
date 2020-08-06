@@ -1,8 +1,16 @@
 const db = require('../app/config/db')
 const { date } = require("../lib/utils")
 module.exports = {
-    all() {
-        return db.query(`SELECT * FROM recipes`)
+    async all() {
+        const results = await db.query(`SELECT recipes.*,
+        chefs.name AS chef_name
+        FROM recipes
+        LEFT JOIN chefs 
+        ON (chefs.id = recipes.chef_id)
+        ORDER BY created_at DESC
+        `)
+
+        return results.rows
     },
     allChefs(callback) {
         return db.query(`SELECT * FROM chefs`)
@@ -31,11 +39,16 @@ module.exports = {
         return db.query(query, values)
 
     },
-    find(id) {
-        return db.query(`SELECT recipes.*, chefs.name as chef_name, chefs.id as chef_id
-        FROM recipes
-        LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
-        WHERE recipes.id = $1`, [id])
+    async find(id) {
+        const results = await db.query(`SELECT *, recipes.id AS recipe_id
+        FROM recipes 
+        INNER JOIN chefs 
+        ON (chefs.id = recipes.chef_id)
+        WHERE recipes.id = $1
+        `, [id])
+
+        return results.rows
+
     },
     joinChefs(id) {
         return db.query(`SELECT ALL FROM recipes
@@ -72,48 +85,57 @@ module.exports = {
             return callback()
         })
     },
-    paginate(params) {
-        const { filter, limit, offset, callback } = params
+    async paginate(params) {
+        let { filter, limit, offset } = params
 
-        let query = "",
-            filterQuery = "",
+        let query = '',
+            filterQuery = '',
             totalQuery = `(
-                    SELECT count(*) FROM recipes
-                    ) AS total`
+                SELECT count(*)
+                FROM recipes 
+            ) AS total`
 
         if (filter) {
-
             filterQuery = `
-                WHERE recipes.title ILIKE '%${filter}%'
+                WHERE recipes.name ILIKE '%${filter}%'
             `
+
             totalQuery = `(
-                SELECT count (*) FROM recipes
+                SELECT count(*)
+                FROM recipes 
                 ${filterQuery}
-                )as total
-            `
+            ) AS total`
         }
 
         query = `
-            SELECT recipes.*,${totalQuery}, chefs.name AS chef_name
-            FROM recipes
-            LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
-            ${filterQuery}
-            LIMIT $1 OFFSET $2
+        SELECT recipes.*,
+        chefs.name AS chef_name,
+        ${totalQuery}
+        FROM recipes
+        ${filterQuery}
+        LEFT JOIN chefs ON (chefs.id = recipes.chef_id)
+        LIMIT $1 OFFSET $2
         `
 
-        db.query(query, [limit, offset], function(err, results) {
-            if (err) throw `Database Error! ${err}`
-            callback(results.rows)
-        })
+        const results = await db.query(query, [limit, offset])
+
+        return results.rows
+
     },
-    files(id) {
-        return db.query(`SELECT files.* 
-        FROM files
-        LEFT JOIN recipe_files 
-        ON (files.id = recipe_files.file_id)
-        WHERE recipe_files.recipe_id = $1`, [id])
+    async files(id) {
+        try {
+            const results = await db.query(`SELECT files.* 
+            FROM files
+            LEFT JOIN recipe_files 
+            ON (files.id = recipe_files.file_id)
+            WHERE recipe_files.recipe_id = $1`, [id])
+
+            return results.rows
+        } catch (err) {
+            console.log(err);
+        }
     },
-    recipeFiles(id) {
+    async recipeFiles(id) {
         const query = `
         SELECT *, (
             SELECT files.path
@@ -130,6 +152,8 @@ module.exports = {
         LIMIT 1
         `
 
-        return db.query(query, [id])
+        const results = await db.query(query, [id])
+
+        return results.rows
     }
 }

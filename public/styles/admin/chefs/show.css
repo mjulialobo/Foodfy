@@ -36,12 +36,14 @@ body {
     text-align: center;
 }
 
-.avatar img {
+.avatar {
+    margin: 0 auto;
     height: 250px;
     width: 250px;
     border-radius: 50%;
-    object-fit: cover;
-    object-position: center;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     border: solid #52ABF4;
 }
 
