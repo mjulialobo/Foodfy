@@ -56,7 +56,7 @@ $ npm start
 <h3> Foodfy </h3>
 <img src="https://user-images.githubusercontent.com/65983895/89475228-ffb1e380-d75d-11ea-93a3-95c06a405dc8.gif"/>
 
-<h3> Foodfy | Restrict area | images upload (as the image upload possibility was recently added to the aplication, some parts are still not working and will be created during the next week) </h3>
+<h3> Foodfy | Restrict area | images upload (as the image upload possibility was recently added to the aplication, delete and update functions are not working, and will me fixed soon.) </h3>
 <p> still in progress </p>
 <img src="https://user-images.githubusercontent.com/65983895/89475234-050f2e00-d75e-11ea-99ad-2499ab9ef367.gif"/>
 
