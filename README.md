@@ -76,8 +76,14 @@ Final Challenge of Launchbase!
    Every Faker user password is "pass" and every single one of them have administrator status.   
    ```
 
-
-5. Fire up the server and watch files
+5. Add an Image to public/images
+  ```bash
+Add, if it does not already exist, an image of your choice to the public / images folder and use the name 'placeholder.png'. This file will be used as an image for all the chefs and recipes in Foodfy;
+ ```
+ ```bash
+Be careful when excluding users and chefs, as we are using the same placeholder for avatars and recipe images. Remember to create a new file named 'placeholder.png' in the public / images folder whenever you delete a chef or recipe.
+ ```
+6. Fire up the server and watch files
 
    ```bash
    npm start
