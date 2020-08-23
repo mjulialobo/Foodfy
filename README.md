@@ -18,7 +18,7 @@ Final Challenge of Launchbase!
 <h2> <img src= "https://img.icons8.com/plasticine/2x/rocket.png" width="50px" height="50px" align="center"/> What we created? </h2>
 
 
- ## Technologies
+
 <p> Foodfy is a recipe website created using:
 
 - [Node.js](https://nodejs.org/en/) 
@@ -31,10 +31,9 @@ Final Challenge of Launchbase!
 <p> <strong> What we have so far:</strong> recipes and chefs organized in a database, restrict manager area where recipes can be created and updated, and chefs can be created. In my most recent updated, I implemented an option to upload recipes and chefs images. The next step is to create a login area, controll user session, and finish the database funcions. </p>
 <h2> <img src="https://i.dlpng.com/static/png/6577858_preview.png" width="50px" align="center"/> How to use? </h2>
    
-## Getting Started
 
-  You need the following tools installed in order to run this project:
-  [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [Node.js + NPM](https://nodejs.org/en/), [PostgreSQL](https://www.postgresql.org/download/), and [Postbird](https://www.electronjs.org/apps/postbird).
+ <h4> You need the following tools installed in order to run this project:</h4>
+ <p> <a href="https://nodejs.org/en/"> Node.js+NPM</a>, <a href="https://www.postgresql.org/download/"> PostgreSQL</a>, and  <a href="https://www.electronjs.org/apps/postbird"> Postbird.</a> </p>
 
 
 1. Fork this repository and clone it into the current directory
