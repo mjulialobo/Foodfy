@@ -40,41 +40,41 @@ Final Challenge of Launchbase!
 
 1. Fork this repository and clone it into the current directory
 
-   ```bash
-   git clone https://github.com/mjulialobo/Foodfy
-   ```
+  ```bash
+  git clone https://github.com/mjulialobo/Foodfy
+  ```
 
 
 2. Install dependencies
 
-   ```bash
-   npm install
-   ```
+ ```bash
+ npm install
+  ```
 
 
 3. Set up the database
 
-   ```bash
-   psql -U <username> -c "CREATE DATABASE foodfy"
-   psql -U <username> -d foodfy -f foodfy.sql
-   ```
+  ```bash
+  psql -U <username> -c "CREATE DATABASE foodfy"
+  psql -U <username> -d foodfy -f foodfy.sql
+  ```
 
-You can manually import the foodfy.sql to Postbird, remember to create a new database with the name Foodfy.
+  You can manually import the foodfy.sql to Postbird, remember to create a new database with the name Foodfy.
 
-   ```bash
-   Important!
-   You have to alter the db.js, located in src/config to match your PostgreSQL settings.    
-   You also have to alter the mailer.js, located in src/lib to match your Mailtrap settings.  
-   ```
+  ```bash
+  Important!
+  You have to alter the db.js, located in src/config to match your PostgreSQL settings.    
+  You also have to alter the mailer.js, located in src/lib to match your Mailtrap settings.  
+  ```
 
 4. Populate it with Faker.js
-   ```bash
-   node seed.js
-   ```
-   ```bash
-   Important!
-   Every Faker user password is "pass" and every single one of them have administrator status.   
-   ```
+  ```bash
+  node seed.js
+  ```
+  ```bash
+  Important!
+  Every Faker user password is "pass" and every single one of them have administrator status.   
+  ```
 
 5. Add an Image to public/images
   ```bash
