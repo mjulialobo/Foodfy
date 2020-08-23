@@ -17,50 +17,67 @@ Final Challenge of Launchbase!
 
 <h2> <img src= "https://img.icons8.com/plasticine/2x/rocket.png" width="50px" height="50px" align="center"/> What we created? </h2>
 
+
+ ## Technologies
 <p> Foodfy is a recipe website created using:
- <ul>
-  <li>HTML</li>
-  <li> CSS</li>
-  <li>JavaScript</li>
-  <li>Node.js</li>
-   <li>PostgreSQL</li>
-   <li>Postbird</li>
-  <li>Nunjucks template engine. </li> </ul></p>
+
+- [Node.js](https://nodejs.org/en/) 
+- [PostgreSQL](https://www.postgresql.org/)
+- [Nunjucks](https://mozilla.github.io/nunjucks/)
+- [Faker.js](https://github.com/marak/Faker.js/)
+- [Lottie](https://github.com/airbnb/lottie-web)
+  
 
 <p> <strong> What we have so far:</strong> recipes and chefs organized in a database, restrict manager area where recipes can be created and updated, and chefs can be created. In my most recent updated, I implemented an option to upload recipes and chefs images. The next step is to create a login area, controll user session, and finish the database funcions. </p>
 <h2> <img src="https://i.dlpng.com/static/png/6577858_preview.png" width="50px" align="center"/> How to use? </h2>
-<p> You need to install <a href="https://nodejs.org/en/">Node.js</a>, <a href="https://www.postgresql.org/">PostgreSQL</a> and <a href="https://www.electronjs.org/apps/postbird">Postbird</a>. </p>
    
-<h3> Steps <h3>
-<h4> 1. Clone this repository <h4>
+## Getting Started
 
-```
- $ git clone https://github.com/mjulialobo/Foodfy
-```
-
-<h4> 2. Running the application on your terminal <h4>
-
-<p> Add database access credentials in src / app / config / db.js file. </p>
-
-```
-#install the dependencies
-$ npm install
-
-#start the server
-$ npm start
-
-```
-<h2><img src="https://static.thenounproject.com/png/25759-200.png"width="50px" height="50px" align="center"/> Results</h2>
-<p>Note: gif distorts images and colors</p>
-
-<h3> Foodfy </h3>
-<img src="https://user-images.githubusercontent.com/65983895/89475228-ffb1e380-d75d-11ea-93a3-95c06a405dc8.gif"/>
-
-<h3> Foodfy | Restrict area | images upload (as the image upload possibility was recently added to the aplication, delete and update functions are not working, and will me fixed soon.) </h3>
-<p> still in progress </p>
-<img src="https://user-images.githubusercontent.com/65983895/89475234-050f2e00-d75e-11ea-99ad-2499ab9ef367.gif"/>
+  You need the following tools installed in order to run this project:
+  [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [Node.js + NPM](https://nodejs.org/en/), [PostgreSQL](https://www.postgresql.org/download/), and [Postbird](https://www.electronjs.org/apps/postbird).
 
 
-  
+1. Fork this repository and clone it into the current directory
+
+   ```bash
+   git clone https://github.com/viniciusmoreeira/foodfy.git
+   ```
 
 
+2. Install dependencies
+
+   ```bash
+   npm install
+   ```
+
+
+3. Set up the database
+
+   ```bash
+   psql -U <username> -c "CREATE DATABASE foodfy"
+   psql -U <username> -d foodfy -f foodfy.sql
+   ```
+
+   You can manually import the foodfy.sql to Postbird, remember to create a new database with the name Foodfy.
+
+   ```bash
+   Important!
+   You have to alter the db.js, located in src/config to match your PostgreSQL settings.    
+   You also have to alter the mailer.js, located in src/lib to match your Mailtrap settings.  
+   ```
+
+4. Populate it with Faker.js
+   ```bash
+   node seed.js
+   ```
+   ```bash
+   Important!
+   Every Faker user password is "pass" and every single one of them have administrator status.   
+   ```
+
+
+5. Fire up the server and watch files
+
+   ```bash
+   npm start
+   ```
