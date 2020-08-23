@@ -78,16 +78,18 @@ Final Challenge of Launchbase!
 
 5. Add an Image to public/images
   ```bash
-Add, if it does not already exist, an image of your choice to the public / images folder and use the name 'placeholder.png'. This file will be used as an image for all the chefs and recipes in Foodfy;
+Add, if it does not already exist, an image of your choice to the public / images folder and use the name 'placeholder.png'. 
+This file will be used as an image for all the chefs and recipes in Foodfy;
  ```
  ```bash
-Be careful when excluding users and chefs, as we are using the same placeholder for avatars and recipe images. Remember to create a new file named 'placeholder.png' in the public / images folder whenever you delete a chef or recipe.
+Be careful when excluding users and chefs, as we are using the same placeholder for avatars and recipe images.
+Remember to create a new file named 'placeholder.png' in the public / images folder whenever you delete a chef or recipe.
  ```
 6. Fire up the server and watch files
 
-   ```bash
-   npm start
-   ```
+```bash
+npm start
+```
    
    
    <h2> <img src="https://img.icons8.com/ios-filled/50/000000/project.png" width="50px" align="center"/> Results </h2>
