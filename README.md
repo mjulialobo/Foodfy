@@ -29,6 +29,8 @@ Final Challenge of Launchbase!
   
 
 <p> <strong> What we have so far:</strong> recipes and chefs organized in a database, restrict manager area where recipes can be created and updated, and chefs can be created. In my most recent updated, I implemented an option to upload recipes and chefs images. The next step is to create a login area, controll user session, and finish the database funcions. </p>
+
+
 <h2> <img src="https://i.dlpng.com/static/png/6577858_preview.png" width="50px" align="center"/> How to use? </h2>
    
 
@@ -39,7 +41,7 @@ Final Challenge of Launchbase!
 1. Fork this repository and clone it into the current directory
 
    ```bash
-   git clone https://github.com/viniciusmoreeira/foodfy.git
+   git clone https://github.com/mjulialobo/Foodfy
    ```
 
 
@@ -80,3 +82,11 @@ Final Challenge of Launchbase!
    ```bash
    npm start
    ```
+   
+   
+   <h2> <img src="https://img.icons8.com/ios-filled/50/000000/project.png" width="50px" align="center"/> Results </h2>
+   
+   <h4>Foodfy</h4>
+   <h4>Foodfy | User session</h4>
+   <h4>Foodfy | Details </h4>
+ 
