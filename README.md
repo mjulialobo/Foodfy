@@ -27,10 +27,6 @@ Launchbase's Final Challenge!
 - [Faker.js](https://github.com/marak/Faker.js/)
 - [Lottie](https://github.com/airbnb/lottie-web)
   
-
-<p> <strong> What we have so far:</strong> recipes and chefs organized in a database, restrict manager area where recipes can be created and updated, and chefs can be created. In my most recent updated, I implemented an option to upload recipes and chefs images. The next step is to create a login area, controll user session, and finish the database funcions. </p>
-
-
 <h2> <img src="https://i.dlpng.com/static/png/6577858_preview.png" width="50px" align="center"/> How to use? </h2>
    
 
@@ -38,7 +34,7 @@ Launchbase's Final Challenge!
  <p> <a href="https://nodejs.org/en/"> Node.js+NPM</a>, <a href="https://www.postgresql.org/download/"> PostgreSQL</a>, and  <a href="https://www.electronjs.org/apps/postbird"> Postbird.</a> </p>
 
 
-1. Fork this repository and clone it into the current directory
+1. Clone this repository
 
   ```bash
   git clone https://github.com/mjulialobo/Foodfy
@@ -73,7 +69,7 @@ Launchbase's Final Challenge!
   ```
   ```bash
   Important!
-  Every Faker user password is "pass" and every single one of them have administrator status.   
+  Every Faker user password is "1" and most of them have administrator status.   
   ```
 
 5. Add an Image to public/images
@@ -85,7 +81,7 @@ Launchbase's Final Challenge!
   Be careful when excluding users and chefs, as we are using the same placeholder for avatars and recipe images.
   Remember to create a new file named 'placeholder.png' in the public / images folder whenever you delete a chef or recipe.
    ```
-6. Fire up the server and watch files
+6. Start the server
 
   ```bash
   npm start
@@ -95,6 +91,11 @@ Launchbase's Final Challenge!
    <h2> <img src="https://img.icons8.com/ios-filled/50/000000/project.png" width="50px" align="center"/> Results </h2>
    
    <h4>Foodfy</h4>
-   <h4>Foodfy | User session</h4>
+   <img src="https://user-images.githubusercontent.com/65983895/92423794-b12aa700-f158-11ea-9046-930fb3507371.gif">
+   
+   <h4>Foodfy | Admin session</h4>
+   <img src="https://user-images.githubusercontent.com/65983895/92423579-fb5f5880-f157-11ea-8f91-3069a005b037.gif">
+   
    <h4>Foodfy | Details </h4>
+    <img src="https://user-images.githubusercontent.com/65983895/92423583-fef2df80-f157-11ea-85f8-81d3e1253d29.gif">
  
