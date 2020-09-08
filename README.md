@@ -52,10 +52,10 @@ Launchbase's Final Challenge!
 
   ```bash
   psql -U <username> -c "CREATE DATABASE foodfy"
-  psql -U <username> -d foodfy -f foodfy.sql
+  psql -U <username> -d foodfy -f foodfydb.sql
   ```
 
-  You can manually import the foodfy.sql to Postbird, remember to create a new database with the name Foodfy.
+  You can manually import the foodfydb.sql to Postbird, remember to create a new database with the name Foodfy.
 
   ```bash
   Important!
