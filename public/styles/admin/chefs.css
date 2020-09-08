@@ -1,0 +1,228 @@
+/*===CHEF===*/
+.chefs-list {
+  width: 940px;
+  margin: 0 auto;
+}
+
+.chef-grid {
+  margin-top: 30px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 20px;
+}
+
+.chef {
+  display: grid;
+  grid-template-columns: 64px auto;
+  grid-gap: 20px;
+}
+
+.chefs-list header h3 {
+  font-weight: bold;
+  color: #111;
+  font-size: 24px;
+}
+
+.chef-textual {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-gap: 10px;
+}
+
+.chef .chef-name {
+  align-self: flex-end;
+}
+
+.chef .chef-textual p {
+  color: #111;
+  font-size: 18px;
+}
+.chef-detail a {
+  font-size: 14px;
+  font-weight: bold;
+  color: #d15b75;
+}
+.chef-detail a:hover {
+  color: #52abf4;
+}
+
+.chef .chef-img {
+  width: 64px;
+  height: 64px;
+}
+
+.chef .chef-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.chefDetail-img {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.chefDetail-img img {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-fit: center;
+  border: solid #52abf4 4px;
+}
+.recipeDetail-author p {
+  color: #d15b75;
+  font-size: 16px;
+}
+.recipeDetail-title p {
+  font-size: 24px;
+}
+
+.chef .chef-detail {
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.item .avatar-upload {
+  position: relative;
+
+  display: block;
+  overflow: hidden;
+
+  width: 137px;
+}
+
+.item .avatar-upload p {
+  background-color: var(--primary-color);
+  border-radius: 4px;
+  padding: 8px 16px;
+
+  font-weight: bold;
+  font-size: 16px;
+  color: #ffffff;
+
+  width: 100%;
+  text-align: center;
+}
+
+.item #avatar-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+/*FORM IMAGES*/
+
+form .avatar-add-button {
+  border: solid rgb(214, 214, 214);
+  border-radius: 4px;
+  width: 100px;
+  height: 100px;
+  font-weight: bold;
+  text-align: center;
+}
+
+form .item #images-upload {
+  position: relative;
+
+  display: block;
+  overflow: hidden;
+
+  width: 130px;
+}
+
+form .item .images-add {
+  background-color: #fff;
+  color: #777;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 3.5px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+form .item .images-add > i {
+  font-size: 20px;
+}
+
+form .item #images-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+form .avatar-add-button i {
+  color: rgb(138, 136, 136);
+  position: absolute;
+  top: 35px;
+  right: 15px;
+  width: 100%;
+  height: 100%;
+  font-size: 30px;
+}
+
+form .item #images-preview {
+  display: grid;
+  grid-template-columns: 100px 100px 100px 100px 100px 100px;
+  grid-gap: 8px;
+  width: 100%;
+  margin: 8px 0;
+  align-items: center;
+}
+
+form .item #images-preview img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+form .item #images-preview .image {
+  position: relative;
+}
+
+form .item #images-preview .image i {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.8);
+  color: red;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 250%;
+  cursor: pointer;
+
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
+form .item #images-preview .image:hover i {
+  opacity: 1;
+}

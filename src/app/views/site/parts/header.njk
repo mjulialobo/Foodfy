@@ -1,0 +1,20 @@
+<header class="header">
+  <div class='container'>
+    <div class="header-logo">
+      <a href='/home'>
+        <img src="/assets/logo.png" alt="Foodfy logo">
+      </a>
+    </div>
+    <div class="header-nav">
+      <a href='/about'>Sobre</a>
+      <a href='/recipes'>Receitas</a>
+      <a href='/chefs'>Chefs</a>
+      <a class='my-account' href='/admin/users/login'>
+        Login</a>
+    </div>
+    <form class='search-form' action="/recipes" method='GET'>
+      <input type="text" name='filter' placeholder='Pesquisar receitas' value="{{filter}}">
+      <button type='submit'></button>
+    </form>
+  </div>
+</header>

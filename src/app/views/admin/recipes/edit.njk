@@ -1,43 +1,28 @@
-{% extends "../layout.njk" %}
-{%block title%}
-  <title>
-    Editar
-    {{recipe.title}}
-  </title>
-{%endblock title%}
-
-{%block links%}
-  <link rel="stylesheet" href="/styles/admin/recipes/form.css">
-  <link rel="stylesheet" href="/styles/admin/header.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/bcd7f656b1.js" crossorigin="anonymous"></script>
-{%endblock links%}
+{% extends '../layout.njk' %}
 
 {%block content%}
 
-  <section id="recipe-form">
-    <div class="form-header-edit">
-      <h3>Receita:
+  <div class="edit-wrapper">
+    <header>
+      <h3>Editando receita:
         {{recipe.title}}</h3>
       <div class="edit-buttons">
-        <button type='submit' form='form-delete' class='delete'>Deletar</button>
-        <button type='submit' form='form-edit' class='save'>Salvar</button>
+        <button type='submit' form='form-delete' class='delete-button'>Deletar</button>
+        <button type='submit' form='form-edit' class='save-button'>Salvar receita</a>
       </div>
-    </div>
+    </header>
 
     <form id='form-edit' method='POST' action='/admin/recipes/?_method=PUT' enctype="multipart/form-data">
-      <div class="details">
-        {% include 'admin/recipes/fields.njk'%}
 
-        <input type="hidden" name='id' value="{{recipe.id}}">
-      </div>
+      {% include '../parts/recipes-fields.njk' %}
+      
+      <input type="hidden" name='id' value={{recipe.id}}>
     </form>
 
     <form id='form-delete' action="/admin/recipes?_method=DELETE" method="post">
       <input type="hidden" name="id" value='{{recipe.id}}'>
-      {%include './confirm.njk'%}
     </form>
-  </section>
 
-  <script src="/scripts/admin-features.js"></script>
+  </div>
+
 {% endblock %}

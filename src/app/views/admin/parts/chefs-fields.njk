@@ -1,0 +1,27 @@
+<div class="item">
+  <div>Nome</div>
+  <div><input value="{{chef.name}}" type="text" name="name" required="required"></div>
+</div>
+
+<div class="item">
+  <div>Avatar</div>
+
+  <div id="images-preview">
+    <div id="images-upload">
+
+      <div class="avatar-add-button">
+        <i class="material-icons">add</i>
+        <input id="images-input" type="file" name="images" single="single" accept="image/*" onchange="ImagesUpload.handleFileInput(event, 1)">
+      </div>
+    </div>
+    {% if files %}
+      {% for image in files %}
+        <div class="image" id="{{image.id}}">
+          <img src="{{image.path}}" alt="{{image.name}}">
+          <i class="material-icons" onclick="ImagesUpload.removeOldImage(event)">delete</i>
+        </div>
+      {% endfor %}
+      <input type="hidden" name="removed_files">
+    {% endif %}
+  </div>
+</div>

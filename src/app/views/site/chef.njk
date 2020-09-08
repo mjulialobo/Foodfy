@@ -1,0 +1,35 @@
+{% extends './layout.njk' %}
+
+{% block head %}
+  <title>Foodfy | Chef:
+    {{chef.name}}</title>
+{% endblock %}
+
+{% block content %}
+
+  <div class="detail-container">
+
+    <div class="chefDetail-img">
+      <img src="{{chef.file.path}}" alt="Foto de {{chef.name}}">
+    </div>
+
+    <div class="recipeDetail-titleWrapper">
+      <div class="recipeDetail-title">
+        <p>{{chef.name}}</p>
+      </div>
+      <div class="recipeDetail-author">
+        <p>
+          {% if chef.total_recipes > 1 %}{{chef.total_recipes}}
+            receitas cadastradas{% endif %}
+          {% if chef.total_recipes == 0 %}Nenhuma receita cadastrada{% endif %}
+          {% if chef.total_recipes == 1 %}{{chef.total_recipes}}
+            receita cadastrada{% endif %}
+        </p>
+      </div>
+    </div>
+
+    {% import './parts/recipes-grid.njk' as recipesGrid %}
+
+    {{recipesGrid.grid('', recipes)}}
+  </div>
+{% endblock %}

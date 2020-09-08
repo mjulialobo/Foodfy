@@ -1,0 +1,51 @@
+{% macro grid(title, recipes) %}
+<section class="recipes">
+
+  {% if title %}
+  <div class="recipes-title">
+    <h4>
+      {{title}}
+    </h4>
+  </div>
+  {% endif %}
+
+  <div class="recipes-grid">
+
+
+    {% for recipe in recipes %}
+
+    <div class="recipe">
+
+
+        <div class="recipe-img">
+          <a href='/recipes/recipe/{{recipe.id}}'>
+            {% if not recipe.file%}
+            <img src="http://placehold.it/500x500?text=PRODUTO SEM FOTO">
+            {% else %}
+            <img src="{{recipe.file.path}}" alt="" class="Image de {{recipe.title}}">
+            {%endif%}
+          </a>
+        </div>
+
+        <div class="recipe-content">
+          <a href='/recipes/recipe/{{recipe.id}}'>{{recipe.title}}</a>
+          <div class="recipe-author">
+            <a href='/chefs/chef/{{recipe.chef_id}}'>
+              <p>
+                {% if recipe.author == null %}por Chef Anônimo{% endif %}
+                {% if recipe.author != null %}por {{recipe.author}}{% endif %}
+              </p>
+            </a>
+          </div>
+        </div>
+
+
+    </div>
+
+    {% endfor %}
+
+    <div class="pagination" data-page={{pagination.page}} data-total={{pagination.total}} data-filter={{filter}}>
+    </div>
+  </div>
+</section>
+{% endmacro %}

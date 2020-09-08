@@ -1,0 +1,100 @@
+{% extends 'site/layout.njk' %}
+
+{% block head %}
+<title>Foodfy | {{recipe.title}}</title>
+{% endblock %}
+
+{% block content %}
+
+<div class="detail-container">
+  <div class="gallery">
+    <div class="highlight">
+      {% if not recipe.files[0] %}
+      <img src="http://placehold.it/500x500?text=PRODUTO SEM FOTO">
+      {% else %}
+      <img src="{{recipe.files[0].path}}" alt="{{recipe.files[0].name}}" onclick='Lightbox.open()'>
+      {% endif %}
+
+      <div class="lightbox-target">
+        <img src="{{recipe.files[0].path}}" alt="{{recipe.files[0].name}}">
+        <a href="#" class="lightbox-close" onclick='Lightbox.close()' onload='Lightbox.escClose()'>
+          <i class="material-icons">close</i>
+        </a>
+      </div>
+    </div>
+    <div class="gallery-preview">
+      {% for image in recipe.files %}
+      <img src="{{image.path}}" alt="{{image.name}}" {% if loop.index0 == 0 %} class='active' {% endif %}
+        onclick='ImageGallery.setImage(event)'>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="recipeDetail-titleWrapper">
+    <div class="recipeDetail-title">
+      <p>{{recipe.title}}</p>
+    </div>
+    <div class="recipeDetail-author">
+      <span>
+        {% if recipe.author == null %}
+        <p>
+          por Chef Anônimo
+        </p>
+        {% endif %}
+
+        {% if recipe.author != null %}por Chef
+        <a href='/chefs/chef/{{recipe.chef_id}}'>
+          {{recipe.author}}
+        </a>
+        {% endif %}
+      </span>
+    </div>
+  </div>
+
+  <div class="recipeDetail-content">
+    <div class="ingredients">
+      <div class="toggle">
+        <h4>Ingredientes</h4>
+        <a onclick="buttonActions.toggleButton(event)">ESCONDER</a>
+      </div>
+
+
+      <div class="toggle-content">
+        <ul>
+          {% for ingredient in recipe.ingredients%}
+          <li>{{ingredient}}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </div>
+    <div class="preparation">
+      <div class="toggle">
+        <h4>Modo de preparo</h4>
+        <a onclick="buttonActions.toggleButton(event)">ESCONDER</a>
+      </div>
+
+      <div class="toggle-content">
+        <ul>
+          {% for item in recipe.preparation%}
+          <li>{{item}}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="information">
+
+      <div class="toggle">
+        <h4>Informações adicionais</h4>
+        <a onclick="buttonActions.toggleButton(event)">ESCONDER</a>
+      </div>
+
+      <div class="toggle-content">
+        <p>{{recipe.information}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+<div class="item login-fields">
+  <div>E-mail</div>
+  <div>
+    <input type="text" name="email" value="{{user.email}}" placeholder="Digite o e-mail cadastrado"
+      onblur="Validate.apply(this, 'isEmail')">
+  </div>
+</div>
+</div>
+
+<div class="item login-fields">
+  <div>Senha</div>
+  <div>
+    <input type="password" name="password" placeholder="Digite sua{%if token%} nova{%endif%} senha">
+  </div>
+</div>
+</div>
+
+{%if token%}
+<div class="item login-fields">
+      <div>Repetir senha</div>
+      <div>
+        <input type="password" name="passwordRepeat" placeholder="Repita a nova senha">
+      </div>
+    </div>
+    </div>
+{%endif%}
+
+    <div><input type="hidden" name="token" value={{token}}></div>

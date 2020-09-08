@@ -1,0 +1,24 @@
+{% extends 'site/layout.njk' %}
+
+{% block content %}
+
+<div class="container">
+  <section class="banner">
+    <div class="banner-text">
+      <h3>As melhores receitas</h3>
+      <p>Aprenda a construir os melhores pratos</p>
+      <p>com receitas criadas por profissionais</p>
+      <p>do mundo inteiro.</p>
+    </div>
+    <div class="banner-img">
+      <img src="/assets/chef.png" alt="">
+    </div>
+  </section>
+
+  {% import './parts/recipes-grid.njk' as recipesGrid %}
+
+  {{recipesGrid.grid('Mais acessadas', recipes)}}
+ 
+</div>
+
+{% endblock %}

@@ -1,26 +1,22 @@
-{% extends "../layout.njk" %}
-{%block title%}
-    <title>Nova Receita</title>
-{%endblock title%}
-
-{%block links%}
-    <link rel="stylesheet" href="/styles/admin/recipes/form.css">
-    <link rel="stylesheet" href="/styles/admin/header.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/bcd7f656b1.js" crossorigin="anonymous"></script>
-{%endblock links%}
+{% extends 'admin/layout.njk' %}
 
 {% block content %}
-    <section id="recipe-form">
-        <form class="card" method="POST" action="/admin/recipes" enctype="multipart/form-data">
-            <div class="details">
-                <div class="form-header">
-                    <h2>Criando receita</h2>
-                    <button type="submit" class="save">Salvar</button>
-                </div>
-                {%include '../recipes/fields.njk'%}
-            </div>
-        </form>
-    </section>
-    <script src="/scripts/admin-features.js"></script>
-{% endblock content %}
+
+<div class="edit-wrapper">
+  <header>
+    <h3>Editando receita:
+      {{recipe.title}}</h3>
+    <div class="edit-buttons">
+      <a class='back-button' href="/admin/recipes">Voltar</a>
+      <button type='submit' form='create-form' class='save-button'>Salvar receita</button>
+    </div>
+  </header>
+</div>
+
+<form id='create-form' method='POST' action='/admin/recipes' class="edit-wrapper" enctype="multipart/form-data">
+
+  {% include '../parts/recipes-fields.njk' %}
+
+</form>
+
+{% endblock %}

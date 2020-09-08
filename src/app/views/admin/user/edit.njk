@@ -1,0 +1,40 @@
+{% extends '../layout.njk' %}
+
+{% block content %}
+
+<div class="edit-wrapper">
+  <header>
+
+    {%if user%}
+    <h3>Alterar usuário {{user.firstName}}</h3>
+    {%else%}
+    <h3>Cadastrar usuário</h3>
+    {%endif%}
+
+    <div class="edit-buttons">
+      <button type='submit' form='delete-form' class="delete-button">Deletar</button>
+      <button type='submit' form='create-form' class="button">Salvar</button>
+    </div>
+  </header>
+</div>
+
+<form id='create-form' method='POST' action='/admin/users?_method=PUT' class="edit-wrapper">
+<div class="user-register">
+  {% include './fields.njk' %}
+
+  <div class="item checkbox">
+    <div>
+      <input type="checkbox" name="is_admin" value="1" {% if user.is_admin == true %}checked{% endif %}>Administrador
+    </div>
+  </div>
+  </div>
+
+  <input type="hidden" name="id" value="{{user.id}}">
+
+</form>
+
+<form id='delete-form' method='POST' action='/admin/users?_method=DELETE'>
+  <input type="hidden" name="id" value="{{user.id}}">
+</form>
+
+{% endblock %}

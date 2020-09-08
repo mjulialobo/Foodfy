@@ -1,0 +1,48 @@
+header .edit-buttons {
+  display: flex;
+  text-align: center;
+}
+
+header .edit-buttons .button {
+  background-color: var(--primary-color);
+  padding: 8px 16px;
+  margin-left: 16px;
+  text-transform: uppercase;
+  font-weight: normal;
+  font-size: 14px;
+}
+
+header .edit-buttons a:nth-child(2) {
+  background-color: #8a8a8a;
+}
+
+header .edit-buttons .button:hover {
+  background-color: #1088d8;
+}
+
+header .edit-buttons .delete-button {
+  padding: 8px 16px;
+}
+
+.user-register {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 40px;
+  grid-row-gap: 6px;
+}
+
+.user-register .item input {
+  padding: 15px 20px;
+}
+
+.item.checkbox div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.item.checkbox div input {
+  width: initial;
+  height: initial;
+  margin: 0 8px 0 0;
+}

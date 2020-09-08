@@ -1,62 +1,29 @@
-{% extends "../layout.njk" %}
-{%block title%}
-    <title>
-        Editar Perfil
-        {{chef.name}}
-    </title>
-{%endblock title%}
-
-{%block links%}
-    <link rel="stylesheet" href="/styles/admin/chefs/form.css">
-    <link rel="stylesheet" href="/styles/admin/header.css">
-    <script src="https://kit.fontawesome.com/bcd7f656b1.js" crossorigin="anonymous"></script>
-{%endblock links%}
+{% extends '../layout.njk' %}
 
 {%block content%}
 
-    <section>
+<div class="edit-wrapper">
+  <header>
+    <h3>Editando chef:
+      {{chef.name}}</h3>
+    <div class="edit-buttons">
+      <button type='submit' form='form-delete' class='delete-button'>Deletar</button>
+      <button type='submit' form='form-edit' class='save-button'>Salvar chef</a>
+    </div>
+  </header>
 
-        <div class="form-header-edit">
-            <h3>Editando Chef:
-                {{chef.name}}</h3>
-            <div class="edit-buttons">
-                <button type='submit' form='form-delete' class='delete'>Deletar</button>
-                <button type='submit' form='form-edit' class='save'>Salvar</button>
-            </div>
-        </div>
-        <form id='form-edit' method='POST' action='/admin/chefs/?_method=PUT' enctype="multipart/form-data">
+  <form id='form-edit' method='POST' action='/admin/chefs?_method=PUT' class="edit-wrapper"
+    enctype="multipart/form-data">
 
-            <div class="details">
+    {% include '../parts/chefs-fields.njk' %}
 
-                <div class="item">
-                    <div>Nome do chef</div>
-                    <div><input type="text" name="name" placeholder="Digite seu nome" value="{{chef.name}}"></div>
-                </div>
+    <input type="hidden" name='id' value="{{chef.id}}">
 
-                <div class="item">
-                    <div class="image-name">
-                        {% if not avatar[0] %}
-                            <p>Não possui foto selecionada</p>
-                        {% else %}
-                            <p>{{avatar[0].src}}</p>
-                        {% endif %}
+  </form>
 
-                    </div>
-                    <div id="photos-upload">
-                        <input type="file" name="photos" id="photos-input" accept="image/*">
-                        <p>Selecione um novo Avatar</p>
-                    </div>
-                </div>
-
-                <input type="hidden" name='id' value="{{chef.id}}">
-            </form>
-        </div>
-
-        <form id='form-delete' action="/admin/chefs?_method=DELETE" method="post">
-            <input type="hidden" name="id" value='{{chef.id}}'>
-            {%include './confirm.njk'%}
-        </form>
-
-    </section>
-    <script src="/scripts/admin-features.js"></script>
+  <form id='form-delete' method='POST' action='/admin/chefs?_method=DELETE'>
+    <input type="hidden" name="file_id" value="{{chef.file_id}}">
+    <input type="hidden" name="id" value="{{chef.id}}">
+  </form>
+</div>
 {% endblock %}

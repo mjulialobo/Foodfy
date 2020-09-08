@@ -1,25 +1,27 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="pt-br">
 
-        {%block title%}
-            <title>Foodfy</title>
-        {%endblock title%}
-    
-        {%block links%}{%endblock links%}
-    </head>
-    <body>
-        <header>
-            <img src="/assets/foodfy.png" alt="logomarca">
-            <a class="header-item" href="/admin/recipes">Receitas</a>
-            <a class="header-item" href="/admin/chefs">Chefs</a>
-            <a class="header-item" href="/">
-                <i class="fas fa-home"></i>
-            </a>
-        </header>
-        {% block content %}{% endblock content %}
+  <head>
+    <meta charset="UTF-8">
 
-    </body>
-</html>
+    {% include './parts/styles.njk' %}
+
+    {% block head %}
+      <title>Foodfy</title>
+    {% endblock %}
+
+  </head>
+
+  <body>
+
+    {% include './parts/header.njk' %}
+
+    {% include './parts/messages.njk' %}
+
+    {% block content %}{% endblock %}
+
+    {% include './parts/footer.njk' %}
+
+  </body>
+
+</html

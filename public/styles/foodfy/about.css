@@ -1,0 +1,38 @@
+/*=== ABOUT ===*/
+
+.about {
+  width: 940px;
+
+  margin: 0 auto;
+
+  padding-bottom: 30px;
+}
+
+.about h2 {
+  font-size: 24px;
+  line-height: 34px;
+
+  color: #111;
+
+  font-weight: bold;
+}
+
+.about p {
+  font-size: 18px;
+  line-height: 28px;
+
+  color: #444;
+
+  margin: 20px 0px 30px 0px;
+
+  text-align: justify;
+}
+
+.about h3 {
+  font-size: 20px;
+  line-height: 30px;
+
+  color: #111;
+
+  font-weight: bold;
+}

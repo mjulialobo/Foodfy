@@ -1,0 +1,388 @@
+@import "https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap";
+
+:root {
+  --primary-color: #52abf4;
+  --secondary-color: #eeeeee;
+}
+
+/*=== CSS REST ===*/
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  text-decoration: none;
+  box-sizing: border-box;
+  color: inherit;
+}
+
+/*=== HOME ===*/
+/*==header==*/
+body,
+html {
+  font-family: "Helvetica", sans-serif;
+  color: #111111;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.content-wrapper {
+  padding-bottom: 64px;
+  /* Footer height */
+}
+
+.header {
+  display: flex;
+  align-items: center;
+
+  min-height: 80px;
+  margin-bottom: 50px;
+}
+
+.header > div:not(:last-child) {
+  width: 940px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-logo {
+  height: 26.9px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.header-nav {
+  display: inline-block;
+  vertical-align: middle;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.header-nav p {
+  margin: 15px;
+  color: inherit;
+  font-size: 15px;
+  color: #999;
+}
+
+.header-nav a:hover,
+.header.admin-header .logout-button:hover {
+  color: #fff;
+  transition: all 200ms ease-in;
+}
+
+.header-nav .active {
+  color: #fff;
+}
+
+.header.admin-header .logout-button {
+  background: initial;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+  color: #999999;
+  margin-right: 18px;
+}
+
+/*== FOOTER ==*/
+
+.footer {
+  min-height: 62px;
+
+  background-color: #eeeeee;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: auto;
+}
+
+.footer p {
+  color: #999;
+  font-size: 14px;
+  line-height: 24px;
+  align-self: center;
+}
+
+/*===ADMIN INDEX===*/
+.header.admin-header {
+  background-color: #111;
+  color: white;
+}
+
+.header.admin-header div {
+  justify-content: unset;
+}
+
+.admin-header .header-logo {
+  margin-right: 50px;
+}
+
+.recipe-manager-title {
+  width: 940px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+
+.recipe-manager-title h3 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/*===ADMIN SHOW===*/
+
+.recipeDetail-wrapper header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.recipeDetail-wrapper header a {
+  margin-left: 10px;
+}
+
+.recipeDetail-wrapper header h3 {
+  font-weight: bold;
+  color: #111;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.recipeDetail-wrapper header a {
+  color: white;
+  font-size: 12px;
+  padding: 8px 16px;
+  background-color: #52abf4;
+  border-radius: 4px;
+  right: 0px;
+  text-transform: uppercase;
+}
+
+.recipeDetail-wrapper header a:hover {
+  background-color: #1088d8;
+}
+
+.admin-nav-button.edit {
+  color: #111;
+  background-color: green;
+}
+
+.admin-nav-button.delete {
+  color: #fff;
+  background-color: #dc4747;
+}
+
+/*===ADMIN EDIT===*/
+
+.edit-wrapper {
+  width: 940px;
+  margin: 0 auto;
+}
+
+.edit-wrapper header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.edit-wrapper h3 {
+  font-weight: bold;
+  color: #111;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.edit-wrapper header a,
+.edit-wrapper header button {
+  color: white;
+  font-size: 12px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  margin-left: 10px;
+}
+
+.edit-wrapper span {
+  background: rgb(18, 110, 46);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 16px;
+  font-size: 14px;
+}
+
+.delete-button {
+  background-color: #be1616;
+  padding: 8px 16px;
+  text-transform: uppercase;
+}
+.delete-button:hover {
+  background-color: #851212;
+}
+
+.save-button {
+  background-color: green;
+  padding: 8px 16px;
+  text-transform: uppercase;
+}
+.save-button:hover {
+  background-color: rgb(3, 95, 3);
+}
+
+.back-button {
+  background-color: #52abf4;
+  padding: 8px 16px;
+  text-transform: uppercase;
+}
+.back-button:hover {
+  background-color: #1088d8;
+}
+
+.item {
+  margin-top: 30px;
+}
+
+.item > div:first-child {
+  font-weight: bold;
+  font-size: 16px;
+  color: #111;
+  line-height: 19px;
+  margin-bottom: 10px;
+}
+
+.item input:first-child,
+#information {
+  font-size: 16px;
+  color: #111;
+  line-height: 19px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  height: 50px;
+  width: 100%;
+  padding: 16px;
+}
+
+.add-field {
+  background-color: #ee8ea2;
+  color: white;
+  font-size: 14px;
+  line-height: 19px;
+  font-weight: bold;
+  text-align: right;
+  margin-top: 20px;
+  cursor: pointer;
+  padding: 4px 16px;
+  border-radius: 8px;
+}
+
+#information {
+  min-height: 257px;
+  margin-bottom: 50px;
+}
+
+/* recipe preview */
+
+.recipeDetail-wrapper .gallery {
+  display: grid;
+  grid-template-rows: auto, auto;
+  grid-gap: 8px;
+}
+
+.recipeDetail-wrapper .gallery .gallery-preview {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.recipeDetail-wrapper .gallery-preview img {
+  height: 50px;
+  width: 50px;
+
+  margin-left: 4px;
+
+  object-fit: cover;
+
+  opacity: 0.5;
+
+  cursor: pointer;
+
+  transition: opacity 150ms ease-out;
+}
+
+.recipeDetail-wrapper .gallery-preview img:hover,
+.recipeDetail-wrapper .gallery-preview img.active {
+  opacity: 1;
+}
+
+.recipeDetail-wrapper .info {
+  display: grid;
+  grid-template-rows: auto 40px 2fr 1fr;
+}
+
+.recipeDetail-wrapper .info h1 {
+  font-size: 32px;
+  line-height: 42px;
+  text-transform: uppercase;
+  color: #333;
+}
+
+.recipeDetail-wrapper .highlight > img {
+  width: 100%;
+  height: 280px;
+
+  border-radius: 15px;
+
+  object-fit: cover;
+  object-position: center;
+  border: 1px solid #efefef;
+  cursor: zoom-in;
+}
+
+.recipeDetail-wrapper .info .published {
+  font-size: 12px;
+  line-height: 22px;
+  letter-spacing: 0.4px;
+  color: #888;
+}
+
+@keyframes fademessage {
+  to {
+    opacity: 0;
+  }
+}
+
+.item > div:not(#images-preview) {
+  position: relative;
+}
+
+.item .error {
+  background-color: #dc4747;
+  padding: 8px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  opacity: 1;
+  border-radius: 4px;
+  box-shadow: 2px 2px 4px -2px rgba(0, 0, 0, 0.3);
+
+  position: absolute;
+  width: 100%;
+
+  animation: fademessage 300ms 3s ease forwards;
+}

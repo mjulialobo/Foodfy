@@ -1,0 +1,45 @@
+{% extends './layout.njk' %}
+
+{% block content %}
+
+  <div class="edit-wrapper">
+    <header>
+
+      <h3>Seja bem-vindo,
+        {{user.firstName}}!</h3>
+
+      <div class="edit-buttons">
+        <button type='submit' form='create-form' class="button">Salvar</button>
+      </div>
+    </header>
+    {% if session.userId and session.isAdmin%}
+      <span>Administrador</span>
+    {% endif %}
+  </div>
+
+  <form id='create-form' method='POST' action='/admin/users?_method=PUT' class="edit-wrapper">
+
+    <div class="user-register">
+      {% include './user/fields.njk' %}
+
+      <div class="item">
+        <div>Senha</div>
+        <div>
+          <input type="password" name="password" placeholder="Informe a senha cadastrada" required="required">
+        </div>
+      </div>
+
+      <div class="item">
+        <div></div>
+      </div>
+    </div>
+
+    <input type="hidden" name="id" value="{{user.id}}">
+
+  </form>
+
+  <form id='delete-form' method='POST' action='/admin/users?_method=DELETE'>
+    <input type="hidden" name="id" value="{{user.id}}">
+  </form>
+
+{% endblock %}

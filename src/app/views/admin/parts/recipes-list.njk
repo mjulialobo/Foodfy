@@ -1,0 +1,46 @@
+<section class='recipes'>
+  <div class="recipes-grid">
+    {% for recipe in recipes %}
+
+    <div class="recipe">
+      <div class="recipe-img">
+        <a href='/admin/recipes/{{recipe.id}}'>
+           {% if not recipe.file%}
+            <img src="http://placehold.it/500x500?text=PRODUTO SEM FOTO">
+            {% else %}
+            <img src="{{recipe.file.path}}" alt="" class="Image de {{recipe.title}}">
+            {%endif%}
+        </a>
+      </div>
+
+      <div class="recipe-content">
+        <a href='/admin/recipes/{{recipe.id}}/'>
+          {{recipe.title}}
+        </a>
+
+        <div class="recipe-author">
+          <p>
+            {% if recipe.author == null %}
+            <p>
+              por Chef Anônimo
+            </p>
+            {% endif %}
+
+            {% if recipe.author != null %}
+            <a href='/admin/chefs/{{recipe.chef_id}}'>
+              por
+              {{recipe.author}}
+            </a>
+            {% endif %}
+          </p>
+        </div>
+
+        <div class='visualization-button'>
+          <a href="/admin/recipes/{{recipe.id}}">Visualizar</a>
+        </div>
+      </div>
+    </div>
+
+    {% endfor %}
+
+</section>

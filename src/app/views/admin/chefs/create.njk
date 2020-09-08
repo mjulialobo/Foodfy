@@ -1,35 +1,20 @@
-{% extends "../layout.njk" %}
-{%block title%}
-    <title>Novo Chef</title>
-{%endblock title%}
-
-{%block links%}
-    <link rel="stylesheet" href="/styles/admin/chefs/form.css">
-    <link rel="stylesheet" href="/styles/admin/header.css">
-    <script src="https://kit.fontawesome.com/bcd7f656b1.js" crossorigin="anonymous"></script>
-{%endblock links%}
+{% extends 'admin/layout.njk' %}
 
 {% block content %}
-    <form class="card" method="POST" action="/admin/chefs" enctype="multipart/form-data">
-        <div class="details">
 
-            <div class="form-header">
-                <h2>Novo chef</h2>
-                <button type="submit" class="save">Salvar</button>
-            </div>
+<div class="edit-wrapper">
+  <header>
+    <h3>Criar novo usuário</h3>
+    <div class="edit-buttons">
+      <button type='submit' form='create-form' class='save-button'>Salvar chef</button>
+    </div>
+  </header>
+</div>
 
-             <div class="item">
-                <div>Nome do chef</div>
-                <div><input type="text" name="name" placeholder="Digite o nome do chef" value="{{chef.name}}"></div>
-            </div>
+<form id='create-form' method='POST' action='/admin/chefs' class="edit-wrapper" enctype="multipart/form-data">
 
-            <div class="item">
-                <div id="photos-upload">
-                    <input type="file" name="photos" id="photos-input" accept="image/*">
-                    <p>Selecione um Avatar</p>
-                </div>
-            </div>
+  {% include '../parts/chefs-fields.njk' %}
 
-        </div>
-    </form>
-{% endblock content %}
+</form>
+
+{% endblock %}

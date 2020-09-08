@@ -1,0 +1,35 @@
+{% extends './layout.njk' %}
+
+{% block content %}
+<div class="chefs-list">
+  <div class="chef-grid">
+
+    {% for chef in chefs %}
+    <div class="chef">
+      <a href="/chefs/chef/{{chef.id}}">
+        <div class="chef-img">
+          <img src="{{chef.file.path}}" alt="Fotografia do chef {{chef.name}}">
+        </div>
+
+        <div class="chef-textual">
+          <div class="chef-name">
+            <p>{{chef.name}}</p>
+          </div>
+          <div class="total-recipes">
+            <p>
+              {% if chef.total_recipes > 1 %}{{chef.total_recipes}} receitas{% endif %}
+              {% if chef.total_recipes == 0 %}nenhuma receita cadastrada{% endif %}
+              {% if chef.total_recipes == 1 %}{{chef.total_recipes}} receita{% endif %}
+            </p>
+          </div>
+
+        </div>
+      </a>
+    </div>
+
+    {% endfor %}
+
+  </div>
+</div>
+
+{% endblock content %}

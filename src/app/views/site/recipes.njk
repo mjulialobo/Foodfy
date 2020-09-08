@@ -1,0 +1,18 @@
+{% extends 'site/layout.njk' %}
+
+{% block content %}
+<section class='recipes'>
+  <h2 class='recipes-title'>
+    {% if filter %}
+    Buscando por "{{filter}}"
+    {% else %}
+    Todas as receitas
+    {% endif %}
+  </h2>
+  
+  {% import './parts/recipes-grid.njk' as recipesGrid %}
+
+  {{recipesGrid.grid('', recipes)}}
+</section>
+
+{% endblock %}  

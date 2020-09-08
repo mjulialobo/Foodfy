@@ -1,0 +1,32 @@
+<head>
+  {% include '../parts/styles.njk' %}
+</head>
+
+<body>
+  <header class="login-header">
+    <div>
+      <div class="header-logo">
+        <a href="/home"><img src="/assets/logo.png" alt="Foodfy logo"></a>
+      </div>
+    </div>
+  </header>
+
+  {% include '../parts/messages.njk' %}
+
+  <div class="login-edit-wrapper">
+    <header>
+      <h3>Iniciar Sessão</h3>
+    </header>
+  </div>
+
+  <form id='create-form' method='POST' action='/admin/users/login' class="login-edit-wrapper">
+
+    {% include './fields.njk' %}
+
+    <div class="login-edit-buttons">
+      <a href="/admin/users/forgot-password" class="button">Esqueceu sua senha?</a>
+      <button type='submit' form='create-form' class="button">Acessar</button>
+    </div>
+
+  </form>
+</body>

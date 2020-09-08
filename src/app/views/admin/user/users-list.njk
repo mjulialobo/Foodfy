@@ -1,0 +1,40 @@
+{% extends '../layout.njk' %}
+
+{% block content %}
+  <div class="users-list">
+    <header>
+      <h3>
+        Usuários
+      </h3>
+
+      {%if session.isAdmin %}
+        <div class="edit-buttons">
+          <a href="/admin/users/create" class="button">Novo</a>
+        </div>{%endif%}
+      </header>
+
+      <div class="users-grid">
+
+        {% for user in users %}
+
+          <div class="user">
+            <div class="user-info">
+              <p>{{user.name}}</p>
+              <p>{{user.email}}</p>
+            </div>
+            <div class="user-actions">
+              <a href="/admin/users/{{user.id}}">Editar</a>
+              <button onclick="ButtonPreventDefault.apply(click, 'delete')" type='submit' form='delete-form' class="delete-button">Remover</button>
+
+              <form id='delete-form' method='POST' action='/admin/users?_method=DELETE'>
+                <input type="hidden" name="id" value="{{user.id}}">
+              </form>
+            </div>
+          </div>
+
+        {% endfor %}
+
+      </div>
+    </div>
+
+  {% endblock content %}

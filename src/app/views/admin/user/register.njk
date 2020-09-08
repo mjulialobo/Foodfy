@@ -1,0 +1,28 @@
+{% extends '../layout.njk' %}
+
+{% block content %}
+
+<div class="edit-wrapper">
+  <header>
+    <h3>Criar novo usuário</h3>
+    <div class="edit-buttons">
+      <button type='submit' form='create-form' class="button">Salvar</button>
+      <a href="/admin/users" class="button">Cancelar</a>
+    </div>
+  </header>
+</div>
+
+<form id='create-form' method='POST' action='/admin/users' class="edit-wrapper">
+<div class="user-register">
+  {% include './fields.njk' %}
+
+  <div class="item checkbox">
+    <div>
+      <input type="checkbox" name="is_admin" value="1">Administrador
+    </div>
+  </div>
+  </div>
+
+</form>
+
+{% endblock %}

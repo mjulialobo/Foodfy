@@ -1,0 +1,65 @@
+button {
+  cursor: pointer;
+}
+
+.users-list {
+  width: 940px;
+  margin: 0 auto;
+}
+
+.users-list header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.users-list header a {
+  font-weight: bold;
+  color: white;
+  font-size: 16px;
+  padding: 9px 20px;
+  border-radius: 4px;
+  margin-left: 10px;
+}
+
+.users-list h3 {
+  font-weight: bold;
+  font-size: 24px;
+  color: #111;
+}
+
+.users-grid {
+  margin-top: 64px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 50px;
+}
+
+.user .user-info p:nth-child(1) {
+  font-size: 18px;
+  color:#111;
+}
+
+.user .user-info p:nth-child(2) {
+  font-size: 14px;
+  color:#777;
+  margin-top: 4px;
+}
+
+.user .user-actions {
+  margin-top: 16px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.user .user-actions a:nth-child(1) {
+  color: var(--primary-color);
+}
+
+.user .user-actions button:nth-child(2) {
+  color: #F55A5A;
+  margin-left: 16px;
+  background: none;
+}
+
+

@@ -1,0 +1,94 @@
+header.login-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 35px;
+  margin-bottom: 150px;
+}
+
+.login-edit-wrapper {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.login-edit-wrapper header {
+  text-align: center;
+  font-weight: bold;
+  font-size: 24px;
+  color: #111;
+}
+
+form .login-fields {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 35px;
+}
+
+form .login-fields input {
+  padding: 15px;
+}
+
+form .login-edit-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 35px;
+  font-weight: bold;
+}
+
+form .login-edit-buttons a {
+  font-weight: bold;
+  font-size: 16px;
+  color: #969696;
+}
+form .login-edit-buttons a:hover {
+  color: #5c5c5c;
+}
+
+form .login-edit-buttons button {
+  background: #52abf4;
+  border-radius: 4px;
+  border-radius: 4px;
+  color: white;
+  padding: 8px 16px;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+form .login-edit-buttons button:hover {
+  background-color: #1088d8;
+}
+
+.success-container {
+  margin: 0 auto;
+  min-width: 750px;
+  text-align: center;
+
+  border: 2px solid #ddd;
+  padding: 32px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+}
+
+.success-container h2 {
+  color: #111;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 34px;
+}
+
+.success-container p {
+  font-size: 18px;
+}
+
+.success-container .login-redirect {
+  font-size: 18px;
+  margin-top: 32px;
+  color: var(--primary-color);
+}
+
+.success-container div.success-lottie {
+  height: 200px;
+  margin-bottom: 32px;
+}

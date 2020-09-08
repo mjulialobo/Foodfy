@@ -1,51 +1,34 @@
-{% extends "../layout.njk" %}
-{%block title%}
-     <title>Gerenciar Chefs</title>
-{%endblock title%}
-
-{%block links%}
-     <link rel="stylesheet" href="/styles/admin/chefs/chefs.css">
-     <link rel="stylesheet" href="/styles/admin/header.css">
-     <script src="https://kit.fontawesome.com/bcd7f656b1.js" crossorigin="anonymous"></script>
-{%endblock links%}
+{% extends '../layout.njk' %}
 
 {% block content %}
-     <section>
-          <div class="chefs-header-buttons">
-               <a href="/admin/chefs/create">Novo Chef</a>
-               <form action="/admin/chefs" method="GET">
-                    <input type="text" name="filter" placeholder="Nome do Chef" value="{{filter}}">
-                    <button type="submit"></button>
-               </form>
+  <div class="chefs-list">
+    <header>
+      <h3>
+        Gerenciar chefs
+      </h3>
+    </header>
+
+    <div class="chef-grid">
+
+      {% for chef in chefs %}
+        <div class="chef">
+          <div class="chef-img">
+            <img src="{{chef.file}}" alt="Foto de {{chef.name}}">
           </div>
 
-          <div class="title">
-               <h3>Gerenciar Chefs</h3>
+          <div class="chef-textual">
+            <div class="chef-name">
+              <p>{{chef.name}}</p>
+            </div>
+            <div class="chef-detail">
+              <a href="/admin/chefs/{{chef.id}}">Visualizar</a>
+            </div>
           </div>
+        </div>
 
-          <div class="chefs">
-               {%for chef in chefs%}
-                    <div class="card" id="{{chef.id}}">
-                         <div class="avatar">
-                              <img src="{{ chef.image}}">
-                         </div>
-                         <div class="content">
-                              <div class="name">
-                                   <h4>{{chef.name}}</h4>
-                              </div>
+      {% endfor %}
 
-                              <div class="show-more">
-                                   <a href="/admin/chefs/{{chef.id}}">Visualizar</a>
-                              </div>
-                         </div>
+    </div>
+  </div>
 
-                    </div>
-               {% endfor %}
-          </div>
-
-     </section>
-
-     <div class="pagination" data-page="{{pagination.page}}" data-total="{{pagination.total}}" data-filter="{{filter}}"></div>
-
-     <script src="/scripts/admin-features.js"></script>
 {% endblock content %}
