@@ -13,7 +13,7 @@
     "method-override": "^3.0.0",
     "multer": "^1.4.2",
     "node.js": "^0.0.1-security",
-    "nodemailer": "^6.4.11",
+    "nodemailer": "^6.4.16",
     "nunjucks": "^3.2.1",
     "pg": "^8.2.1"
   },
